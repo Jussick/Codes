@@ -1,0 +1,18 @@
+#!/usr/bin/expect
+
+# 写文件测试
+#set user [lindex $argv 0]
+#set pass [lindex $argv 1]
+#set file [open /tmp/txt.t w+]
+#puts $file "user:$user"
+#puts $file "password:$pass"
+#close $file
+
+# catch wait测试 (获取子进程返回值)
+spawn ./test.exe
+expect "please input something"
+send "EdwardLucas\r"
+expect eof
+catch wait v
+puts [lindex $v 3]
+

@@ -8,10 +8,13 @@ int main(int argc, char *argv[])
 	extern char *optarg;
 	char *user = NULL;
 	char *pwd = NULL;
+	char *authKeylen = NULL;
+	char *str = NULL;
 
 	int opt;
 
-	while ((opt = getopt(argc, argv, "u:p:")) != -1)
+	puts("start");
+	while ((opt = getopt(argc, argv, "u:p:L:s:")) != -1)
 	{
 		switch (opt){
 			case 'u':
@@ -20,15 +23,19 @@ int main(int argc, char *argv[])
 			case 'p':
 				pwd = strdup(optarg);
 				break;
+			case 'L':
+				authKeylen = strdup(optarg);
+				break;
+			case 's':
+				str = strdup(optarg);
+				break;
 			default:
 				printf("usage: -u[user] -p[password]\n");
 
 		}
 	}
-	printf("user:%s\t", user);
-	printf("pwd:%s\n", pwd);
+	puts("end");
+	printf("str=%s\n", str);
 
-	free(user);
-	free(pwd);
 	return 0;
 }

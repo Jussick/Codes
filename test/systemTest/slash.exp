@@ -1,0 +1,17 @@
+#!/usr/bin/expect
+spawn ssh root@10.10.1.35
+expect {
+	"*yes/no*" { send -- "yes\r; exp_continue" }
+	"*password*" { send -- "62960909\r" }
+}
+expect {
+	"*#*" { }
+	"*\$*" { }
+}
+send -- "sed -i -e '/ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOu96VDk9BzCX\\/c+XFYuAlZ9Ms1eOya624BOy9BMFkzZfyCe6EuqM\\/c1hMgFtBgIDGYrZ7QyxQjwRWd7U3oNd\\/9fjDL4wJDzDyCTlbC0AABF2mA917cOIVgzy4fvYGnhthj0+CxNZK\\/cpARuJBguZrUs1\\/RwC2YX\\/YXdHKcxqr0dfQX0E5JDuQXKMOdRbBlGYeZ1wtC2+f1Bpl2Nc8k1TMXIfhb9cdTHie0OJjZUS+wsZ8HxTmG4sCnY8uFWS\\/2bhLXpa9AEjlo0PcioKGxyi9Pzj1ZXD7izyUaa\\/70QVogbcLS8BeN1zq2CmseH9mRuMQWhmEZToTbFem9e5lIiCT root@localhost.localdomain/d' /home/keyuser2/.ssh/authorized_keys\r"
+expect {
+	"*#*" { }
+	"*\$*" { }
+}
+send "exit\r"
+expect eof

@@ -17,6 +17,18 @@ bool ListIsEmpty(const List *plist)
 		return false;
 }
 
+bool ListIsFull()
+{
+	bool full;
+	Node * node = (Node *)malloc(sizeof(Node));
+	if (node == NULL)
+		full = true;
+	else
+		full = false;
+	free(node);
+	return full;
+}
+
 unsigned int ListItemCount(List *plist)
 {	
 	unsigned int count = 0;

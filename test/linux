@@ -1,0 +1,196 @@
+#!/usr/bin/expect
+proc do_sudo { } {
+	source ../error
+	if { $sudo == 0 } {
+		return
+	}
+	set timeout 5
+	set prompt ""
+	set prompt "#*SSOConFigure:En*"
+	if { $prompt == "" } {
+		return;
+	}
+	send -- "#*SSOConFigure:En*\n"
+	expect {
+		timeout { return }
+		#"*SSOConFigure:EnPassword.cnf*" { send -- "$passlogin\n" }
+		#注意回显
+	}
+	expect {
+		timeout { return }
+		#"*SSOConFigure:EnPassword.cnf*" { exit $err_role }
+		-re "." { exp_continue -continue_timer}
+	}
+	return
+}
+proc do_reset_pass { } {
+	source ../error
+	if { $suchange == 1 } {
+		do_switch_user
+	}
+	do_sudo
+	set timeout 20
+		send -- "LANG=C;export LANG;LC_ALL=C;export LC_ALL;passwd $userplus\n"
+		expect {
+			"*Old Password*" { exit $err_auth }
+			"*specify*" { exit $err_auth }
+			"*existing*" { exit $err_usernoexist }
+			"*Unknown user name*" { exit $err_usernoexist }
+			eof { exit $err_eof }
+			timeout { exit $err_timeout_new }
+	    	#"*SSOConFigure:NewPass.cnf*" { send -- "$passplus\n" }
+			}
+		expect {
+			eof { exit $err_eof }
+			timeout { exit $err_timeout_renew  }
+	    	#"*SSOConFigure:ReNewPass.cnf*" { send -- "$passplus\n" }
+		}
+		expect {
+			eof { exit $err_eof }
+			timeout { exit $err_timeout_renewsucc }
+	    	#"*SSOConFigure:ChangeSuccess.cnf*" { }
+        #"*SSOConFigure:ReNewPass.cnf*" { send -- "$passplus\n"; exp_continue -continue_timer }
+		}	
+		set timeout 2
+		send -- "pwdadm -c $userplus\n"
+		expect {
+			eof { exit $err_eof }
+			timeout { exit 0}
+		}
+		exit 0
+}
+
+
+proc do_list_user { } {
+	do_sudo
+	source ../error
+	set timeout 10
+		send -- "LANG=C;export LANG;LC_ALL=C;export LC_ALL;echo;#*SSOConFigure:Listuser*&&exit\n"
+		expect {
+	    	eof { exit 0 }
+	    	timeout { exit 0 }
+			}
+}
+proc do_switch_user { } {
+	source ../error
+	if { $suchange != 1 } {
+		return
+	}
+	set timeout 8
+	send -- "su - $switchuser;echo cmdresult$?\n"
+#输入命令后，有三种情况
+#1，不需要输入密码，切换成功，超时不退出
+#2，输入密码提示符匹配成功，输入密码
+#3，输入密码提示符匹配失败，超时退出
+	expect {
+		eof { exit $err_eof }
+		timeout { }
+		"echo cmdresult" { exp_continue -continue_timer }
+		#"*SSOConFigure:EnPassword.cnf*" { }
+		"*cmdresult0*" { }
+		"*cmdresult*" { exit $err_role }
+		-re "." { exp_continue -continue_timer}
+	}
+	set timeout 3
+	send -- "$switchpass\n"
+	expect timeout
+#输入3次回车，如果切换失败，则出现cmdresult1，退出
+	send -- "\n"
+	expect timeout
+	send -- "\n"
+	expect {
+		eof { exit $err_eof }
+		timeout { }
+		"*cmdresult0*" { }
+		"*cmdresult*" { exit $err_role }
+		#"*SSOConFigure:EnPassword.cnf*" { exit $err_role }
+		-re "." { exp_continue -continue_timer}
+	}
+	return
+}
+proc do_change_pass { } {
+	source ../error
+	set timeout 3
+	set FCAR 0
+	expect {
+	    eof { exit $err_eof }
+	    timeout { }
+        #"*SSOConFigure:NewPass.cnf*" { send -- "$passplus\n";set FCAR 1 }
+        #"*SSOConFigure:OldPass.cnf*" { send -- "$passlogin\n";set FCAR 1;exp_continue -continue_timer }
+        "*are required to change your password*" { set FCAR 1;exp_continue -continue_timer }
+	    #"*SSOConFigure:SSHSuccess.cnf*" { }
+	}
+	set timeout 20
+	#切换用户，然后修改密码
+	if { $suchange == 1 } {
+		do_switch_user
+		set userlogin $switchuser
+		set passlogin $switchpass
+	}
+	set RootPriv 0
+	if { $FCAR == 0 } {
+		if { $RootPriv == 1 } {
+			send -- "LANG=C;export LANG;LC_ALL=C;export LC_ALL;passwd $userlogin\n"
+		}
+		if { $RootPriv == 0 } {
+			send -- "LANG=C;export LANG;LC_ALL=C;export LC_ALL;passwd\n"
+		}
+		expect {
+			eof { exit $err_eof }
+			timeout { exit $err_timeout_newold }
+            #"*SSOConFigure:NewPass.cnf*" { send -- "$passplus\n" }
+            #"*SSOConFigure:OldPass.cnf*" { send -- "$passlogin\n";exp_continue -continue_timer }
+		}	
+	}
+	expect {
+	    eof { exit $err_eof }
+	    timeout { exit $err_timeout_renew }
+            #"*SSOConFigure:ReNewPass.cnf*" { send -- "$passplus\n"}
+}
+expect {
+	    eof { exit $err_eof }
+	    timeout { exit $err_timeout_renewsucc }
+	    #"*SSOConFigure:ChangeSuccess.cnf*" {}
+        #"*SSOConFigure:ReNewPass.cnf*" { send -- "$passplus\n"; exp_continue -continue_timer }
+	}
+	set timeout 2
+	send -- "pwdadm -c $userlogin\n"
+	expect {
+	    eof { exit $err_eof }
+	    timeout { exit 0 }
+	}
+	
+}
+
+proc do_add { } {
+	do_sudo
+	source ../error
+	set timeout 20
+	send -- "#*SSOConFigure:Useradd* \necho cmdresult\$?\n"
+	expect {
+		timeout { exit $err_timeout }
+		"echo cmdresult" { exp_continue -continue_timer }
+		"*cmdresult0*" { }
+		"*cmdresult*" { exit $err_adduser }
+	}
+	do_reset_pass
+	exit 0;
+}
+
+proc do_delete { } {
+	do_sudo
+	source ../error
+	set timeout 20
+	send -- "#*SSOConFigure:Userdel*\necho cmdresult\$?\n"
+	expect {
+		timeout { exit $err_timeout }
+		"echo cmdresult" { exp_continue -continue_timer }
+		"*cmdresult0*" { exit 0 }
+		"*cmdresult*" { exit $err_deluser }
+	}
+	exit 0;
+}
+
+
+source ../operate
+exit 1

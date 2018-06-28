@@ -42,7 +42,7 @@ int main()
 	int i;
 	char *str[10] = {NULL};
 
-	vaList_two(str, "one", "two", "three", "four", VA_END);
+	vaList_two(str, "one", "two", "three", "four", "dsadsa", VA_END);
 	for (i = 0; str[i] != NULL; i++)
 		printf("str[%d] = %s\n", i, str[i]);
 	for (i = 0; str[i] != NULL; i++)

@@ -1,0 +1,59 @@
+#!/usr/bin/expect
+
+set username [lindex $argv 0]
+set IP [lindex $argv 1]
+spawn ssh -i $username.pk $username@$IP
+
+# 更新生成密钥对
+expect {
+	"*(yes/no)?*" {
+			send "yes\r"
+			expect "*$*"
+			send "ssh-keygen\r"
+			expect "ssh/id_rsa):"
+			send "\r"
+			expect "passphrase):"
+			send "\r"
+			expect "passphrase again:"
+			send "\r"
+			expect "The key fingerprint is:"
+			send "echo key generate done.\r"
+		}
+	"$" {
+			send "ssh-keygen\r"
+			expect "ssh/id_rsa):"
+			send "\r"
+			expect "passphrase):"
+			send "\r"
+			expect "passphrase again:"
+			send "\r"
+			expect "The key fingerprint is:"
+			send "echo key generate done.\r"
+
+	}
+}
+
+# 授权给authorized_keys
+expect "done"
+send "cd ~/.ssh/\r"
+expect "*$*"
+send "cat id_rsa.pub >> authorized_keys\r"
+expect "*$*"
+send "echo authorized done.\r"
+
+# 拷贝私钥到本地
+expect "done"
+send "scp id_rsa root@172.16.1.134:~/expected-study/edward1.pk\r"
+expect {
+	"*(yes/no)?*" {
+		send "yes\r"
+		expect "password"
+		send "123\r"
+	}
+	"password" { send "123\r" }
+}
+
+expect "*$*"
+send "exit\r"
+
+expect eof

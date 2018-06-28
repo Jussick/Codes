@@ -1,7 +1,8 @@
 #include<stdio.h>                                                                                                                    
 #include<stdlib.h>                                                                                                                  
 #include<string.h>
-#include"list.h"
+#include "list.h"
+#include "list.h" // 由于在list.h中使用了条件编译，所以重复包含此头文件不会报错
 
 
 char *s_gets(char *st, int n)
@@ -46,6 +47,12 @@ int main()
 		while(getchar() != '\n')
 			continue;
 
+		// 添加项前先判断内存是否已满
+		if (ListIsFull())
+		{
+			fprintf(stderr, "Malloc memory failed!\n");
+			break;
+		}
 		// 添加项到链表结尾(用方法)
 		if (AddItem(item, &movie) != true)
 		{
@@ -95,5 +102,3 @@ int main()
 	return 0;
 
 }
-
-

@@ -1,0 +1,11 @@
+#!/usr/bin/expect
+
+spawn ssh -i edward1.pk edward@10.10.3.113
+
+expect "*$*"
+send "rm ~/.ssh/id*\r"
+expect "*$*"
+send "exit\r"
+expect eof
+exec sh -c { rm -f ~/expected-study/edward1.pk }
+exec sh -c { echo "clean done." >> result.txt } 

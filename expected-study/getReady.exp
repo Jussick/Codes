@@ -1,0 +1,45 @@
+#!/usr/bin/expect
+
+spawn scp /root/gitlearn/trunk/application/AccManager/AccManager root@172.16.1.134:/home/spv/bin/
+
+expect {
+	"(yes/no)" { send "yes\r"; exp_continue }	
+	"password" { send "62960909\r" }
+}
+expect eof
+
+spawn scp /root/gitlearn/trunk/modules/business/libunionbusiness_s.so root@172.16.1.134:/usr/lib64
+expect "password"
+send "62960909\r"
+expect eof
+
+spawn scp /root/gitlearn/trunk/modules/policy/libunionpolicy_s.so root@172.16.1.134:/usr/lib64
+expect "password"
+send "62960909\r"
+expect eof
+
+spawn scp /var/www/controllers/accountaddcontroller.php root@172.16.1.134:/var/www/controllers/
+expect "password"
+send "62960909\r"
+expect eof
+
+spawn scp /var/www/controllers/policycontroller.php root@172.16.1.134:/var/www/controllers/
+expect "password"
+send "62960909\r"
+expect eof
+
+spawn scp /var/www/views/flow/resource-choose-4.html root@172.16.1.134:/var/www/views/flow/
+expect "password"                                                    
+send "62960909\r"                                                    
+expect eof
+
+spawn scp /var/www/views/policy/passwordPolicy_add.html root@172.16.1.134:/var/www/views/policy/
+expect "password"                                                    
+send "62960909\r"
+expect eof
+
+spawn scp /var/www/views/policy/passwordPolicy_edit.html root@172.16.1.134:/var/www/views/policy/
+expect "password"                                                    
+send "62960909\r"
+expect eof
+

@@ -2,6 +2,24 @@
 #include<stdlib.h>
 #include<string.h>
 
+char *s_gets(char *st, int n)
+{
+	char *ret_val;
+	char *find;
+
+	ret_val = fgets(st, n, stdin);
+	if (ret_val)
+	{
+		find = strchr(st, '\n');
+		if (find)
+			*find = '\0';
+		else
+			while (getchar() != '\n')
+				continue;
+	}
+	return ret_val;
+}
+
 int main1()
 {
 	const char *str = "KingsLanding";
@@ -30,15 +48,11 @@ int main2()
 
 int main()
 {
-	char *str = "KingsLanding";
-	char *p1 = str;
-	printf("str addr:%p\n", str);
-	printf("*p1->addr:%p\n", p1);
-	const char *p11 = str;
-	printf("*p11->addr:%p\n", p11);
+	char *(*str[10]) = {NULL};
+	str = (char **)malloc(2*3*sizeof(char *));
+		
 
-	char *p2 = strdup(str);
-	printf("*p2->addr:%p\n", p2);
+	free(str);
 
 	return 0;
 }

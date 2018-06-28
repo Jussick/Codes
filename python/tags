@@ -1,0 +1,32 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+A	test.py	/^A = [11,22,33]$/;"	v
+B	test.py	/^B = {"name":"Lucas","age":18}$/;"	v
+N	05-递归.py	/^N = int(input("请输入要求的阶乘："))$/;"	v
+bindAddr	chatting/udp_receive.py	/^bindAddr = ('',7788)$/;"	v
+bindAddr	chatting/udp_send.py	/^bindAddr = ('',7788)$/;"	v
+destIP	chatting/talk++.py	/^destIP = ""$/;"	v
+destIP	chatting/udp_send.py	/^destIP = raw_input("输入要发送到的IP：")$/;"	v
+destPort	chatting/talk++.py	/^destPort = 0$/;"	v
+destPort	chatting/udp_send.py	/^destPort = int(input("请输入要发送到的端口："))$/;"	v
+factorial	05-递归.py	/^def factorial(n):$/;"	f
+main	01-打印三角形.py	/^def main():$/;"	f
+main	02-石头剪刀布.py	/^def main():$/;"	f
+main	03-字符串操作.py	/^def main():$/;"	f
+main	04-名片管理系统.py	/^def main():$/;"	f
+main	chatting/chatroom.py	/^def main():$/;"	f
+main	chatting/talk++.py	/^def main():$/;"	f
+recvData	chatting/talk++.py	/^def recvData():$/;"	f
+recvData	chatting/udp_receive.py	/^recvData = udpSocket.recvfrom(1024)$/;"	v
+result	05-递归.py	/^result = factorial(N)$/;"	v
+search	04-名片管理系统.py	/^def search(card, name):$/;"	f
+sendData	chatting/talk++.py	/^def sendData():$/;"	f
+sendData	chatting/udp_send.py	/^sendData = raw_input("输入要发送的内容：")$/;"	v
+test	test.py	/^def test(a,b,*args,**kwargs):$/;"	f
+udpSocket	chatting/talk++.py	/^udpSocket = None$/;"	v
+udpSocket	chatting/udp_receive.py	/^udpSocket = socket(AF_INET,SOCK_DGRAM)$/;"	v
+udpSocket	chatting/udp_send.py	/^udpSocket = socket(AF_INET,SOCK_DGRAM)$/;"	v

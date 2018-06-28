@@ -1,0 +1,22 @@
+#!/usr/bin/expect
+
+set type [lindex $argv 0]
+set accType [lindex $argv 1]
+
+proc test1 { } {
+	puts "test1"
+	exit 0
+}
+proc test2 { } {
+	puts "test2"
+	exit 0
+}
+
+if { "$type" == "test" } {
+	if { "$accType" == "1" } { test1 }
+	if { "$accType" == "2" } { test2 }
+}
+
+
+
+

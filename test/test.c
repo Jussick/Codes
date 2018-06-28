@@ -1,6 +1,13 @@
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+
+#define CMDTOKEN "#*SSOConFigure:"
 
 typedef struct HappyForYCMsuccess
 {
@@ -17,7 +24,7 @@ typedef struct account{
 
 
 
-int main()
+int main3()
 {
 	char str[50] = "dsadsa";
     char str2[50];
@@ -59,5 +66,49 @@ int main1()
 	return 0;
 }
 
+char result[32];
+int main4()
+{
+	char line[100];
+	strcpy(line, "#*SSOConFigure:En*");
+	int i = 0;
+	char *token = NULL;
+	for (; line[i] != '\0'; ++i)
+	{
+		if (!strncmp(line+i, CMDTOKEN, strlen(CMDTOKEN)))
+		{
+			i += strlen(CMDTOKEN);
+			token = strdup(line+i);	
+			*strchr(token, '*') = 0;
+		}
+	}
+	printf("token = %s\n", token);
 
+	return 0;
+}
 
+int main()
+{
+	pid_t pid;
+	int status;
+	if ((pid = fork()) < 0)
+		printf("fork error\n");
+	else if (pid == 0)
+	{
+		sleep(2);
+		printf("this is child, pid=%d\n", getpid());
+		exit(22);
+	}
+	else
+	{
+		printf("this is parent, waitpid=%d\n", pid);
+		if (waitpid(pid, &status, WNOHANG) == 0)
+		{
+			printf("no hang haha\n");	
+			wait(&status);
+		}
+
+		printf("subproc exitStatus:%d\n", WEXITSTATUS(status));
+	}
+	return 0;
+}

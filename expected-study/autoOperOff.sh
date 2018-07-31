@@ -1,9 +1,9 @@
 #!/bin/bash
 # 输入用户名、IP和密码，即可把特定机器上的操作口令和审批全部关闭
-# 第一个参数user，第二个IP，第三个pwd
-if [ $# -ne 3 ]; then
-	echo "3 arguments are needed:"
-	echo "1-user	2-IP	3-password"
+# 第一个参数user，第二个IP，第三个pwd, 第四个DBNAME
+if [ $# -ne 4 ]; then
+	echo "4 arguments are needed:"
+	echo "1-user	2-IP	3-password 	  4-DBNAME"
 	exit
 else
 	expect <<- EOF
@@ -19,9 +19,9 @@ else
 	expect "*]*"
 	send "mysql -uroot -pp@s\#0fSPV\r"
 	expect ">"
-	send "update pvault.approval set status=0;\r"
+	send "update $4.approval set status=0;\r"
 	expect ">"
-	send "update pvault.worknoteoperate set needOperatePwd=0;\r"
+	send "update $4.worknoteoperate set needOperatePwd=0;\r"
 	expect ">"
 	send "exit;\r"
 	expect "*]*"

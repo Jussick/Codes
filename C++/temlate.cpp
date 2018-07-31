@@ -2,7 +2,8 @@
 #include <string>
 using namespace std;
 
-template <class T> T Max (T a, T b)
+template <class T>  // class和typename定义是一样的，只是c+98和c+11的区别; 一般类型名要定义较长时，用后者。
+T Max (T a, T b)
 {
 	return a > b?a:b;
 }

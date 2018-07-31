@@ -2,7 +2,7 @@ import xlrd
 
 def testExcel():
     excel = xlrd.open_workbook(r'./addone.xlsx')
-    print 
+    print excel
 
 
 if __name__ == '__main__':

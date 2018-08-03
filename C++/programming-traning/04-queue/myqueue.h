@@ -19,7 +19,7 @@ class Queue {
 
 	public:
 		Queue(int qs = MAX_QSIZE):front(NULL), rare(NULL), itemNum(0), queueSize(qs) { }
-		~Queue() { cout << "destruct..." << endl; }
+		~Queue();
 		void showInfo();
 		int getqueueSize();
 		int queuecount();

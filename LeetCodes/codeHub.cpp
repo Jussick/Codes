@@ -258,6 +258,8 @@ int StringFind(const char *pSrc, const char *pDst)
 	return -1;
 }
 
+
+
 int main()
 {
 	char *str = "dsada443dsada";

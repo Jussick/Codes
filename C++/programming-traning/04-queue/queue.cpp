@@ -10,6 +10,18 @@
 #include "myqueue.h"
 
 template <class T>
+Queue<T>::~Queue() 
+{ 
+	cout << "destruct..." << endl; 
+	Node *temp;
+	while (front != NULL)
+	{
+		temp = front;
+		front = front->next;
+		delete temp;
+	}
+}
+template <class T>
 void Queue<T>::showInfo()
 {
 	Node *temp = front;
@@ -71,7 +83,10 @@ bool Queue<T>::dequeue()
 		return false;
 	}
 	cout << "dequeue:" << front->item << endl;
+	Node *deleteNode = front;  // free memory
 	front = front->next;
+	delete deleteNode;
+	itemNum--;
 
 }
 template <class T>

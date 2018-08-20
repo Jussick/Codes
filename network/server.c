@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<unistd.h>
 #include<string.h>
 #include<errno.h>
 #include<sys/types.h>
@@ -36,20 +37,21 @@ int main(int argc, char** argv)
     }
 
     printf("======waiting for client's request======\n");
+	if( (connfd = accept(listenfd, (struct sockaddr*)NULL, NULL)) == -1){
+		printf("accept socket error: %s(errno: %d)",strerror(errno),errno);
+		//continue;
+	}
     while(1){
-		if( (connfd = accept(listenfd, (struct sockaddr*)NULL, NULL)) == -1){
-			printf("accept socket error: %s(errno: %d)",strerror(errno),errno);
-			continue;
-		}
 		n = recv(connfd, buff, MAXLINE, 0);
-		//buff[n] = '\0';
-		printf("recv msg from client: %s\n", buff);
-		printf("---send it back to client---\n");
+		// 若收到bye，则结束
+		if (!strncmp(buff, "bye", strlen(buff) - 1)) break;
+		printf("recv msg from client: %s\n", buff);   
+		printf("---send it back to client---\n\n");
 		send(connfd, buff, MAXLINE, 0);
-		close(connfd);
 		memset(buff, 0, MAXLINE);
     }
 
+	close(connfd);
     close(listenfd);
 }
 

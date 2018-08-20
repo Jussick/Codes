@@ -87,7 +87,7 @@ int main4()
 	return 0;
 }
 
-int main()
+int main5()
 {
 	pid_t pid;
 	int status;

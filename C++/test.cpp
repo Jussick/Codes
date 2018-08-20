@@ -83,22 +83,23 @@ bool newcustomer(double x)
 	return (rand() * x / RAND_MAX < 1);	
 }
 
+
 int main()
 {
-	//vector<int> arr; 
-	//vector<double> arr1; 
-	//for (int i = 0; i < 5; i++) arr.push_back(i);
-	//for (int i = 0; i < 5; i++) arr1.push_back(i+0.5);
-	//cout << "max in arr<int> is:" << Max(arr) << endl;
-	//cout << "max in arr1<double> is:" << Max(arr) << endl;
-	int i = 0;
-	while (i < 100) {
-		cout << rand() << endl;
-		if (newcustomer(6))
-			cout << "new one come!" << endl;
-		else
-			cout << "no one!" << endl;
-		i++;
-	}
+	vector<int> arr; 
+	vector<double> arr1; 
+	for (int i = 0; i < 5; i++) arr.push_back(i);
+	for (int i = 0; i < 5; i++) arr1.push_back(i+0.5);
+	cout << "max in arr<int> is:" << Max(arr) << endl;
+	cout << "max in arr1<double> is:" << Max(arr) << endl;
+	//int i = 0;
+	//while (i < 100) {
+	//	cout << rand() << endl;
+	//	if (newcustomer(6))
+	//		cout << "new one come!" << endl;
+	//	else
+	//		cout << "no one!" << endl;
+	//	i++;
+	//}
 }
 

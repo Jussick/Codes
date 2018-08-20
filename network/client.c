@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<unistd.h>
 #include<string.h>
 #include<errno.h>
 #include<sys/types.h>
@@ -33,19 +34,21 @@ int main(int argc, char** argv)
 		exit(0);
     }
 
-    if( connect(sockfd, (struct sockaddr*)&servaddr, sizeof(servaddr)) < 0){
-    printf("connect error: %s(errno: %d)\n",strerror(errno),errno);
-    exit(0);
-    }
+	if( connect(sockfd, (struct sockaddr*)&servaddr, sizeof(servaddr)) < 0){
+	printf("connect error: %s(errno: %d)\n",strerror(errno),errno);
+	exit(0);
+	}
 
 	while(1){
-		printf("send msg to server: \n");
-		fgets(sendline, MAXLINE, stdin);
-		if( send(sockfd, sendline, strlen(sendline), 0) < 0)
+		printf("\nsend msg to server: <bye to exit> \n");
+		fgets(sendline, MAXLINE, stdin);  // 注意：用fgets得到的字符串结尾包含'\n'
+		if( send(sockfd, sendline, strlen(sendline)-1, 0) < 0)  // 发送的长度减一是为了去掉结尾的'\n'
 		{
 			printf("send msg error: %s(errno: %d)\n", strerror(errno), errno);
 			exit(0);
 		}
+		// 若输入bye，则结束
+		if (!strncmp(sendline, "bye", strlen(sendline)-1))  break;
 		char recvBuf[MAXLINE];
 		recv(sockfd, recvBuf, sizeof(recvBuf), 0);
 		printf("----Echo from server----\n");

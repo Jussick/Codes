@@ -84,7 +84,7 @@ bool newcustomer(double x)
 }
 
 
-int main()
+int main1()
 {
 	vector<int> arr; 
 	vector<double> arr1; 
@@ -103,3 +103,12 @@ int main()
 	//}
 }
 
+int main()
+{
+	string str;
+	while(getline(cin, str))
+		cout << str << endl;
+	cout << "Over\n";
+
+	return 0;
+}

@@ -113,3 +113,19 @@ int main5()
 	return 0;
 }
 
+// 测试一个C的问题
+void bar(void)
+{
+	printf("in bar\n");
+}
+void foo(int *x)
+{
+	int y = *x;
+	if (!x) return;
+	bar();
+	return;
+}
+int main()
+{
+	foo(NULL);	
+}

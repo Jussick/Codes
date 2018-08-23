@@ -21,6 +21,7 @@ int main()
 
 	old_fd = dup(STDOUT_FILENO);
 	new_fd = dup2(fd, STDOUT_FILENO); // 把标准输出重定向为fd
+	close(fd);
 	write(STDOUT_FILENO, buff, strlen(buff));
 
 	//还原重定向

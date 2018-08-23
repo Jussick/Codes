@@ -1,0 +1,55 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BubbleSort	05s-只出现一次的数字.c	/^void BubbleSort(int *arr, int arrSize)$/;"	f
+BubbleSort	06s-移除元素.c	/^void BubbleSort(int *arr, int arrSize)$/;"	f
+BubbleSort	codeHub.cpp	/^void BubbleSort(NumType *arr, int arrSize) \/* 冒泡 *\/$/;"	f
+GenerateRandomNum	codeHub.cpp	/^int GenerateRandomNum()$/;"	f
+GetLocalIP	codeHub.cpp	/^void GetLocalIP(char *IP)$/;"	f
+LINE_SIZE	codeHub.cpp	10;"	d	file:
+ListNode	08-删除链表倒数第N个元素.cpp	/^    ListNode(int x) : val(x), next(NULL) {}$/;"	f	struct:ListNode
+ListNode	08-删除链表倒数第N个元素.cpp	/^struct ListNode {$/;"	s	file:
+ReadSpeacialLine	codeHub.cpp	/^char* ReadSpeacialLine(const char* filename, int whichLine)$/;"	f
+Solution	08-删除链表倒数第N个元素.cpp	/^class Solution {$/;"	c	file:
+StringFind	codeHub.cpp	/^int StringFind(const char *pSrc, const char *pDst)$/;"	f
+backward	codeHub.cpp	/^void backward(int *arr, int pos, int len)  \/\/ 从pos位置整体后移$/;"	f
+consecutiveNumbersSum	07-连续整数求和.c	/^int consecutiveNumbersSum(int N) {$/;"	f
+consecutiveNumbersSum_overtime	07-连续整数求和.c	/^int consecutiveNumbersSum_overtime(int N) {$/;"	f
+consecutiveNumbersSum_right	07-连续整数求和.c	/^int consecutiveNumbersSum_right(int N) {$/;"	f
+insertSort	codeHub.cpp	/^int *insertSort(int *arr, int len)$/;"	f
+inttohex	codeHub.cpp	/^char *inttohex(int aa)$/;"	f
+listNodeToString	08-删除链表倒数第N个元素.cpp	/^string listNodeToString(ListNode* node) {$/;"	f
+main	01s-排序数组删除重复项.c	/^int main()$/;"	f
+main	02s-两数之和.c	/^int main()$/;"	f
+main	03s-移动零.c	/^int main()$/;"	f
+main	04-加一.c	/^int main()$/;"	f
+main	05s-只出现一次的数字.c	/^int main()$/;"	f
+main	06s-移除元素.c	/^int main()$/;"	f
+main	07-连续整数求和.c	/^int main()$/;"	f
+main	08-删除链表倒数第N个元素.cpp	/^int main() {$/;"	f
+main	codeHub.cpp	/^int main()$/;"	f
+moveZeroes	03s-移动零.c	/^void moveZeroes(int* nums, int numsSize) {$/;"	f
+next	08-删除链表倒数第N个元素.cpp	/^    ListNode *next;$/;"	m	struct:ListNode	file:
+plusOne	04-加一.c	/^int* plusOne(int* digits, int digitsSize, int* returnSize) {$/;"	f
+power	04-加一.c	/^int power(int num, int powNum) \/\/ added by luhg$/;"	f
+power	codeHub.cpp	/^int power(int num, int powNum)$/;"	f
+printArr	codeHub.cpp	/^int printArr(NumType *arr, int len)$/;"	f
+printArray	03s-移动零.c	/^void printArray(int *arr, int len)$/;"	f
+redirection	codeHub.cpp	/^void redirection() \/* 把输出重定向，再恢复重定向 *\/$/;"	f
+removeDuplicates	01s-排序数组删除重复项.c	/^int removeDuplicates(int* nums, int numsSize) {$/;"	f
+removeElement	06s-移除元素.c	/^int removeElement(int* nums, int numsSize, int val) {$/;"	f
+removeNthFromEnd	08-删除链表倒数第N个元素.cpp	/^    ListNode* removeNthFromEnd(ListNode* head, int n) {$/;"	f	class:Solution
+selectSort	codeHub.cpp	/^void selectSort(int *arr, int len) \/* 选择排序 *\/$/;"	f
+singleNumber	05s-只出现一次的数字.c	/^int singleNumber(int* nums, int numsSize) {$/;"	f
+str2array	codeHub.cpp	/^void str2array(char *str, int *arr, char *token)$/;"	f
+stringToInteger	08-删除链表倒数第N个元素.cpp	/^int stringToInteger(string input) {$/;"	f
+stringToIntegerVector	08-删除链表倒数第N个元素.cpp	/^vector<int> stringToIntegerVector(string input) {$/;"	f
+stringToListNode	08-删除链表倒数第N个元素.cpp	/^ListNode* stringToListNode(string input) {$/;"	f
+swap	codeHub.cpp	/^T swap(T *a, T *b)$/;"	f
+trimLeftTrailingSpaces	08-删除链表倒数第N个元素.cpp	/^void trimLeftTrailingSpaces(string &input) {$/;"	f
+trimRightTrailingSpaces	08-删除链表倒数第N个元素.cpp	/^void trimRightTrailingSpaces(string &input) {$/;"	f
+twoSum	02s-两数之和.c	/^int* twoSum(int* nums, int numsSize, int target) {$/;"	f
+val	08-删除链表倒数第N个元素.cpp	/^    int val;$/;"	m	struct:ListNode	file:

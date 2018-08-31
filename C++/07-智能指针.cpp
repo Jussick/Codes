@@ -28,7 +28,7 @@ int main()
 		// 智能指针无需手动delete
 		auto_ptr<Report> pt(new Report("aaa"));  // 智能指针对象初始化，要注意格式
 		auto_ptr<Report> pt2 = pt;  // 这样会使aaa对象的ownership从pt转让给pt2，故下面一句会报错, 解决办法是用shared_ptr
-		pt2->show();
+		pt->show();
 	}
 #endif
 #if 1

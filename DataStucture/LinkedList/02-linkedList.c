@@ -16,7 +16,7 @@ char *s_gets(char *st, int n)
 		find = strchr(st, '\n');
 		if (find)
 			*find = '\0';
-		else
+		else  // 没什么用
 			while (getchar() != '\n')
 				continue;
 	}

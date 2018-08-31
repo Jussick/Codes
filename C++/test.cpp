@@ -12,6 +12,9 @@
 #include<algorithm>
 #include<vector>
 #include<cstdlib>
+#include<exception>
+#include<new>
+#include<fstream>
 
 using namespace std;
 
@@ -83,6 +86,16 @@ bool newcustomer(double x)
 	return (rand() * x / RAND_MAX < 1);	
 }
 
+void coutTest()
+{
+	cout << "one";
+	cout.put(32);  // 相当于输出一个空格，因为空格的ASCII码为32
+	cout << "two" << endl;
+	const char *s1 = "abcde";
+	const char *s2 = "edward";
+	cout.write(s1, 5) << endl;
+	cout.write(s1, 11) << endl;
+}
 
 int main1()
 {
@@ -103,12 +116,14 @@ int main1()
 	//}
 }
 
+
 int main()
 {
-	string str;
-	while(getline(cin, str))
-		cout << str << endl;
-	cout << "Over\n";
+	//int i = 10;
+	//cout << hex << i << endl;
+	//cout << dec << i << endl;
+	
 
 	return 0;
+
 }

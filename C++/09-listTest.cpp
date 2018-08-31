@@ -13,11 +13,12 @@
 #include<iterator>
 using namespace std;
 
-void output(int n) { cout << n << " "; }
+template <class T>
+void output(T n) { cout << n << " "; }
 
 template <class T>
 void showlist(const list<T> &ls) {
-	for_each(ls.begin(), ls.end(), output);
+	for_each(ls.begin(), ls.end(), output<T>);
 	cout << endl << endl;
 }
 
@@ -68,6 +69,9 @@ int main()
 	three.merge(two);  // 在已经进行排序后的list，在与其他list进行merge时也会是排好序的
 	showlist(three);
 
+	for (auto pd = three.rbegin(); pd != three.rend(); pd++)
+		cout << *pd << " ";
+	cout << endl;
 
 	return 0;
 }

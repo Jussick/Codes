@@ -8,6 +8,7 @@
 #        Create: 2018-08-22 10:09:43
 #**********************************************/
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <iterator>
 #include <algorithm>
@@ -15,6 +16,7 @@
 #include <set>
 #include <map>
 #include <valarray>
+#include <cstdlib>  // for exit()
 using namespace std;
 
 void show(string  a)
@@ -132,7 +134,7 @@ int reduce(T ar[], int n)
 {
 	set<T> sss(ar, ar+n);
 	//cout << "set:";
-	//auto pd = sss.begin();
+	auto pd = sss.begin();
 	for (auto x: sss) cout << x << " ";
 	cout << endl;
 	for (int i = 0; pd != sss.end(); pd++, i++)
@@ -141,6 +143,56 @@ int reduce(T ar[], int n)
 	}
 	return sss.size();
 }
+
+/* 一个简单的输入一行数据，并输出的例子(运用cin.get()方法) */
+void input_and_output()
+{
+	int ct = 0;
+	char ch;
+	cout << "Input something: " << endl;
+	cin.get(ch);
+	while (ch != '\n')
+	{
+		cout << ch;
+		++ct;
+		cin.get(ch);
+	}
+	cout << endl << ct << " charectors in total." << endl;
+}
+
+/* 输出文件内容 */
+void showContentOfFile(const char *filename)
+{
+	ifstream fin;
+	fin.open(filename);
+	if (!fin.is_open())
+	{
+		fin.clear();
+		cout << "open file " << filename << " failed!" << endl;
+		exit(-1);
+	}
+	cout << "The content of file " << filename << ':' << endl;
+	char ch;
+	while (fin.get(ch))
+		cout << ch;
+	fin.close();
+}
+
+/* 往文件里写内容 */
+void wirteContentInto(const char *filename)
+{
+	ofstream fout;
+	fout.open(filename, ios::app | ios::out);   // 追加方式打开
+	string content;
+	cout << "Input the content that you want to write into:" << endl;
+	while (getline(cin ,content) && content.size() > 0)
+	{
+		fout << content << endl;
+		cout << "Input the content that you want to write into:" << endl;
+	}
+	fout.close();
+}
+
 
 int main()
 {
@@ -178,6 +230,13 @@ int main()
 	cout << "after reduce:";
 	showarray(arr, size);
 #endif
+	/* 7 */
+	//input_and_output();
+	
+	/* 8 */
+	const char *file = "./things/testfile";
+	//wirteContentInto(file);
+	showContentOfFile(file);
 
 	return 0;
 }

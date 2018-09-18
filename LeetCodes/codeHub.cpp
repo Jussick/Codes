@@ -8,9 +8,17 @@
 #include <string.h>
 #include <iostream>
 #include <math.h>
+#include <stack>
+#include <string>
 #define LINE_SIZE 256
 
 using namespace std;
+
+// 递归方法从1加到n
+int add1Ton_recursive(int n)  // recursive way
+{
+	return n <= 0?0:n + add1Ton_recursive(n - 1);
+}
 
 template <typename NumType> 
 int printArr(NumType *arr, int len)
@@ -333,13 +341,71 @@ void QuickSort(int data[], int length, int start, int end)  // 不好使
 		QuickSort(data, length, index + 1, end);
 }
 
+#if 0
+#define Power(times) power(10, times);
+unsigned long long decTobinary(int dec)
+{
+	int remain;		// 余数
+	int dv_result;  // 商
+	stack<int> temp_res;
+	while ((dec / 2) != 0 )	
+	{
+		remain = dec % 2;
+		temp_res.push(remain);
+		dec /= 2;
+	}
+	remain = dec % 2;
+	temp_res.push(remain);
+
+	int digitnum = temp_res.size();
+	int cur = -1;
+	long long result = 0;
+	for (int i = digitnum - 1; i >= 0; --i)
+	{
+		cur	= temp_res.top();
+		result += cur * Power(i);
+		temp_res.pop();
+	}
+	return result; 
+}
+#endif
+
+/* 十进制转二进制 (超过18446744073709551615后会出错) */
+string DecToBinary(unsigned long long int dec)
+{
+	int remain;		// 余数
+	stack<int> temp_res;
+	while ((dec / 2) != 0 )	
+	{
+		remain = dec % 2;
+		temp_res.push(remain);
+		dec /= 2;
+	}
+	remain = dec % 2;
+	temp_res.push(remain);
+
+	string result;
+	while (!temp_res.empty())
+	{
+		result += to_string(temp_res.top());	
+		temp_res.pop();
+	}
+	return result;
+
+}
+void DecToBinaryTest()
+{
+	unsigned long long int dec;
+	cout << "input one num you want to transfer into binary(0 ~ 18446744073709551615): ";
+	while (cin >> dec)
+	{
+		cout << DecToBinary(dec) << endl;;
+		cout << "input one num you want to transfer into binary(0 ~ 18446744073709551615): ";
+	}
+}
 int main()
 {
-	int data[10] = {1,5,4,3,7,6,5,9,4,7};
-	QuickSort(data, 10, 0, 9);
-	for (int i = 0; i < 10; ++i)
-		cout << data[i] << " ";
-	cout << endl;
+	DecToBinaryTest();
 	return 0;
 }
 

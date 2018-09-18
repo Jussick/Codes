@@ -1,7 +1,7 @@
 //C++ file
 /***********************************************
 #
-#      Filename: 07-两个队列实现栈.cpp
+#      Filename: 07-两个栈实现队列.cpp
 #
 #        Author: luhg - luhg@keyou.cn
 #   Description: ---

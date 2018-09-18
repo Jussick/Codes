@@ -1,0 +1,3 @@
+1、先执行writeContent来向planet.dat中写内容
+
+2、然后执行random实现对该文件的随机内容的修改

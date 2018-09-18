@@ -15,6 +15,11 @@
 #include<exception>
 #include<new>
 #include<fstream>
+#include<cstring>
+#include<cctype>
+#include<unistd.h>
+#include<iomanip>
+#include<bitset>
 
 using namespace std;
 
@@ -116,14 +121,19 @@ int main1()
 	//}
 }
 
+typedef struct {
+	char name[10];
+	int sex;
+}ttt;
 
 int main()
 {
-	//int i = 10;
-	//cout << hex << i << endl;
-	//cout << dec << i << endl;
+	int i;
+	cin >> i;
+	cout << dec << i << endl;
+	cout << hex << i << endl;
+	cout << bitset<32>(i) << endl;
 	
 
 	return 0;
-
 }

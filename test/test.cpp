@@ -6,6 +6,10 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <iostream>
+#include <iomanip>
+#include <bitset>
+using namespace std;
 
 #define CMDTOKEN "#*SSOConFigure:"
 
@@ -22,7 +26,11 @@ typedef struct account{
     int level;
 }Account;
 
-
+typedef enum {
+	one,
+	two,
+	three = 1
+}testenum;
 
 int main3()
 {
@@ -113,7 +121,7 @@ int main5()
 	return 0;
 }
 
-int main()
+int main6()
 {
 	printf("file:%s func:%s line:%d\n", __FILE__, __func__, __LINE__);
 	pid_t pid;
@@ -137,5 +145,71 @@ int main()
 	}
 	int status;
 	waitpid(pid, &status, 0);
+	return 0;
+}
+
+int sscanfTest()
+{
+	char a[256] , b[256], c[256];
+	char *str = "aaa bbb ccc";
+	sscanf(str, "%s %s %s", a, b, c);
+	printf("%s %s %s\n", a, b, c);
+
+	return 0;
+}
+
+
+enum encType { SM4 = 1, DES };
+
+void enumTest()
+{
+	printf("input the enc type you want to select:\n");	
+	int choice;
+	scanf("%d", &choice);
+	switch (choice)
+	{
+		case SM4:
+			printf("you chose SM4\n");
+			break;
+		case DES:
+			printf("you chose 3DES\n");
+			break;
+	}
+}
+
+int add1Ton_recursive(int n)  // recursive way
+{
+	return n <= 0?0:n + add1Ton_recursive(n - 1);
+}
+int add1Ton_normal(int n)  // loop way
+{
+	int i, result = 0;
+	for (i = 1; i <= n; ++i)
+	{
+		result += i;	
+	}
+	return result;
+}
+
+int numOf1(int n)
+{
+	int count = 0;	
+	while (n)
+	{
+		//cout << bitset<4>(n) << endl;
+		if (n & 1)
+			count ++;
+		n = n >> 1;
+	}
+	return count;
+}
+
+typedef int *pint;
+int main(int argc, char *argv[])
+{
+	pint a;
+	int aa = 0;
+	a = &aa;
+	cout << "aa is " << *a << endl;
 	return 0;
 }

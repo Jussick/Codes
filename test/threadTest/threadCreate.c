@@ -29,9 +29,11 @@ int main()
     } else {
         printf("线程2创建成功\n");
     }
+	sleep(1);
 
-    //同样，pthread_join的返回值成功为0
-    tmp1 = pthread_join(thread1, &retval);
+    //同样，pthread_join的返回值成功为0, join的作用就是获取子线程的返回值，并等待其结束，相当于进程中的wait
+#if 1
+	tmp1 = pthread_join(thread1, &retval);
     printf("thread1 return value(retval) is %d\n", (int)retval);
     printf("thread1 return value(tmp) is %d\n", tmp1);
     if (tmp1 != 0) {
@@ -39,19 +41,20 @@ int main()
     }
     printf("thread1 end\n");
 
-    tmp2 = pthread_join(thread1, &retval);
+    tmp2 = pthread_join(thread2, &retval);
     printf("thread2 return value(retval) is %d\n", (int)retval);
     printf("thread2 return value(tmp) is %d\n", tmp1);
     if (tmp2 != 0) {
         printf("cannot join with thread2\n");
     }
     printf("thread2 end\n");
+#endif
 
 }
 
 void *print_message_function( void *ptr ) {
     int i = 0;
-    for (; i<5; i++) {
+    for (; i < 5; i++) {
         printf("%s:%d\n", (char *)ptr, i);
     }
 }

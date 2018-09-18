@@ -1,5 +1,5 @@
 #include<stdio.h>
-extern void test(char *s);
+//extern void test(char *s);
 
 int main()
 {

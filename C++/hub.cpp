@@ -8,6 +8,7 @@
 #        Create: 2018-08-22 10:09:43
 #**********************************************/
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 #include <string>
 #include <iterator>
@@ -17,6 +18,8 @@
 #include <map>
 #include <valarray>
 #include <cstdlib>  // for exit()
+#include <cstdio>   // for tmpnam()
+#include <cstring>
 using namespace std;
 
 void show(string  a)
@@ -179,7 +182,7 @@ void showContentOfFile(const char *filename)
 }
 
 /* 往文件里写内容 */
-void wirteContentInto(const char *filename)
+void wirteContentIntoFile(const char *filename)
 {
 	ofstream fout;
 	fout.open(filename, ios::app | ios::out);   // 追加方式打开
@@ -193,6 +196,23 @@ void wirteContentInto(const char *filename)
 	fout.close();
 }
 
+/* 生成随机文件名 */
+void generateRandomFilenames()
+{
+	cout <<	"This system can generate up to " << TMP_MAX
+		 << " temporary names of up to " << L_tmpnam
+		 << " charectors." << endl;
+	cout << "Here are 10 random temp filenames: " << endl;
+	//char tmpname[L_tmpnam] = {'\0'};
+	char tmpname[L_tmpnam] = "testXXXXXX";  // 传入参数template至少留后6位X, 用于文件名的唯一性
+	for (int i = 0; i < 10; i++)
+	{
+		//tmpnam(tmpname);	
+		int fd = mkstemp(tmpname);
+		cout << i << ": " << setw(L_tmpnam) << tmpname << endl; 
+		strcpy(tmpname, "testXXXXXX"); 
+	}
+}
 
 int main()
 {
@@ -234,9 +254,12 @@ int main()
 	//input_and_output();
 	
 	/* 8 */
-	const char *file = "./things/testfile";
-	//wirteContentInto(file);
-	showContentOfFile(file);
+	//const char *file = "./things/testfile";
+	//wirteContentIntoFile(file);
+	//showContentOfFile(file);
+	
+	/* 9 */
+	generateRandomFilenames();
 
 	return 0;
 }

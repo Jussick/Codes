@@ -17,12 +17,13 @@
 using namespace std;
 
 
+#define num 7
 int main()
 {
-	int arr[5] = {1,2,3,4,5};
+	int arr[num] = {1,2,3,4,5,6,7};
 	list<int> ls1;
 	stack<int> st1;
-	ls1.insert(ls1.begin(), arr, arr + 5);
+	ls1.insert(ls1.begin(), arr, arr + num);
 	for (auto pd = ls1.begin(); pd != ls1.end(); pd++)
 		st1.push(*pd);
 	while (!st1.empty())

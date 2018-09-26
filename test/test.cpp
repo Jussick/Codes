@@ -1,6 +1,6 @@
-#include<stdio.h>
-#include<string.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
@@ -121,7 +121,7 @@ int main5()
 	return 0;
 }
 
-int main6()
+int main()
 {
 	printf("file:%s func:%s line:%d\n", __FILE__, __func__, __LINE__);
 	pid_t pid;
@@ -203,13 +203,81 @@ int numOf1(int n)
 	}
 	return count;
 }
-
-typedef int *pint;
-int main(int argc, char *argv[])
+bool increment(char *number)
 {
-	pint a;
-	int aa = 0;
-	a = &aa;
-	cout << "aa is " << *a << endl;
+	bool isOverFlow = false;
+	bool nTakeOver = 0;
+	int length = strlen(number);
+	for (int i = length - 1; i >= 0; i--)
+	{
+		int nSum = number[i] - '0' + nTakeOver;	
+		if (i == length - 1)
+			nSum ++;
+		if (nSum >= 10)
+		{
+			if (i == 0)
+				isOverFlow = true;
+			else
+			{
+				nSum -= 10;
+				nTakeOver = 1;
+				number[i] = '0' + nSum;
+			}
+		}
+		else
+		{
+			number[i] = '0' + nSum;
+			break;
+		}
+	}
+	return isOverFlow;
+}
+
+void changeAString(char *theOne)
+{
+	theOne[0] = 'a';
+	theOne[1] = 'a';
+}
+
+int main6(int argc, char *argv[])
+{
+#if 0
+	char *number = new char(5);
+	memset(number, '0', 4);
+	number[4] = '\0';
+	for (int i = 0; i < 10; ++i)
+	{
+		increment(number);
+		cout << number << endl;
+	}
+#endif
+#if 0
+	char *testString = new char(10);
+	strcpy(testString, "Edawrd");
+	cout << testString << endl;
+	changeAString(testString);
+	cout << testString << endl;
+	delete []testString;
 	return 0;
+#endif
+	int i;
+	char *msg;
+	pid_t pid = fork();
+
+	if (pid < 0)
+		printf("fork error\n");
+	else if (pid == 0)
+		msg = "child handle";
+	else
+	{
+		msg = "parent handle";
+		sleep(1);
+	}
+
+	for (i = 0; i < 5; ++i)
+	{
+		printf("%s\n", msg);
+		sleep(1);
+	}
+	exit(0);
 }

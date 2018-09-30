@@ -21,9 +21,9 @@ typedef struct HappyForYCMsuccess
 }AHa;
 
 typedef struct account{
-    int id;
-    char *name;
-    int level;
+	int id;
+	char *name;
+	int level;
 }Account;
 
 typedef enum {
@@ -35,11 +35,11 @@ typedef enum {
 int main3()
 {
 	char str[50] = "dsadsa";
-    char str2[50];
-    sprintf(str2, "%s%s%s", "\"", str, "\"");
-    printf("str2 is %s\n", str2);
-    printf("str is %s\n", str);
-    return 0;	
+	char str2[50];
+	sprintf(str2, "%s%s%s", "\"", str, "\"");
+	printf("str2 is %s\n", str2);
+	printf("str is %s\n", str);
+	return 0;	
 }
 
 
@@ -121,32 +121,6 @@ int main5()
 	return 0;
 }
 
-int main()
-{
-	printf("file:%s func:%s line:%d\n", __FILE__, __func__, __LINE__);
-	pid_t pid;
-	int fd[2];
-	char line[64] = {0};
-	
-	pipe(fd);
-	if ( (pid = fork()) > 0)
-	{
-		close(fd[0]);
-		strcpy(line, "Hello Edward!\n");
-		write(fd[1], line, strlen(line));
-	}
-	else if (pid == 0)
-	{
-		close(fd[1]);
-		char buf[64];
-		memset(buf, 0, sizeof(buf));
-		read(fd[0], buf, sizeof(buf));
-		write(STDOUT_FILENO, buf, strlen(buf));
-	}
-	int status;
-	waitpid(pid, &status, 0);
-	return 0;
-}
 
 int sscanfTest()
 {
@@ -280,4 +254,50 @@ int main6(int argc, char *argv[])
 		sleep(1);
 	}
 	exit(0);
+}
+
+void alarmTest()
+{
+	int counter;
+	alarm(1);
+
+	for (counter = 0; 1; counter++)
+		printf("%d\n", counter);
+}
+
+typedef struct haha{
+	char hsmip[64];     // 加密机端口
+	unsigned int port;  // 加密机IP
+}HSMInfo;
+
+void handle(int sig)
+{
+	char buf[1024] = {0};
+	sprintf(buf, "ohohoh, recived a signal: %d\n", sig);
+	(void)signal(SIGKILL, SIG_DFL);
+	exit(0);
+}
+
+// 得到当前时间
+void GetCurTime(char **cur_time)
+{
+	const time_t t = time(NULL);
+	const time_t *pt = &t;
+	*cur_time = strdup(ctime(pt));
+}
+
+int main()
+{
+	//alarmTest();
+	const char *pChar = "asdasd";
+	const char *pp = pChar;
+	int i = 0;
+	while(pp[i] != '\0')
+	{
+		cout << pp[i] << endl;
+		i++;
+	}
+	cout << "i = " << i << endl;
+
+	return 0;
 }

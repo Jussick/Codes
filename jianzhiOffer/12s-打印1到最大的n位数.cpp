@@ -10,6 +10,7 @@
 #include<iostream>
 #include<cstring>
 #include<stdlib.h>
+#include<cstdio>
 
 using namespace std;
 
@@ -42,21 +43,24 @@ bool increment(char *number)
 	}
 	return isOverFlow;
 }
+
 void printNum(char *number)
 {
 	int length = strlen(number);		
-	int pos;
+	int pos = 0;
 	for (int i = 0; i < length; ++i)
 	{
 		if (number[i] != '0')
 		{
 			pos = i;	
+			break;
 		}
 	}
 	char *temp = new char(length + 1);
-	snprintf(temp, length - pos, "%s", number + pos);
+	memset(temp, '\0', length + 1);
+	sprintf(temp, "%s", number + pos);
 	cout << temp << endl;
-	delete []temp;
+	delete temp;
 }
 
 void PrintToMaxOfNDigits(int n)
@@ -68,14 +72,13 @@ void PrintToMaxOfNDigits(int n)
 	number[n] = '\0';
 	while (!increment(number))
 	{
-		cout << number << endl;
-		//printNum(number);
+		printNum(number);
 	}
 	delete []number;
 }
 
 int main()
 {
-	PrintToMaxOfNDigits(2);
+	PrintToMaxOfNDigits(3);
 	return 0;	
 }

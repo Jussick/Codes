@@ -11,6 +11,7 @@
 #include <stack>
 #include <string>
 #define LINE_SIZE 256
+#define myprint(fmt, ...) printf("[%s]--%d: " fmt ,  __func__, __LINE__, ##__VA_ARGS__)
 
 using namespace std;
 
@@ -402,6 +403,13 @@ void DecToBinaryTest()
 		cout << DecToBinary(dec) << endl;;
 		cout << "input one num you want to transfer into binary(0 ~ 18446744073709551615): ";
 	}
+}
+// 得到当前时间(time.h)
+void GetCurTime(char **cur_time)
+{
+    const time_t t = time(NULL);
+    const time_t *pt = &t;
+    *cur_time = strdup(ctime(pt));
 }
 int main()
 {

@@ -289,15 +289,14 @@ void GetCurTime(char **cur_time)
 int main()
 {
 	//alarmTest();
-	const char *pChar = "asdasd";
-	const char *pp = pChar;
-	int i = 0;
-	while(pp[i] != '\0')
+	for (int i = 0; i < 5 , ++i)
 	{
-		cout << pp[i] << endl;
-		i++;
+		for (int j = 0; j < 5; ++j)
+		{
+			if (j == 2)
+				break;
+			cout << "j = " << j << endl;
+		}
 	}
-	cout << "i = " << i << endl;
-
 	return 0;
 }

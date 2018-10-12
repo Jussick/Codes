@@ -32,7 +32,7 @@ int main()
 	sleep(1);
 
     //同样，pthread_join的返回值成功为0, join的作用就是获取子线程的返回值，并等待其结束，相当于进程中的wait
-#if 1
+#if 0
 	tmp1 = pthread_join(thread1, &retval);
     printf("thread1 return value(retval) is %d\n", (int)retval);
     printf("thread1 return value(tmp) is %d\n", tmp1);

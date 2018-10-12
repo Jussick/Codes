@@ -411,9 +411,33 @@ void GetCurTime(char **cur_time)
     const time_t *pt = &t;
     *cur_time = strdup(ctime(pt));
 }
+
+/* 判断系统是大端还是小端 */
+void BigOrSmallEndianJudge()
+{
+	union
+	{
+		short i;
+		char c[sizeof(short)];
+	}uni;
+	uni.i = 0x0102;  // 写成16进制为了方便直接打印内存中的值对比
+	
+	if (sizeof(short) == 2)
+	{
+		if (uni.c[0] == 1 && uni.c[1] == 2)
+			printf("Big-Endian\n");
+		else if (uni.c[0] == 2 && uni.c[1] == 1)
+			printf("Small-Endian\n");
+		else
+			printf("uniknown.\n");
+	}
+	else
+		printf("sizeof(short) is %d\n", sizeof(short));
+}
 int main()
 {
-	DecToBinaryTest();
+	//DecToBinaryTest();
+	BigOrSmallEndianJudge();
 	return 0;
 }
 

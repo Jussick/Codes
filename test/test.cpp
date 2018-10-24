@@ -288,9 +288,7 @@ void GetCurTime(char **cur_time)
 
 int main()
 {
-	//alarmTest();
-	FILE *fp = fopen("sso.key", "r");
-	if (fp == NULL)
-		cout << "NULL" << endl;
+	char *sql = (char *)calloc(1, 1024);
+	cout << "sizeof(sql) is " << sizeof(sql) <<endl;
 	return 0;
 }

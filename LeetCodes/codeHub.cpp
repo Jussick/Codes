@@ -60,6 +60,14 @@ int power(int num, int powNum)
     }
     return result;
 }
+bool equal(double num1, double num2)  // 判断两小数是否相等要看两数绝对值只差是否小于某数
+{
+	if (num1 - num2 < 0.0000001 
+			&& num1 - num2 > -0.0000001)
+		return true;
+	else
+		return false;
+}
 int GenerateRandomNum()
 {
     int randomNum = 0;

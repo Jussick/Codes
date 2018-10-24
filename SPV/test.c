@@ -7,12 +7,18 @@
 #   Description: ---
 #        Create: 2018-09-06 14:07:33
 #**********************************************/
-#include<stdio.h>
+#include <stdio.h>
 #include <arpa/inet.h>
-#include <sys/types.h>
 #include <sys/socket.h>
 #include <netdb.h>
-#include<string.h>
+#include <string.h>
+#include <sys/ioctl.h>
+#include <net/if.h>
+#include <net/if_arp.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <unistd.h>
+#define MAXINTERFACES 16
 
 
 /***********************************************************
@@ -53,11 +59,60 @@ int UnionAPIGetHostByName(char *domain, char *ip)
 	return(0);
 }
 
+/***********************************************
+#      函数名称: GetIPbyInterface
+#
+#   Description: 通过网卡名称获取IP
+#     parameter: interface 网卡名称
+#   returnValue: 网卡对应的IP
+#        Create: 2018-10-16 16:36:23
+#**********************************************/
+char *GetIPbyInterface( char *interface )
+{
+	register int fd, intrface;
+	struct ifreq buf[MAXINTERFACES];
+	struct ifconf ifc;
+	
+
+	if ( ( fd = socket (AF_INET, SOCK_DGRAM, 0 ) ) < 0 )
+	{
+		return NULL;
+	} 
+
+	ifc.ifc_len = sizeof(buf);        
+	ifc.ifc_buf = (caddr_t)buf;
+	if ( ioctl( fd, SIOCGIFCONF, (char *)&ifc ) < 0 ) 
+	{ 
+		return NULL; 
+	}
+
+	intrface = ifc.ifc_len / sizeof(struct ifreq); 
+	while ( intrface-- > 0 )
+	{
+		if ( strcmp( buf[intrface].ifr_name, interface ) )
+			continue;
+
+		if ( ( ioctl(fd, SIOCGIFFLAGS, (char *)&buf[intrface] ) ) < 0 )
+		{
+			close( fd );
+			return NULL;
+		}
+
+		if ( !( ioctl( fd, SIOCGIFADDR, (char *)&buf[intrface] ) ) )
+		{
+			close( fd );
+			return inet_ntoa( ((struct sockaddr_in*)(&buf[intrface].ifr_addr))->sin_addr );
+		}
+		close( fd );
+		return NULL;
+	}
+	close( fd );
+	return NULL;
+}
 int main()
 {
-	char *domain = "localhost";
-	char IP[128];
-	UnionAPIGetHostByName(domain, IP);	
-	printf("ip: %s\n", IP);
+	char *ip = strdup(GetIPbyInterface("ens33"));	
+	printf("ip: %s\n", ip);
+	free(ip);
 	return 0;
 }

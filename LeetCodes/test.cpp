@@ -73,12 +73,9 @@ int strStr(char* haystack, char* needle)
 
 int main()
 {
-	char a[20] = {0}; 
-	char b[20] = {0};
-	cout << "input original and search: " << endl;
-	scanf("%s%s", a, b);
-	cout << "Your inputs:" << endl << a << " " << b << endl;
-	int result = strStr(a,b);
-	cout << result << endl;
+	int a, b;
+	a = 3, b = 4;
+	double ret = ((a * 1.0) + (b * 1.0)) / 2;
+	cout << "ret = " << ret << endl;
 	return 0;
 }

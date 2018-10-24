@@ -29,12 +29,9 @@
 
 using namespace std;
 
-
-int main()
+bool isPhraseString(string &str_ori)
 {
-	string str_ori;
 	vector<char> str_vec;
-	getline(cin, str_ori);
 	// 全变为小写，去掉标点符号和空格
 	for (size_t i = 0; i < str_ori.length(); i++)
 	{
@@ -58,7 +55,16 @@ int main()
 			break;
 		}
 	}
+	return equal;
+}
 
+int main()
+{
+	string str_ori;
+	cout << "Input a string to judge if it is a phrase string.\n";
+	getline(cin, str_ori);
+
+	bool equal = isPhraseString(str_ori);
 	if (equal)
 		cout << "yes\n";
 	else

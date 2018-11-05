@@ -20,6 +20,7 @@
 #include <cstdlib>  // for exit()
 #include <cstdio>   // for tmpnam()
 #include <cstring>
+#include <vector>
 using namespace std;
 
 void show(string  a)

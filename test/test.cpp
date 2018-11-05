@@ -288,7 +288,8 @@ void GetCurTime(char **cur_time)
 
 int main()
 {
-	char *sql = (char *)calloc(1, 1024);
-	cout << "sizeof(sql) is " << sizeof(sql) <<endl;
+	char str[20] = "哈哈ha";
+	cout << strlen(str) << endl;
+
 	return 0;
 }

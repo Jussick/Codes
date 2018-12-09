@@ -288,8 +288,9 @@ void GetCurTime(char **cur_time)
 
 int main()
 {
-	char str[20] = "哈哈ha";
-	cout << strlen(str) << endl;
+	string memo[10][10];
+	if (memo[0][0].empty())
+		cout << "yes" << endl;
 
 	return 0;
 }

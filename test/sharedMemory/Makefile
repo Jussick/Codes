@@ -1,5 +1,6 @@
 CC=gcc
-all: writeProc readProc
+BINERY=writeProc readProc
+all:$(BINERY)
 
 writeProc:writeProcess.c
 	$(CC) -o $@ $^
@@ -8,4 +9,4 @@ readProc:recieveProcess.c
 	$(CC) -o $@ $^
 
 clean:
-	rm -f readProc writeProc
+	rm -f $(BINERY)

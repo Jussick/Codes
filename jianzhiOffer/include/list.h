@@ -3,11 +3,13 @@
 #include <iostream>
 using namespace std;
 
+#ifndef leetcode
 typedef struct ListNode {
 	int m_value;
 	ListNode *p_next;
 	ListNode(int x): m_value(x), p_next(NULL) { }
 }Link;
+#endif
 
 //typedef struct ListNode Link;
 
@@ -15,7 +17,10 @@ typedef struct ListNode {
 void traverseList(Link *head)
 {
 	if (head == NULL)
+	{
+		cout << "List is NULL!" << endl;
 		return;
+	}
 	else
 	{
 		Link *cur_node = head;
@@ -40,6 +45,7 @@ Link *createALinklist(int arr[], int n)
 	return head;
 }
 
+
 /* 销毁以head为头的链表空间 */
 void destoryALinklist(Link *head)
 {
@@ -53,6 +59,26 @@ void destoryALinklist(Link *head)
 		delete delNode;
 	}
 	return;
+}
+
+/* 在链表结尾添加一个节点 */
+bool addOneNodeToTail(int item, Link **head)  // **是为了要改变head指向的地址
+{
+	Link *cur = *head;
+	Link *pnew = new Link(item);
+	if (pnew == NULL)  // 内存申请失败
+		return false;
+
+	if (cur == NULL)  // 链表为空时
+		*head = pnew;
+	else
+	{
+		while (cur->p_next != NULL)
+			cur = cur->p_next;
+		cur->p_next = pnew;
+	}
+	return true;
+
 }
 
 #endif

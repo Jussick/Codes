@@ -29,9 +29,16 @@ int main()
 	tree->insert(root, 60);
 	tree->insert(root, 80);
 	tree->insert(root, 80);
-	cout << "Inorder traverse tree1" << endl;
+	cout << "Inorder traverse tree" << endl;
 	tree->inorder(root);
+	cout << endl << "Breath first traversal tree" << endl;
+	tree->breath_first_traversal(root);
+	cout << endl << "postorder traverse tree" << endl;
+	tree->postorder(root);
 
+	findPathMatchValue(root, 300);
+
+#if 0
 	cout << endl << "After make it a mirror" << endl;
 	treeMirrorRecusively(root);  // 镜像树的中序遍历变倒序了，如原本二叉搜索树的中序遍历是从小到大，变为镜像后，中序遍历就变成从大到小了。
 	tree->inorder(root);
@@ -70,6 +77,7 @@ int main()
 		cout << endl << "It's a BST." << endl;
 	else
 		cout << endl << "It's not a BST." << endl;
+#endif
 
 
 	return 0;

@@ -25,7 +25,9 @@ class binaryTree {
 	public:
 		binaryTree() { }
 		void createBST(binaryTreeNode * &root, vector<int> &v);  // 创建一个BST
-		void inorder(binaryTreeNode *root);
+		void inorder(binaryTreeNode *root);  // 中序遍历
+		void postorder(binaryTreeNode *root);  // 后序遍历
+		void breath_first_traversal(binaryTreeNode *root);  // 层序遍历
 		binaryTreeNode *insert(binaryTreeNode *root, int item);
 		binaryTreeNode *searchNode(binaryTreeNode *root, int value);
 		binaryTreeNode *leftRotation(binaryTreeNode *root, binaryTreeNode *node);
@@ -41,6 +43,8 @@ bool ifIsA_BST(binaryTreeNode *root);  // 判断一颗二叉树树否为BST
 bool doesTree1HasTree2(binaryTreeNode *root1, binaryTreeNode *root2);  // 判断以root1为根节点的子树是否与root2有相同的结构
 bool hasSubTree(binaryTreeNode *root1, binaryTreeNode *root2);  // 判断以root2为根节点的二叉树是不是以root1为根节点的二叉树的子结构
 void treeMirrorRecusively(binaryTreeNode *root);  // 把root转换为其镜像树
+void findPathMatchValue(binaryTreeNode *root, int expectedSum);  // 打印和为value的路径
+void findPathMatchValue(binaryTreeNode *root, int expectedSum, vector<int> &path, int &currentSum, bool &isFound);  // 重载上面的函数以递归解决问题
 
 
 

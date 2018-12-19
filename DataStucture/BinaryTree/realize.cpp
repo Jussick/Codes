@@ -9,6 +9,7 @@
 #**********************************************/
 #include <iostream>
 #include <stdio.h>
+#include <queue>
 #include "binarytree.h"
 
 using namespace std;
@@ -61,10 +62,44 @@ void binaryTree::inorder(binaryTreeNode *root)
 	if (root != NULL)
 	{
 		inorder(root->l_child);
-		printf("%d \t", root->item);
+		printf("%d\t", root->item);
 		inorder(root->r_child);
 	}
-	else return;
+}
+
+/* 后序遍历 */
+void binaryTree::postorder(binaryTreeNode *root)
+{
+	if (root != NULL)
+	{
+		postorder(root->l_child);
+		postorder(root->r_child);
+		printf("%d\t", root->item);
+	}
+}
+
+/* 层序遍历 */
+void binaryTree::breath_first_traversal(binaryTreeNode *root)
+{
+	if (root)
+	{
+		queue<binaryTreeNode *> in_queue;
+		// 吧根节点入队
+		in_queue.push(root);
+		
+		while (!in_queue.empty())
+		{
+			cout << in_queue.front()->item << "\t";
+			if (in_queue.front()->l_child) 	
+				in_queue.push(in_queue.front()->l_child);
+
+			if (in_queue.front()->r_child)
+				in_queue.push(in_queue.front()->r_child);
+
+			in_queue.pop();
+		}
+		cout << endl;
+	}
 }
 
 /* 利用set的无重复元素的性质，判断一个元素是否在树中  */
@@ -220,4 +255,53 @@ void treeMirrorRecusively(binaryTreeNode *root)
 	if (root->r_child)
 		treeMirrorRecusively(root->r_child);
 
+}
+
+/*
+ * 一条`路径`为从根节点到叶子节点的一条道，要判断路径所有值之和是否为一个value，首先要前序遍历该二叉树，
+ * 遍历到一个节点，如果是叶节点且路径之和为value，就打印，否则退回父节点，并把该叶节点从路径中pop掉，
+ * 路径之和的值中也减去该节点的值。
+ */
+void findPathMatchValue(binaryTreeNode *root, int expectedSum)
+{
+	if (root == NULL)
+		return;
+
+	int currentSum = 0;
+	vector<int> path;  // 这里用vector而非stack的原因是，打印路径值需要访问所有元素值，但stack只能访问栈顶的。
+	bool isFound = false;  // 找到路径的标记
+
+	findPathMatchValue(root, expectedSum, path, currentSum, isFound);
+
+	if (!isFound)
+		cout << endl << "Not found a path that match the expectedSum." << endl;
+}
+
+
+void findPathMatchValue(binaryTreeNode *root, int expectedSum, vector<int> &path, int &currentSum, bool &isFound) 
+{
+	// 把当前节点加进路径，并计算sum值
+	path.push_back(root->item);	
+	currentSum += root->item;
+
+	// 若当前节点为叶节点，且path的sum值为expectedSum，打印路径
+	bool isLeaf = root->l_child == NULL && root->r_child == NULL;
+	if (currentSum == expectedSum && isLeaf)
+	{
+		cout << endl << "Found path: ";
+		isFound = true;
+		for (auto iter = path.begin(); iter != path.end(); ++iter)
+			cout << *iter << " ";
+		cout << endl;
+	}
+
+	// 如果不是叶节点，继续递归判断
+	if (root->l_child != NULL)
+		findPathMatchValue(root->l_child, expectedSum, path, currentSum, isFound);
+	if (root->r_child != NULL)
+		findPathMatchValue(root->r_child, expectedSum, path, currentSum, isFound);
+
+	// 在返回父节点之前，要把当前节点在路径中弹出，并从sum值中减去当前节点值
+	path.pop_back();
+	currentSum -= root->item;
 }

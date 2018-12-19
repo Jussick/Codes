@@ -81,4 +81,35 @@ bool addOneNodeToTail(int item, Link **head)  // **是为了要改变head指向�
 
 }
 
+/* 《链表拆分》
+ * 把一个有偶数个节点的链表拆分出来以偶数节点组成的链表，原链表变为以奇数节点组成的链表 
+ * 如,原链表为1-2-3-4-5-6
+ * 那么拆分过后的原链表变为1-3-5
+ * 返回的链表为2-4-6
+ */
+Link *departList(Link *head)
+{
+	if (head == NULL)
+		return NULL;
+
+	Link *cur_node = head;
+	Link *clone_head = head->p_next;
+	Link *clone_cur = clone_head;
+
+	while (cur_node)
+	{
+		cur_node->p_next = clone_cur->p_next;
+		if (cur_node->p_next == NULL)
+		{
+			clone_cur->p_next = NULL;
+			break;
+		}
+		clone_cur->p_next = cur_node->p_next->p_next;
+		cur_node = cur_node->p_next;
+		clone_cur = clone_cur->p_next;
+	}
+	return clone_head;
+}
+
+
 #endif

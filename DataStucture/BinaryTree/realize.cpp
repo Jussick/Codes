@@ -41,20 +41,6 @@ binaryTreeNode *binaryTree::minValueNode(binaryTreeNode *root)
 	return cur;
 }
 
-/* 判断一棵树是否为二叉搜索树（BST）*/
-bool ifIsA_BST(binaryTreeNode *root)
-{
-	binaryTree *tree = new binaryTree();
-	if (root == NULL)
-		return true;
-	if (root->l_child != NULL && tree->maxValueNode(root->l_child)->item > root->item)
-		return false;
-	if (root->r_child != NULL && tree->minValueNode(root->r_child)->item < root->item)
-		return false;
-	if (!ifIsA_BST(root->l_child) || !ifIsA_BST(root->r_child))
-		return false;
-	return true;
-}
 
 /* 中序遍历 */
 void binaryTree::inorder(binaryTreeNode *root)
@@ -212,6 +198,42 @@ binaryTreeNode *binaryTree::deleteNode(binaryTreeNode *root, int value)
 	return root;
 }
 
+/* 判断一棵树是否为二叉搜索树（BST）*/
+bool ifIsA_BST(binaryTreeNode *root)
+{
+	binaryTree *tree = new binaryTree();
+	if (root == NULL)
+		return true;
+	if (root->l_child != NULL && tree->maxValueNode(root->l_child)->item > root->item)
+		return false;
+	if (root->r_child != NULL && tree->minValueNode(root->r_child)->item < root->item)
+		return false;
+	if (!ifIsA_BST(root->l_child) || !ifIsA_BST(root->r_child))
+		return false;
+	return true;
+}
+
+
+/* 判断一颗二叉树是否为二叉树的高效方法 
+ * 去判断每个节点是否在一个range中*/
+bool ifIsA_BST_util(binaryTreeNode *root, int max_value, int min_value)
+{
+	if (root == NULL) return true;
+
+	if (root->item < max_value && root->item > min_value
+			&& ifIsA_BST_util(root->l_child, root->item, min_value)
+			&& ifIsA_BST_util(root->r_child, max_value, root->item))
+		return true;
+	else
+		return false;
+}
+bool ifIsA_BST_efficient(binaryTreeNode *root)
+{
+	return ifIsA_BST_util(root, MAX_VAL, MIN_VAL);
+}
+
+
+
 bool doesTree1HasTree2(binaryTreeNode *root1, binaryTreeNode *root2)
 {
 	if (root2 == NULL)
@@ -224,7 +246,6 @@ bool doesTree1HasTree2(binaryTreeNode *root1, binaryTreeNode *root2)
 	return doesTree1HasTree2(root1->l_child, root2->l_child) &&
 		doesTree1HasTree2(root1->r_child, root2->r_child);
 }
-
 bool hasSubTree(binaryTreeNode *root1, binaryTreeNode *root2)
 {
 	bool result = false;

@@ -13,6 +13,8 @@ DecToBinaryTest	codeHub.cpp	/^void DecToBinaryTest()$/;"	f
 GenerateRandomNum	codeHub.cpp	/^int GenerateRandomNum()$/;"	f
 GetCurTime	codeHub.cpp	/^void GetCurTime(char **cur_time)$/;"	f
 GetLocalIP	codeHub.cpp	/^void GetLocalIP(char *IP)$/;"	f
+INTMAX	19s-整数反转.cpp	/^#define INTMAX /;"	d	file:
+INTMIN	19s-整数反转.cpp	/^#define INTMIN /;"	d	file:
 LINE_SIZE	codeHub.cpp	/^#define LINE_SIZE /;"	d	file:
 ListNode	08-删除链表倒数第N个元素.cpp	/^    ListNode(int x) : val(x), next(NULL) {}$/;"	f	struct:ListNode
 ListNode	08-删除链表倒数第N个元素.cpp	/^struct ListNode {$/;"	s	file:
@@ -25,7 +27,6 @@ MY_H	my.h	/^#define MY_H$/;"	d
 MergeTwoVectorInOrder	12s-两个排序数组的中位数.cpp	/^vector<int> MergeTwoVectorInOrder(const vector<int>& nums1, const vector<int>& nums2)$/;"	f
 Partition	codeHub.cpp	/^int Partition(int data[], int length, int start, int end)$/;"	f
 PrintVector	12s-两个排序数组的中位数.cpp	/^void PrintVector(vector<int> &vec)$/;"	f
-QuickSort	codeHub.cpp	/^void QuickSort(int data[], int length, int start, int end)  \/\/ 不好使$/;"	f
 RandomInRange	codeHub.cpp	/^int RandomInRange(int min, int max)$/;"	f
 ReadSpeacialLine	codeHub.cpp	/^char* ReadSpeacialLine(const char* filename, int whichLine)$/;"	f
 Solution	08-删除链表倒数第N个元素.cpp	/^class Solution {$/;"	c	file:
@@ -36,8 +37,10 @@ Solution	15s-环形链表.cpp	/^class Solution {$/;"	c	file:
 Solution	16s-相交链表.cpp	/^class Solution {$/;"	c	file:
 Solution	17s-回文数.cpp	/^class Solution {$/;"	c	file:
 Solution	18s-回文链表.cpp	/^class Solution {$/;"	c	file:
-Solution	temp.cpp	/^class Solution {$/;"	c	file:
+Solution	19s-整数反转.cpp	/^class Solution {$/;"	c	file:
 StringFind	codeHub.cpp	/^int StringFind(const char *pSrc, const char *pDst)$/;"	f
+a	codeHub.cpp	/^int a[101],n;\/\/定义全局变量，这两个变量需要在子函数中使用$/;"	v
+a	temp.cpp	/^int a[101],n;\/\/定义全局变量，这两个变量需要在子函数中使用$/;"	v
 add1Ton_recursive	codeHub.cpp	/^int add1Ton_recursive(int n)  \/\/ recursive way$/;"	f
 addOneNodeToTail	13s-合并两个有序链表.cpp	/^bool addOneNodeToTail(int item, ListNode **head)  \/\/ **是为了要改变head指向的地址$/;"	f
 addOneNodeToTail	14s-删除排序链表中的重复元素.cpp	/^bool addOneNodeToTail(int item, ListNode **head)  \/\/ **是为了要改变head指向的地址$/;"	f
@@ -55,10 +58,10 @@ getIntersectionNode	16s-相交链表.cpp	/^    Link *getIntersectionNode(Link *h
 hasCycle	15s-环形链表.cpp	/^    bool hasCycle(Link *head) {$/;"	f	class:Solution
 insertSort	codeHub.cpp	/^int *insertSort(int *arr, int len)$/;"	f
 inttohex	codeHub.cpp	/^char *inttohex(int aa)$/;"	f
+isOverFlow	19s-整数反转.cpp	/^	bool isOverFlow(int x, int pop) {$/;"	f	class:Solution
 isPalindrome	10-分割回文串.cpp	/^bool isPalindrome(string str_ori) {$/;"	f
 isPalindrome	17s-回文数.cpp	/^    bool isPalindrome(int x) {$/;"	f	class:Solution
 isPalindrome	18s-回文链表.cpp	/^    bool isPalindrome(Link* head) {$/;"	f	class:Solution
-isPalindrome	temp.cpp	/^    bool isPalindrome(ListNode* head) {$/;"	f	class:Solution
 isPalindrome_better	17s-回文数.cpp	/^	bool isPalindrome_better(int x) {$/;"	f	class:Solution
 isPhraseString	09s-验证回文串.cpp	/^bool isPhraseString(string &str_ori)$/;"	f
 isPhraseString	17s-回文数.cpp	/^	bool isPhraseString(string &str_ori)$/;"	f	class:Solution
@@ -79,6 +82,7 @@ main	15s-环形链表.cpp	/^int main()$/;"	f
 main	16s-相交链表.cpp	/^int main()$/;"	f
 main	17s-回文数.cpp	/^int main()$/;"	f
 main	18s-回文链表.cpp	/^int main()$/;"	f
+main	19s-整数反转.cpp	/^int main()$/;"	f
 main	codeHub.cpp	/^int main()$/;"	f
 main	temp.cpp	/^int main()$/;"	f
 main	test.cpp	/^int main()$/;"	f
@@ -86,6 +90,8 @@ maxbit	codeHub.cpp	/^int maxbit(int data[], int n) \/\/辅助函数，求数据�
 mergeTwoLists	13s-合并两个有序链表.cpp	/^    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {$/;"	f	class:Solution
 moveZeroes	03s-移动零.c	/^void moveZeroes(int* nums, int numsSize) {$/;"	f
 myprint	codeHub.cpp	/^#define myprint(/;"	d	file:
+n	codeHub.cpp	/^int a[101],n;\/\/定义全局变量，这两个变量需要在子函数中使用$/;"	v
+n	temp.cpp	/^int a[101],n;\/\/定义全局变量，这两个变量需要在子函数中使用$/;"	v
 next	08-删除链表倒数第N个元素.cpp	/^    ListNode *next;$/;"	m	struct:ListNode	file:
 next	13s-合并两个有序链表.cpp	/^    ListNode *next;$/;"	m	struct:ListNode	file:
 next	14s-删除排序链表中的重复元素.cpp	/^    ListNode *next;$/;"	m	struct:ListNode	file:
@@ -95,11 +101,15 @@ power	04-加一.c	/^int power(int num, int powNum) \/\/ added by luhg$/;"	f
 power	codeHub.cpp	/^int power(int num, int powNum)$/;"	f
 printArr	codeHub.cpp	/^int printArr(NumType *arr, int len)$/;"	f
 printArray	03s-移动零.c	/^void printArray(int *arr, int len)$/;"	f
+quicksort	codeHub.cpp	/^void quicksort(int left,int right)$/;"	f
+quicksort	temp.cpp	/^void quicksort(int left,int right)$/;"	f
+quicksortTest	codeHub.cpp	/^void quicksortTest()$/;"	f
 radixsort	codeHub.cpp	/^void radixsort(int data[], int n) \/\/基数排序$/;"	f
 redirection	codeHub.cpp	/^void redirection() \/* 把输出重定向，再恢复重定向 *\/$/;"	f
 removeDuplicates	01s-排序数组删除重复项.c	/^int removeDuplicates(int* nums, int numsSize) {$/;"	f
 removeElement	06s-移除元素.c	/^int removeElement(int* nums, int numsSize, int val) {$/;"	f
 removeNthFromEnd	08-删除链表倒数第N个元素.cpp	/^    ListNode* removeNthFromEnd(ListNode* head, int n) {$/;"	f	class:Solution
+reverse	19s-整数反转.cpp	/^    int reverse(int x) {$/;"	f	class:Solution
 selectSort	codeHub.cpp	/^void selectSort(int *arr, int len) \/* 选择排序 *\/$/;"	f
 showStack	16s-相交链表.cpp	/^		void showStack(stack<Link *> ss) {$/;"	f	class:Solution	file:
 singleNumber	05s-只出现一次的数字.c	/^int singleNumber(int* nums, int numsSize) {$/;"	f
@@ -110,6 +120,7 @@ stringToInteger	08-删除链表倒数第N个元素.cpp	/^int stringToInteger(str
 stringToIntegerVector	08-删除链表倒数第N个元素.cpp	/^vector<int> stringToIntegerVector(string input) {$/;"	f
 stringToListNode	08-删除链表倒数第N个元素.cpp	/^ListNode* stringToListNode(string input) {$/;"	f
 swap	codeHub.cpp	/^T swap(T *a, T *b)$/;"	f
+swap	temp.cpp	/^T swap(T *a, T *b)$/;"	f
 trimLeftTrailingSpaces	08-删除链表倒数第N个元素.cpp	/^void trimLeftTrailingSpaces(string &input) {$/;"	f
 trimRightTrailingSpaces	08-删除链表倒数第N个元素.cpp	/^void trimRightTrailingSpaces(string &input) {$/;"	f
 twoSum	02s-两数之和.c	/^int* twoSum(int* nums, int numsSize, int target) {$/;"	f

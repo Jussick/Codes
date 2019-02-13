@@ -1,73 +1,69 @@
 //C++ file
-/***********************************************
-#
-#      Filename: 18-回文链表.cpp
-#
-#        Author: luhg - luhg@keyou.cn
-#   Description: ---
-#        Create: 2018-11-16 14:51:38
-#**********************************************/
 #include<iostream>
 #include "../jianzhiOffer/include/list.h"
 #include <string>
 #include <vector>
+#include <stdio.h>
 using namespace std;
 
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
-class Solution {
-public:
-    bool isPalindrome(ListNode* head) {
-		if (head == NULL)
-			return true;
 
-		std::vector<int> vec;
-		ListNode *cur = head;
-		while (cur)
-		{
-			vec.push_back(cur->val);
-			cur = cur->next;
-		}
-			
-		int len = vec.size();
-		bool equal = true;
-
-		int mid = len / 2;
-		for (int i = 0; i <= mid; ++i)
-		{
-			if (vec[i] != vec[len - i - 1])
-				equal = false;
-		}
-		return equal;
-    }
-};
-
-int main()
+template <class T> 
+T swap(T *a, T *b)
 {
-	int arr[5] = {1,2,3,2,2};
-	Link *link1 = createALinklist(arr, 5);
-	traverseList(link1);
-	Solution s;
-	if (s.isPalindrome(link1))
-		cout << "yes" << endl;
-	else
-		cout << "no" << endl;
-	return 0;
+    *a = *a ^ *b;
+    *b = *a ^ *b;
+    *a = *a ^ *b;
 }
 
+class Solution {
+public:
+    Link* removeNthFromEnd(Link* head, int n) {
+		
+		// 链表只有一个节点的情况
+		if (head->p_next == NULL) {
+			delete head;
+			return NULL;
+		}
+		Link *first = head;
+		Link *second = head;
 
+		/*  找到倒数第n个节点 */
 
-
-
-
-
-
-
-
-
+			// 把first指向第n-1个节点
+		for (int i = 0; i < n - 1; ++i) {
+			first = first->p_next;	
+		}
+			// 把second指向倒数第n个节点
+		while (first->p_next != NULL) {
+			second = second->p_next;
+			first = first->p_next;
+		}
+		// 如果删除的是尾节点，则按照常规方式删除
+		if (second->p_next == NULL) {
+			// 	把cur指向链表倒数第二个节点
+			Link *cur;
+			for ( cur = head; cur->p_next->p_next != NULL; cur = cur->p_next);
+			Link *deleteNode = cur->p_next;
+			cur->p_next = cur->p_next->p_next;
+			delete deleteNode;
+		}
+		else {
+			second->m_value = second->p_next->m_value;
+			Link *deleteNode = second->p_next;
+			second->p_next = second->p_next->p_next;
+			delete deleteNode;
+		}
+			
+		return head;
+    }
+};
+int main()
+{
+	Solution ss = Solution();
+	int arr[2] = {1,2};
+	Link *head = createALinklist(arr, 2);
+	traverseList(head);
+	ss.removeNthFromEnd(head, 1);
+	traverseList(head);
+	return 0;
+}

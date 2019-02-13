@@ -197,6 +197,65 @@ void BubbleSort(NumType *arr, int arrSize) /* 冒泡 */
 
 
 /***********************************************
+#      函数名称: quickSort
+#
+#   Description: 快速排序
+				快速排序的每一轮处理其实就是将这一轮的基准数归位，直到所有的数都归位为止，排序就结束了。
+#     parameter: left: 左哨兵，right: 右哨兵
+#   returnValue: null
+#   	 Author: luhg
+#        Create: 2019-01-03 17:10:31
+#**********************************************/
+int a[101],n;//定义全局变量，这两个变量需要在子函数中使用
+void quicksort(int left,int right)
+{
+	int i,j,t,temp;
+	if(left > right)
+		return;
+
+	temp = a[left]; //temp中存的就是基准数
+	i = left;
+	j = right;
+	while(i != j)
+	{
+		//顺序很重要，要先从右边开始找，找比基准数小的
+		while(a[j]>=temp && i<j)
+			j--;
+		//再找左边的，找比基准数大的
+		while(a[i]<=temp && i<j)
+			i++;
+		//交换两个数在数组中的位置
+		if(i<j)
+		{
+			t=a[i];
+			a[i]=a[j];
+			a[j]=t;
+		}
+	}
+	//最终将基准数归位
+	a[left]=a[i];
+	a[i]=temp;
+
+	quicksort(left,i-1);//继续处理左边的，这里是一个递归的过程
+	quicksort(i+1,right);//继续处理右边的 ，这里是一个递归的过程
+}
+void quicksortTest()
+{
+	int i;
+	//读入数据
+	scanf("%d",&n);
+	for(i=1;i<=n;i++)
+		scanf("%d",&a[i]);
+	quicksort(1,n); //快速排序调用
+
+	//输出排序后的结果
+	for(i=1;i<=n;i++)
+		printf("%d ",a[i]);
+	getchar();getchar();
+}
+
+
+/***********************************************
 #      函数名称: radixsort 
 #
 #   Description: 基数排序
@@ -400,16 +459,6 @@ int Partition(int data[], int length, int start, int end)
 	return small;
 }
 
-void QuickSort(int data[], int length, int start, int end)  // 不好使
-{
-	if (start == end)
-		return;
-	int index = Partition(data, length, start, end);
-	if (index > start)
-		QuickSort(data, length, start, index - 1);
-	if (index < end)
-		QuickSort(data, length, index + 1, end);
-}
 
 #if 0
 #define Power(times) power(10, times);
@@ -507,9 +556,10 @@ int main()
 {
 	//DecToBinaryTest();
 	//BigOrSmallEndianJudge();
-	int arr[5] = {2,6,5,9,3};
-	radixsort(arr, 5);
-	printArr(arr, 5);
+	quicksortTest();
+	//int arr[5] = {2,6,5,9,3};
+	//radixsort(arr, 5);
+	//printArr(arr, 5);
 	return 0;
 }
 

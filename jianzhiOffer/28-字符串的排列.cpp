@@ -14,12 +14,14 @@
 using namespace std;
 
 
+/* 交换一个字符串中两个字符的位置 */
 void swap(char *pchar1, char *pchar2)
 {
 	char temp = *pchar1;
 	*pchar1 = *pchar2;
 	*pchar2 = temp;
 }
+
 void permutation(char *pStr, char *pBegin)
 {
 	if (*pBegin == '\0')
@@ -55,6 +57,7 @@ int main()
 	char *str = new char[20];
 	strcpy(str, "abc");
 	Permutation(str);
+	delete [] str;
 
 	return 0;
 }

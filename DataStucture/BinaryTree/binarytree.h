@@ -3,6 +3,8 @@
 #include <iostream>
 #include <set>
 #include <vector>
+#define MAX_VAL 2147483647
+#define MIN_VAL -2147483648
 using namespace std;
 
 
@@ -40,6 +42,7 @@ class binaryTree {
 // some utility functions
 void printNodeInfo(binaryTreeNode *node);   // 打印一个节点内容
 bool ifIsA_BST(binaryTreeNode *root);  // 判断一颗二叉树树否为BST
+bool ifIsA_BST_efficient(binaryTreeNode *root);  // 判断一棵树是否为BST的高效方法
 bool doesTree1HasTree2(binaryTreeNode *root1, binaryTreeNode *root2);  // 判断以root1为根节点的子树是否与root2有相同的结构
 bool hasSubTree(binaryTreeNode *root1, binaryTreeNode *root2);  // 判断以root2为根节点的二叉树是不是以root1为根节点的二叉树的子结构
 void treeMirrorRecusively(binaryTreeNode *root);  // 把root转换为其镜像树

@@ -126,14 +126,31 @@ typedef struct {
 	int sex;
 }ttt;
 
+bool canDivBy3(int num) {
+	return num % 3 == 0?true:false;
+}
+
+template <class T>
+void printVec(vector<T> &vec) {
+	for (T item : vec)
+		cout << item << " ";
+	cout << endl;
+}
+
 int main()
 {
-	int i;
-	cin >> i;
-	cout << dec << i << endl;
-	cout << hex << i << endl;
-	cout << bitset<32>(i) << endl;
-	
+	vector<int> vec(7);
+	int arr[10] = {1,2,3,4,5,6,7};
+	copy(arr, arr + 7, vec.begin());
+	printVec(vec);
+	//auto iter = find(vec.begin(), vec.end(), 2);
+	//cout << "*iter:" << *iter << endl;
+	vector<int>::reverse_iterator iter1 = find_if(vec.rbegin(), vec.rend(), canDivBy3);
+	cout << "*iter1:" << *iter1 << endl;
+	vector<int>::iterator iter2 = iter1.base();
+	cout << "*iter2:" << *iter2 << endl;
+	vec.erase(iter1.base(), vec.end());
+	printVec(vec);
 
 	return 0;
 }

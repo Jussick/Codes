@@ -4,52 +4,83 @@
 
 using namespace std;
 
-
-
-long int Fibbonacci(int n, int *memo)
+template <typename NumType>
+void printArr(NumType *arr, int len)
 {
-	if (n <= 1)
-		return n;
-	else
-	{
-		long int x, y;
-		if (memo[n-1] != -1)
-			x = memo[n-1];
-		else
-		{
-			x = Fibbonacci(n-1, memo);
-			memo[n-1] = x;
-		}
-		if (memo[n-2] != -1)
-			y = memo[n-2];
-		else
-		{
-			y = Fibbonacci(n-2, memo);
-			memo[n-2] = x;
-		}
-
-		return x + y;
-	}
+    int i;
+    if (len <= 0) return;
+    for (i = 0; i < len; i++)
+    {
+        cout << arr[i] << " ";
+        if (i == len-1) cout << endl;
+    }
 }
 
-long int enhanced_version(int n)
+template <class T>
+void swap(T *a, T *b)
 {
-	int *memo = (int *)calloc(1000, sizeof(int));
-	memo[0] = 0, memo[1] = 1;
-	for (int i = 2; i < 1001; ++i)
-		memo[i] = -1;
-	long int result = Fibbonacci(n, memo);
-	free(memo);
-	return result;
+    *a = *a ^ *b;
+    *b = *a ^ *b;
+    *a = *a ^ *b;
+}
+
+int RandomInRange(int min, int max)
+{
+    srand((unsigned int)(time(NULL)));
+    int randomNum = rand();
+    randomNum %= max;
+    int difference = max - min;
+    srand((unsigned int)(time(NULL)));
+    int offset = rand() % difference;
+    return abs(randomNum - offset) + 1;
+
+}
+
+
+int Partition(int data[], int length, int start, int end)
+{
+    if (data == NULL || length <= 0 || start < 0 || end >= length)
+    {
+        cout << "Invalid Input" << endl;
+        return -1;
+    }
+    int index = RandomInRange(start, end);
+    swap(&data[index], &data[end]);
+
+    int small = start - 1;
+    for (index = start; index < end; ++ index)
+    {
+        if (data[index] < data[end])
+        {
+            ++small;
+            if (small != index)
+                swap(&data[index], &data[small]);
+        }
+    }
+    ++ small;
+    swap(&data[small], &data[end]);
+    return small;
+}
+
+void quickSort(int data[], int length, int start, int end)
+{
+	if (start == end)
+		return;
+	int index = Partition(data, length, start, end);
+	if (index > start)
+		quickSort(data, length, start, index - 1);
+	if (index < end)
+		quickSort(data, length, index + 1, end);
 }
 
 int main()
 {
-	int N = 40;
-	clock_t recur_fib_start_time = clock();
-	long int result = enhanced_version(N);
-	clock_t recur_fib_end_time = clock();
-	cout << result << endl;
-	printf("time consume: %f\n", (double)(recur_fib_end_time - recur_fib_start_time) / CLOCKS_PER_SEC);
+#if 0
+	int arr[10] = {1,5,7,65,34,9,4,2,6,0};	
+	quickSort(arr, 10, 0, 9);
+	printArr(arr, 10);
+#endif
+	int a = RandomInRange(1,10);
+	cout << a << endl;
 	return 0;
 }

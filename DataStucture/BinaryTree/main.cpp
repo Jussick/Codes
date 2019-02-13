@@ -65,6 +65,7 @@ int main()
 	tree->deleteNode(root, 30);
 	cout << "after delete:" << endl;
 	tree->inorder(root);
+#endif
 
 	cout << endl << "second tree(create method)" << endl;
 	binaryTreeNode *root1;
@@ -73,11 +74,10 @@ int main()
 	cout << "Inorder traverse tree" << endl;
 	tree->inorder(root1);
 
-	if (ifIsA_BST(root1))
+	if (ifIsA_BST_efficient(root1))
 		cout << endl << "It's a BST." << endl;
 	else
 		cout << endl << "It's not a BST." << endl;
-#endif
 
 
 	return 0;

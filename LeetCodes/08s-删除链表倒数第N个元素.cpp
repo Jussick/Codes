@@ -4,13 +4,27 @@
 #      Filename: 08-删除链表倒数第N个元素.c
 #
 #        Author: luhg - luhg@keyou.cn
-#   Description: ---
+#   Description: 给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。
+
+		* 示例：
+			给定一个链表: 1->2->3->4->5, 和 n = 2.
+			当删除了倒数第二个节点后，链表变为 1->2->3->5.
+		
+		[示例输入]: [1,2,3,4,5] 2
+		[输出]: [1,2,3,5]
+		
+		* 说明：
+			给定的 n 保证是有效的。
+		
+		* 进阶：
+			你能尝试使用一趟扫描实现吗？
 #        Create: 2018-08-20 17:29:08
 #**********************************************/
 #include<algorithm>
 #include<iostream>
 #include<string>
-#include <sstream>
+#include<sstream>
+#include<vector>
 using namespace std;
 
 /**
@@ -25,27 +39,49 @@ struct ListNode {
 class Solution {
 public:
     ListNode* removeNthFromEnd(ListNode* head, int n) {
-        // 先求长度
-        ListNode *cur_node = head;                                                                                                           
-        int len = 0;
-        while(cur_node)                                                                                                                       
-        {   
-            len++;
-            cur_node = cur_node-> next;                                                                                                                 
-        }        
-        if (len == 1)
-            return NULL;
-        int del_node = len - n;                                                                                                           
-        cur_node = head;
-        for (int i = 1; i < del_node; i++)                                                                                                   
-            cur_node = cur_node-> next;
-        cur_node-> next = cur_node->next-> next;
-        return head;
+		
+		// 链表只有一个节点的情况,由于输入保证了给定的n有效，就无须再判断
+		if (head->next == NULL) {
+			delete head;
+			return NULL;
+		}
+		ListNode *first = head;
+		ListNode *second = head;
+
+		/*  找到倒数第n个节点 */
+
+			// 把first指向第n-1个节点
+		for (int i = 0; i < n - 1; ++i) {
+			first = first->next;	
+		}
+			// 把second指向倒数第n个节点
+		while (first->next != NULL) {
+			second = second->next;
+			first = first->next;
+		}
+		// 如果删除的是尾节点，则按照常规方式删除
+		if (second->next == NULL) {
+			// 	把cur指向链表倒数第二个节点
+			ListNode *cur;
+			for ( cur = head; cur->next->next != NULL; cur = cur->next);
+			ListNode *deleteNode = cur->next;
+			cur->next = cur->next->next;
+			delete deleteNode;
+		}
+		else {
+			second->val = second->next->val;
+			ListNode *deleteNode = second->next;
+			second->next = second->next->next;
+			delete deleteNode;
+		}
+			
+		return head;
     }
 };
-
 void trimLeftTrailingSpaces(string &input) {
-    input.erase(input.begin(), find_if(input.begin(), input.end(), [](int ch) { return !isspace(ch); }));
+    input.erase(input.begin(), find_if(input.begin(), input.end(), [](int ch) {
+        return !isspace(ch);
+    }));
 }
 
 void trimRightTrailingSpaces(string &input) {

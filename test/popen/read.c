@@ -4,7 +4,7 @@
 
 int main()
 {
-	char *rrr = malloc(sizeof(char) * 100);
+	char *rrr = (char *)malloc(sizeof(char) * 100);
 	read(STDIN_FILENO, rrr, sizeof(rrr));
 	puts(rrr);
 	free(rrr);

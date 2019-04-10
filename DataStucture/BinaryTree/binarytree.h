@@ -3,6 +3,7 @@
 #include <iostream>
 #include <set>
 #include <vector>
+#include <cstring>
 #define MAX_VAL 2147483647
 #define MIN_VAL -2147483648
 using namespace std;
@@ -26,7 +27,7 @@ class binaryTree {
 		bool ifExistsElement(int elem);
 	public:
 		binaryTree() { }
-		void createBST(binaryTreeNode * &root, vector<int> &v);  // 创建一个BST
+		void createBST(binaryTreeNode * &root, vector<int> &v);  // 插入方法创建一个BST
 		void inorder(binaryTreeNode *root);  // 中序遍历
 		void postorder(binaryTreeNode *root);  // 后序遍历
 		void breath_first_traversal(binaryTreeNode *root);  // 层序遍历
@@ -48,6 +49,8 @@ bool hasSubTree(binaryTreeNode *root1, binaryTreeNode *root2);  // 判断以root
 void treeMirrorRecusively(binaryTreeNode *root);  // 把root转换为其镜像树
 void findPathMatchValue(binaryTreeNode *root, int expectedSum);  // 打印和为value的路径
 void findPathMatchValue(binaryTreeNode *root, int expectedSum, vector<int> &path, int &currentSum, bool &isFound);  // 重载上面的函数以递归解决问题
+binaryTreeNode *mergeTrees(binaryTreeNode *t1, binaryTreeNode *t2);  // 合并两个二叉树（leetcode-617）
+void createBinarytree(binaryTreeNode * &root, vector<const char *> &v);  // 层序遍历方法创建一个BST
 
 
 

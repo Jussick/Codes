@@ -11,7 +11,7 @@
 #include"binarytree.h"
 using namespace std;
 
-int main()
+int main1()
 {
 	/* Let us create following BST 
      *         50 
@@ -79,6 +79,27 @@ int main()
 	else
 		cout << endl << "It's not a BST." << endl;
 
+
+	return 0;
+}
+
+int main() {
+
+	// 创建两个二叉树
+	//binaryTree *tree1 = new binaryTree();
+	//binaryTree *tree2 = new binaryTree();
+
+	binaryTreeNode *t1 = NULL;
+	binaryTreeNode *t2 = NULL;
+
+	vector<const char *> v1{"1","3","2","", "5"};
+	//vector<const char *> v2{2,1,3,4,7};
+	//tree1->createBST(t1, v1);
+	//tree2->createBST(t2, v2);
+	// 创建结束
+	
+	createBinarytree(t1, v1);
+	
 
 	return 0;
 }

@@ -22,10 +22,10 @@ int add1Ton_recursive(int n)  // recursive way
 }
 
 template <typename NumType> 
-int printArr(NumType *arr, int len)
+void printArr(NumType *arr, int len)
 {
    	int i;
-    if (len == 0) return -1;
+    if (len == 0) return;
     for (i = 0; i < len; i++)
     {
 		cout << arr[i] << " ";
@@ -214,6 +214,7 @@ void quicksort(int left,int right)
 		return;
 
 	temp = a[left]; //temp中存的就是基准数
+	// i和j是两边的哨兵
 	i = left;
 	j = right;
 	while(i != j)
@@ -424,13 +425,19 @@ char *inttohex(int aa)
 
 int RandomInRange(int min, int max)
 {
+	cout << "min: " << min << " max: " << max << endl;
 	srand((unsigned int)(time(NULL)));
 	int randomNum = rand();
+	cout << "randomNum: " << randomNum << endl;
 	randomNum %= max;
-	int difference = max - min;
-	srand((unsigned int)(time(NULL)));
-	int offset = rand() % difference;
-	return abs(randomNum - offset) + 1;
+	cout << "randomNum %= max: " << randomNum << endl;
+	//int difference = max - min;
+	//intsrand((unsigned int)(time(NULL)));
+	//intint offset = rand() % difference;
+	//intcout << "offset: " << offset << endl;
+	//intreturn abs(randomNum - offset) + 1;
+	
+	return randomNum;
 	
 }
 
@@ -556,10 +563,11 @@ int main()
 {
 	//DecToBinaryTest();
 	//BigOrSmallEndianJudge();
-	quicksortTest();
+	//quicksortTest();
 	//int arr[5] = {2,6,5,9,3};
 	//radixsort(arr, 5);
 	//printArr(arr, 5);
+	cout << RandomInRange(0,7) << endl;
 	return 0;
 }
 

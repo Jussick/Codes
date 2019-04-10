@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
+#include <unistd.h>
 
 void *print_message_function (void *ptr);
 
@@ -32,7 +33,7 @@ int main()
 	sleep(1);
 
     //同样，pthread_join的返回值成功为0, join的作用就是获取子线程的返回值，并等待其结束，相当于进程中的wait
-#if 0
+#if 1
 	tmp1 = pthread_join(thread1, &retval);
     printf("thread1 return value(retval) is %d\n", (int)retval);
     printf("thread1 return value(tmp) is %d\n", tmp1);
@@ -49,7 +50,8 @@ int main()
     }
     printf("thread2 end\n");
 #endif
-
+	printf("Over\n");
+	return 0;
 }
 
 void *print_message_function( void *ptr ) {

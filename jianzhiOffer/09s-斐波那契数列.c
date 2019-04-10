@@ -15,8 +15,9 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
+#define MAXNUM 1000
 
-long long int helper(int n, int *memo)
+long long int helper(unsigned int n, long long *memo)
 {
 	if (n <= 1)
 		return n;
@@ -43,13 +44,14 @@ long long int helper(int n, int *memo)
 }
 
 /* 动态规划方法 */
-long long int Fibonacci_DP(int n)
+long long int Fibonacci_DP(unsigned int n)
 {
-	int *memo = (int *)calloc(n + 1, sizeof(int));
-	memo[0] = 0, memo[1] = 1;
-	for (int i = 2; i < 1001; ++i)
+	long long *memo = (long long *)calloc(MAXNUM, sizeof(long long));
+	memo[0] = 0;
+	memo[1] = 1;
+	for (int i = 2; i < 1000; ++i)
 		memo[i] = -1;
-	long int result = helper(n, memo);
+	long long result = helper(n, memo);
 	free(memo);
 	return result;
 }
@@ -84,9 +86,10 @@ long long Fibonacci(unsigned int n)  // 当n在40左右时，效率明显快于�
 	return fibN;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
-	unsigned int n = 41;
+	if (argc < 2) { printf("Usage: %s [n]\n", argv[0]); exit(1); }
+	unsigned int n = (unsigned int)atoi(argv[1]);
 
 	clock_t iter_start_time = clock();
 	printf("Fibonacci[%u] is %lld\n", n, Fibonacci(n));  
@@ -98,10 +101,10 @@ int main()
 	clock_t DP_end_time = clock();
 	printf("Fibonacci_DP time consume: %f\n\n", (double)(DP_end_time - DP_start_time) / CLOCKS_PER_SEC);
 
-	clock_t recur_start_time = clock();
-	printf("Fibonacci_recursive[%u] is %lld\n", n, Fibonacci_recursive(n));
-	clock_t recur_end_time = clock();
-	printf("Fibonacci_recursive time consume: %f\n\n", (double)(recur_end_time - recur_start_time) / CLOCKS_PER_SEC);
+	// clock_t recur_start_time = clock();
+	// printf("Fibonacci_recursive[%u] is %lld\n", n, Fibonacci_recursive(n));
+	// clock_t recur_end_time = clock();
+	// printf("Fibonacci_recursive time consume: %f\n\n", (double)(recur_end_time - recur_start_time) / CLOCKS_PER_SEC);
 
 	return 0;
 }

@@ -64,13 +64,14 @@ void binaryTree::postorder(binaryTreeNode *root)
 	}
 }
 
+
 /* 层序遍历 */
 void binaryTree::breath_first_traversal(binaryTreeNode *root)
 {
 	if (root)
 	{
 		queue<binaryTreeNode *> in_queue;
-		// 吧根节点入队
+		// 把根节点入队
 		in_queue.push(root);
 		
 		while (!in_queue.empty())
@@ -151,6 +152,7 @@ void binaryTree::createBST(binaryTreeNode* &root, vector<int> &v)
 			root = insert(root, val);	
 	}
 }
+
 
 binaryTreeNode *binaryTree::leftRotation(binaryTreeNode *root, binaryTreeNode *node)
 {
@@ -325,4 +327,32 @@ void findPathMatchValue(binaryTreeNode *root, int expectedSum, vector<int> &path
 	// 在返回父节点之前，要把当前节点在路径中弹出，并从sum值中减去当前节点值
 	path.pop_back();
 	currentSum -= root->item;
+}
+
+/* 合并两个二叉树（leetcode-617）
+ * 合并的规则是如果两个节点重叠，那么将他们的值相加作为节点合并后的新值，否则不为 NULL 的节点将直接作为新二叉树的节点。
+ */
+binaryTreeNode *mergeTrees(binaryTreeNode *t1, binaryTreeNode *t2) {
+
+	if (t1 == NULL) { return t2; }	
+	if (t2 == NULL) { return t1; }	
+
+	t1->item += t2->item;
+	t1->l_child = mergeTrees(t1->l_child, t2->l_child);
+	t1->r_child = mergeTrees(t1->r_child, t2->r_child);
+
+	return t1;
+} 
+
+/* 层序遍历方法创建一个二叉树（非二叉搜索树）*/
+void createBinarytree(binaryTreeNode * &root, vector<const char *> &v) 
+{
+	if (v.empty()) { root = NULL; return; }
+
+	// 把vector中的元素顺序放入二叉树节点中中
+	for (const char *val : v) {
+		if (!strcmp(val, "")) { qq.push(NULL); }
+		else { qq.push(val); }
+	}
+		
 }

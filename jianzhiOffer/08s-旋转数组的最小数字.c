@@ -4,7 +4,7 @@
 #      Filename: 08-旋转数组的最小数字.c
 #
 #        Author: luhg - luhg@keyou.cn
-#   Description: ---
+#   Description: 把一个数组最开始的若干个元素移动到数组末尾，称为数组的旋转。
 #        Create: 2018-09-04 16:52:58
 #**********************************************/
 #include<stdio.h>

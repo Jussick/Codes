@@ -75,12 +75,9 @@ void quickSort(int data[], int length, int start, int end)
 
 int main()
 {
-#if 0
-	int arr[10] = {1,5,7,65,34,9,4,2,6,0};	
-	quickSort(arr, 10, 0, 9);
-	printArr(arr, 10);
-#endif
-	int a = RandomInRange(1,10);
-	cout << a << endl;
+    int a = 'A';
+    cout << a << endl;
+
 	return 0;
+
 }

@@ -9,7 +9,7 @@
 #**********************************************/
 #include<stdio.h>
 
-int foo(int *restrict a, int *restrict b)
+int foo(int * restrict a, int * restrict b)
 {
 	*a = 5;
 	*b = 6;
@@ -20,5 +20,6 @@ int main()
 {
 	int i;
 	printf("%d\n", foo(&i, &i));
+	printf("%d\n", i);
 	return 0;
 }

@@ -12,6 +12,7 @@
 using namespace std;
 
 #define CMDTOKEN "#*SSOConFigure:"
+typedef void (*func) (int);
 
 typedef struct HappyForYCMsuccess
 {
@@ -286,11 +287,29 @@ void GetCurTime(char **cur_time)
 	*cur_time = strdup(ctime(pt));
 }
 
+char *getFileContent(const char *file)
+{
+    int i=0;
+    char ch;
+    char *out = (char *)malloc(1000);
+    FILE *fp = fopen(file,"r");
+    while((ch=getc(fp))!=EOF)
+    {
+        out[i] = ch;
+        i+=1;
+    }
+    fclose(fp);
+    return out;
+}
+
+void printSth(int num) {
+	cout << "It's gonna be a good day. +" << num << endl;
+}
+
+
 int main()
 {
-	string memo[10][10];
-	if (memo[0][0].empty())
-		cout << "yes" << endl;
-
+	func ff = printSth;
+	ff(6);
 	return 0;
 }

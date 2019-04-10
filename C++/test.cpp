@@ -137,20 +137,79 @@ void printVec(vector<T> &vec) {
 	cout << endl;
 }
 
+int RandomInRange(int min, int max)
+{
+	cout << "min: " << min << " max: " << max << endl;
+    srand((unsigned int)(time(NULL)));
+    int randomNum = rand();
+    cout << "randomNum: " << randomNum << endl;
+    randomNum %= max;
+    cout << "randomNum %= max: " << randomNum << endl;
+    //int difference = max - min;
+    //srand((unsigned int)(time(NULL)));
+    //int offset = rand() % difference;
+    //return abs(randomNum - offset) + 1;
+	return randomNum;
+
+}
+
+template <class T>
+T swap(T *a, T *b)
+{
+    *a = *a ^ *b;
+    *b = *a ^ *b;
+    *a = *a ^ *b;
+}
+
+int Partition(int *arr, int length, int start, int end) {
+	if (arr == NULL || length <= 0 || start < 0 || end >= length)
+		return -1;
+
+	int index = RandomInRange(start, end);
+	cout << "random index is " << index << endl;
+	swap(arr[index], arr[end]);
+
+	int small = start - 1;
+	for (index = start; index < end; ++index) {
+		if (arr[index] < arr[end]) {
+			++ small;
+			if (small != index)
+				swap(arr[index], arr[small]);
+		}
+	}
+	++small;
+	swap(arr[small], arr[end]);
+
+	return small;
+}
+
+void TwoDimensionalVectorTest() {
+    vector< vector<long> > temp(5);
+    for (size_t s = 0; s < temp.size(); ++s) {
+        temp[s].resize(5);
+    }
+
+    for (size_t i = 0; i < temp.size(); ++i) {
+        for (size_t j = 0; j < temp[0].size(); ++j) {
+            temp[i][j] = j;
+        }
+    }
+
+    for (vector<long> v : temp) {
+        for (long x : v)
+            cout << x << " ";
+        cout << endl;
+    }
+}
+
 int main()
 {
-	vector<int> vec(7);
-	int arr[10] = {1,2,3,4,5,6,7};
-	copy(arr, arr + 7, vec.begin());
-	printVec(vec);
-	//auto iter = find(vec.begin(), vec.end(), 2);
-	//cout << "*iter:" << *iter << endl;
-	vector<int>::reverse_iterator iter1 = find_if(vec.rbegin(), vec.rend(), canDivBy3);
-	cout << "*iter1:" << *iter1 << endl;
-	vector<int>::iterator iter2 = iter1.base();
-	cout << "*iter2:" << *iter2 << endl;
-	vec.erase(iter1.base(), vec.end());
-	printVec(vec);
-
+	//TwoDimensionalVectorTest();
+	vector<const char *> v{"1","2","3","","4","5"};
+	for (string val : v) 
+	{
+		if (val != "")
+		cout << (val) << " ";
+	}
 	return 0;
 }

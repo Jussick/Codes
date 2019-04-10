@@ -5,7 +5,7 @@
 
 int main()
 {
-	char *str = "hello";
+	const char *str = "hello";
 	write(STDOUT_FILENO, str, strlen(str));
 	return 0;
 }

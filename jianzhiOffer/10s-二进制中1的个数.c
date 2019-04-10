@@ -1,7 +1,7 @@
 //C file
 /***********************************************
 #
-#      Filename: 10s-位运算.c
+#      Filename: 10s-二进制中1的个数.c
 #
 #        Author: luhg - luhg@keyou.cn
 #   Description: 求一个整数的二进制表示有几个1

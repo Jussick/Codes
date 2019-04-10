@@ -2,20 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba87a24c-06ba-458c-9668-57747ab3c889" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../C++/app" beforeDir="false" afterPath="$PROJECT_DIR$/../C++/app" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../C++/test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../C++/test.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../DataStucture/BinaryTree/app" beforeDir="false" afterPath="$PROJECT_DIR$/../DataStucture/BinaryTree/app" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../DataStucture/BinaryTree/binarytree.h" beforeDir="false" afterPath="$PROJECT_DIR$/../DataStucture/BinaryTree/binarytree.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../DataStucture/BinaryTree/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../DataStucture/BinaryTree/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../DataStucture/BinaryTree/realize.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../DataStucture/BinaryTree/realize.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LeetCodes/08-删除链表倒数第N个元素.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataStucture/arrayOpers/app" beforeDir="false" afterPath="$PROJECT_DIR$/../DataStucture/arrayOpers/app" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LeetCodes/app" beforeDir="false" afterPath="$PROJECT_DIR$/../LeetCodes/app" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LeetCodes/codeHub.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../LeetCodes/codeHub.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LeetCodes/tags" beforeDir="false" afterPath="$PROJECT_DIR$/../LeetCodes/tags" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LeetCodes/temp.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../LeetCodes/temp.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jianzhiOffer/28-字符串的排列.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../jianzhiOffer/28-字符串的排列.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jianzhiOffer/04s-替换空格.c" beforeDir="false" afterPath="$PROJECT_DIR$/../jianzhiOffer/04s-替换空格.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jianzhiOffer/08s-旋转数组的最小数字.c" beforeDir="false" afterPath="$PROJECT_DIR$/../jianzhiOffer/08s-旋转数组的最小数字.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jianzhiOffer/09s-斐波那契数列.c" beforeDir="false" afterPath="$PROJECT_DIR$/../jianzhiOffer/09s-斐波那契数列.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jianzhiOffer/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../jianzhiOffer/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../jianzhiOffer/app" beforeDir="false" afterPath="$PROJECT_DIR$/../jianzhiOffer/app" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../jianzhiOffer/temp.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../jianzhiOffer/temp.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/app" beforeDir="false" afterPath="$PROJECT_DIR$/../test/app" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/functionPointer.c" beforeDir="false" afterPath="$PROJECT_DIR$/../test/functionPointer.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/log-test/mylog.h" beforeDir="false" afterPath="$PROJECT_DIR$/../test/log-test/mylog.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/popen/read.c" beforeDir="false" afterPath="$PROJECT_DIR$/../test/popen/read.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/popen/recive" beforeDir="false" afterPath="$PROJECT_DIR$/../test/popen/recive" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/popen/send" beforeDir="false" afterPath="$PROJECT_DIR$/../test/popen/send" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/popen/write.c" beforeDir="false" afterPath="$PROJECT_DIR$/../test/popen/write.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/proc/app" beforeDir="false" afterPath="$PROJECT_DIR$/../test/proc/app" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/proc/fork" beforeDir="false" afterPath="$PROJECT_DIR$/../test/proc/fork" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/proc/hhh.c" beforeDir="false" afterPath="$PROJECT_DIR$/../test/proc/hhh.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/proc/putsArgs" beforeDir="false" afterPath="$PROJECT_DIR$/../test/proc/putsArgs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/proc/putsArgs.c" beforeDir="false" afterPath="$PROJECT_DIR$/../test/proc/putsArgs.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/restrictTest.c" beforeDir="false" afterPath="$PROJECT_DIR$/../test/restrictTest.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../test/test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/threadTest/mutex" beforeDir="false" afterPath="$PROJECT_DIR$/../test/threadTest/mutex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/threadTest/threadCreate" beforeDir="false" afterPath="$PROJECT_DIR$/../test/threadTest/threadCreate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/threadTest/threadCreate.c" beforeDir="false" afterPath="$PROJECT_DIR$/../test/threadTest/threadCreate.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/threadTest/threadmutex.c" beforeDir="false" afterPath="$PROJECT_DIR$/../test/threadTest/threadmutex.c" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,11 +48,14 @@
     <session id="1701786681">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.open.time.8" value="2" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -39,7 +63,7 @@
           <entry key="feature_num_file" value="1" />
           <entry key="lr_ceof" value="1" />
           <entry key="lr_coef" value="2" />
-          <entry key="py" value="23" />
+          <entry key="py" value="26" />
           <entry key="testfile" value="1" />
           <entry key="train_file" value="2" />
           <entry key="txt" value="2" />
@@ -48,20 +72,20 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="PLAIN_TEXT" value="9" />
-          <entry key="Python" value="23" />
+          <entry key="Python" value="26" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="112" />
-          <entry key="py" value="17460" />
+          <entry key="py" value="17517" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="17572" />
+          <entry key="Python" value="17629" />
         </counts>
       </usages-collector>
     </session>
@@ -71,11 +95,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../python code/test/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1890">
-              <caret line="133" column="22" selection-start-line="133" selection-start-column="22" selection-end-line="133" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#12#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="54">
+              <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../../python code/my_recommandation/CF/production/itemcf.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-101">
+              <caret line="115" lean-forward="true" selection-start-line="115" selection-end-line="115" />
             </state>
           </provider>
         </entry>
@@ -94,11 +124,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../python code/my_recommandation/LR/production/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="270">
+              <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
               <folding>
                 <element signature="e#80#98#0" expanded="true" />
               </folding>
@@ -109,8 +139,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../python code/my_recommandation/LR/production/ana_train_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3330">
-              <caret line="225" column="18" selection-start-line="225" selection-start-column="18" selection-end-line="225" selection-end-column="18" />
+            <state relative-caret-position="165">
+              <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
               <folding>
                 <element signature="e#62#81#0" expanded="true" />
                 <marker date="1548742912260" expanded="true" signature="1909:2312" ph="..." />
@@ -163,9 +193,9 @@
         <option value="$PROJECT_DIR$/../../python code/test/test.py" />
         <option value="$PROJECT_DIR$/../../python code/my_recommandation/LR/production/test.py" />
         <option value="$PROJECT_DIR$/../../python code/my_recommandation/LR/util/get_feature_num.py" />
-        <option value="$PROJECT_DIR$/../../python code/my_recommandation/LR/production/ana_train_data.py" />
         <option value="$PROJECT_DIR$/../../python code/my_recommandation/LR/production/check.py" />
         <option value="$PROJECT_DIR$/../../python code/my_recommandation/LR/production/train.py" />
+        <option value="$PROJECT_DIR$/../../python code/my_recommandation/LR/production/ana_train_data.py" />
       </list>
     </option>
   </component>
@@ -197,6 +227,33 @@
               <item name="python" type="b2602c69:ProjectViewProjectNode" />
               <item name="python code" type="462c0819:PsiDirectoryNode" />
               <item name="my_recommandation" type="462c0819:PsiDirectoryNode" />
+              <item name="CF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="python" type="b2602c69:ProjectViewProjectNode" />
+              <item name="python code" type="462c0819:PsiDirectoryNode" />
+              <item name="my_recommandation" type="462c0819:PsiDirectoryNode" />
+              <item name="CF" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="python" type="b2602c69:ProjectViewProjectNode" />
+              <item name="python code" type="462c0819:PsiDirectoryNode" />
+              <item name="my_recommandation" type="462c0819:PsiDirectoryNode" />
+              <item name="CF" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="python" type="b2602c69:ProjectViewProjectNode" />
+              <item name="python code" type="462c0819:PsiDirectoryNode" />
+              <item name="my_recommandation" type="462c0819:PsiDirectoryNode" />
+              <item name="CF" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="python" type="b2602c69:ProjectViewProjectNode" />
+              <item name="python code" type="462c0819:PsiDirectoryNode" />
+              <item name="my_recommandation" type="462c0819:PsiDirectoryNode" />
               <item name="LR" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -212,6 +269,13 @@
               <item name="my_recommandation" type="462c0819:PsiDirectoryNode" />
               <item name="LR" type="462c0819:PsiDirectoryNode" />
               <item name="production" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="python" type="b2602c69:ProjectViewProjectNode" />
+              <item name="python code" type="462c0819:PsiDirectoryNode" />
+              <item name="my_recommandation" type="462c0819:PsiDirectoryNode" />
+              <item name="LR" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="python" type="b2602c69:ProjectViewProjectNode" />
@@ -433,7 +497,7 @@
     <frame x="0" y="22" width="1680" height="1028" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14647378" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14647378" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -508,9 +572,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2385">
           <caret line="159" column="4" selection-start-line="159" selection-start-column="4" selection-end-line="159" selection-end-column="4" />
-          <folding>
-            <element signature="e#92#111#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -524,13 +585,6 @@
     <entry file="file://$PROJECT_DIR$/../../python code/personal_recommendation/LR/util/get_feature_num.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../python code/my_recommandation/LR/util/get_feature_num.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../python code/personal_recommendation/Item2Vec/production/produce_item_sim.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -543,13 +597,10 @@
     <entry file="file://$PROJECT_DIR$/../../python code/my_recommandation/LFM/production/lfm.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../python code/test/test.py">
+    <entry file="file://$PROJECT_DIR$/../../python code/my_recommandation/LR/util/get_feature_num.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1890">
-          <caret line="133" column="22" selection-start-line="133" selection-start-column="22" selection-end-line="133" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
@@ -563,10 +614,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../python code/my_recommandation/LR/production/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+          <folding>
+            <element signature="e#80#98#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../../python code/my_recommandation/LR/production/ana_train_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3330">
-          <caret line="225" column="18" selection-start-line="225" selection-start-column="18" selection-end-line="225" selection-end-column="18" />
+        <state relative-caret-position="165">
+          <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
           <folding>
             <element signature="e#62#81#0" expanded="true" />
             <marker date="1548742912260" expanded="true" signature="1909:2312" ph="..." />
@@ -589,13 +650,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../python code/my_recommandation/LR/production/train.py">
+    <entry file="file://$PROJECT_DIR$/../../python code/my_recommandation/CF/util/reader.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="e#80#98#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-476" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../python code/test/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../python code/my_recommandation/CF/production/itemcf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-101">
+          <caret line="115" lean-forward="true" selection-start-line="115" selection-end-line="115" />
         </state>
       </provider>
     </entry>

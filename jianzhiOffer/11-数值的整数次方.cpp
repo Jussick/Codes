@@ -53,5 +53,6 @@ int main()
 	cout << power(23, -4) << endl;
 	cout << power(0, 100) << endl;
 	cout << power(3, 100) << endl;
+	cout << power(3.2, 100) << endl;
 	return 0;
 }

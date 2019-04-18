@@ -1,6 +1,6 @@
 CC=gcc
 
-all:app toupper
+all:app toupper dup
 
 app:main.c
 	$(CC) $^ -o $@
@@ -8,5 +8,9 @@ app:main.c
 toupper:toUpper.c
 	$(CC) $^ -o $@
 
+dup:dupTest.c
+	$(CC) $^ -o $@
+
 clean:
-	rm -f app toupper
+	rm -f app toupper dup
+

@@ -37,7 +37,7 @@ int main()
 		shared_ptr<Report> spt2 = spt;  // 这样不会转让spt的ownership，而是把test对象引用计数+1，只有计数为0时，才调用析构函数，这样就能有效防止重复析构同一个对象的问题
 		spt->show();
 		spt2->show();
-	}
+	}  // 一个代码块结束，只能指针会自动释放
 #endif
 
 	// 普通指针不手动delete不会释放空间

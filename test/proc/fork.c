@@ -32,7 +32,7 @@ int main(){
 		sleep(1);
 	}
 	//下面代码由主进程执行
-	if(pid != 0){
+	if(pid > 0){
 		int stat_val;
 		pid_t child_pid;
 

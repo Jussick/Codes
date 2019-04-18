@@ -29,6 +29,7 @@ class binaryTree {
 		binaryTree() { }
 		void createBST(binaryTreeNode * &root, vector<int> &v);  // 插入方法创建一个BST
 		void inorder(binaryTreeNode *root);  // 中序遍历
+		void inorder_nonRecur(binaryTreeNode *root);  // 中序遍历的非递归写法
 		void postorder(binaryTreeNode *root);  // 后序遍历
 		void breath_first_traversal(binaryTreeNode *root);  // 层序遍历
 		binaryTreeNode *insert(binaryTreeNode *root, int item);

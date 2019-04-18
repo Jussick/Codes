@@ -2,41 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba87a24c-06ba-458c-9668-57747ab3c889" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../C++/05-抽象基类.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../C++/05-抽象基类.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../C++/07-智能指针.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../C++/07-智能指针.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../C++/app" beforeDir="false" afterPath="$PROJECT_DIR$/../C++/app" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../C++/test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../C++/test.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DataStucture/BinaryTree/app" beforeDir="false" afterPath="$PROJECT_DIR$/../DataStucture/BinaryTree/app" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../DataStucture/BinaryTree/binarytree.h" beforeDir="false" afterPath="$PROJECT_DIR$/../DataStucture/BinaryTree/binarytree.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DataStucture/BinaryTree/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../DataStucture/BinaryTree/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../DataStucture/BinaryTree/realize.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../DataStucture/BinaryTree/realize.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DataStucture/arrayOpers/app" beforeDir="false" afterPath="$PROJECT_DIR$/../DataStucture/arrayOpers/app" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LeetCodes/app" beforeDir="false" afterPath="$PROJECT_DIR$/../LeetCodes/app" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LeetCodes/codeHub.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../LeetCodes/codeHub.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jianzhiOffer/04s-替换空格.c" beforeDir="false" afterPath="$PROJECT_DIR$/../jianzhiOffer/04s-替换空格.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jianzhiOffer/08s-旋转数组的最小数字.c" beforeDir="false" afterPath="$PROJECT_DIR$/../jianzhiOffer/08s-旋转数组的最小数字.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jianzhiOffer/09s-斐波那契数列.c" beforeDir="false" afterPath="$PROJECT_DIR$/../jianzhiOffer/09s-斐波那契数列.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jianzhiOffer/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../jianzhiOffer/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jianzhiOffer/app" beforeDir="false" afterPath="$PROJECT_DIR$/../jianzhiOffer/app" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jianzhiOffer/temp.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../jianzhiOffer/temp.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../interview/.02-有关内存的思考.c.swp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/app" beforeDir="false" afterPath="$PROJECT_DIR$/../test/app" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/functionPointer.c" beforeDir="false" afterPath="$PROJECT_DIR$/../test/functionPointer.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/log-test/mylog.h" beforeDir="false" afterPath="$PROJECT_DIR$/../test/log-test/mylog.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/popen/read.c" beforeDir="false" afterPath="$PROJECT_DIR$/../test/popen/read.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/popen/recive" beforeDir="false" afterPath="$PROJECT_DIR$/../test/popen/recive" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/popen/send" beforeDir="false" afterPath="$PROJECT_DIR$/../test/popen/send" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/popen/write.c" beforeDir="false" afterPath="$PROJECT_DIR$/../test/popen/write.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/dupTest/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../test/dupTest/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/dupTest/app" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/dupTest/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/../test/dupTest/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/dupTest/toupper" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../test/proc/app" beforeDir="false" afterPath="$PROJECT_DIR$/../test/proc/app" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/proc/fork" beforeDir="false" afterPath="$PROJECT_DIR$/../test/proc/fork" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/proc/hhh.c" beforeDir="false" afterPath="$PROJECT_DIR$/../test/proc/hhh.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/proc/putsArgs" beforeDir="false" afterPath="$PROJECT_DIR$/../test/proc/putsArgs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/proc/putsArgs.c" beforeDir="false" afterPath="$PROJECT_DIR$/../test/proc/putsArgs.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/restrictTest.c" beforeDir="false" afterPath="$PROJECT_DIR$/../test/restrictTest.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../test/test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/proc/test.c" beforeDir="false" afterPath="$PROJECT_DIR$/../test/proc/test.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../test/threadTest/mutex" beforeDir="false" afterPath="$PROJECT_DIR$/../test/threadTest/mutex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/threadTest/threadCreate" beforeDir="false" afterPath="$PROJECT_DIR$/../test/threadTest/threadCreate" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/threadTest/threadCreate.c" beforeDir="false" afterPath="$PROJECT_DIR$/../test/threadTest/threadCreate.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/threadTest/threadmutex.c" beforeDir="false" afterPath="$PROJECT_DIR$/../test/threadTest/threadmutex.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/threadTest/semaphore" beforeDir="false" afterPath="$PROJECT_DIR$/../test/threadTest/semaphore" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,14 +29,14 @@
     <session id="1701786681">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.open.time.8" value="2" />
+          <entry key="project.open.time.8" value="3" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -78,14 +59,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="112" />
-          <entry key="py" value="17517" />
+          <entry key="py" value="17523" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="17629" />
+          <entry key="Python" value="17635" />
         </counts>
       </usages-collector>
     </session>
@@ -95,7 +76,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../python code/test/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
+            <state relative-caret-position="90">
               <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
             </state>
           </provider>
@@ -104,8 +85,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../../python code/my_recommandation/CF/production/itemcf.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-101">
-              <caret line="115" lean-forward="true" selection-start-line="115" selection-end-line="115" />
+            <state relative-caret-position="300">
+              <caret line="24" column="52" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -199,7 +180,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="22" />
     <option name="width" value="1680" />
     <option name="height" value="1028" />
@@ -210,7 +191,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -339,6 +319,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -494,7 +475,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1680" height="1028" extended-state="0" />
+    <frame x="0" y="22" width="1680" height="1028" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14647378" />
@@ -604,6 +585,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../python code/my_recommandation/CF/util/reader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-476" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../python code/test/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../../python code/my_recommandation/LR/data/train_file">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -650,22 +643,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../python code/my_recommandation/CF/util/reader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-476" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../python code/test/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../python code/my_recommandation/CF/production/itemcf.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-101">
-          <caret line="115" lean-forward="true" selection-start-line="115" selection-end-line="115" />
+        <state relative-caret-position="300">
+          <caret line="24" column="52" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
         </state>
       </provider>
     </entry>

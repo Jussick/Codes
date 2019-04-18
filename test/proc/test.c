@@ -33,13 +33,14 @@ int main()
     signal(SIGCHLD, SIG_IGN);  //注释一
     //signal(SIGCHLD, SIG_DFL);  //注释一
     //printf("before fork pid: %d\n", getpid());
+	int ret_outside = -100;
     int status = 110;
     pid_t childPid = fork();
     if (childPid == 0)
     {
-		signal(SIGCHLD, SIG_IGN);  //注释一
+		//signal(SIGCHLD, SIG_IGN);  //注释一
         printf("I'm child...pid=%d\n", getpid());
-		int ret_outside = system("ls");
+		ret_outside = system("ls");
 		printf("ret_outside = %d\n", ret_outside);
 		exit(250);
 		//testSignal();

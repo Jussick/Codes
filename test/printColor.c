@@ -107,7 +107,7 @@ int main(void)
     int i = 0;
     for (i =0 ; i < 7; i++)
     {
-        print_color(1, i, "color info test hello %s %d\n", "world", 250);
+        print_color(1, i, "color info test hello %s\n", "world");
     }
     //warn("warn: hello %s %d \n", "world", 250);
     //err("err: hello %s %d\n", "world", 250);

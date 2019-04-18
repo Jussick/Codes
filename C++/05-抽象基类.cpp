@@ -54,7 +54,8 @@ void EllipseBase::move(double a, double b) {
 	y = b;
 }
 
-void EllipseBase::setX(double x) { this->x = x;
+void EllipseBase::setX(double x) { 
+	this->x = x;
 }
 
 void EllipseBase::setY(double y) {

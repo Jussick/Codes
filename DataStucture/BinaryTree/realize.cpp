@@ -10,6 +10,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <queue>
+#include <stack>
 #include "binarytree.h"
 
 using namespace std;
@@ -51,6 +52,24 @@ void binaryTree::inorder(binaryTreeNode *root)
 		printf("%d\t", root->item);
 		inorder(root->r_child);
 	}
+}
+
+/* 中序遍历（非递归）*/
+void binaryTree::inorder_nonRecur(binaryTreeNode *root) 
+{
+    stack<binaryTreeNode *> s;
+    while (root != NULL || !s.empty()) {
+        if (root != NULL) {
+            s.push(root);
+            root = root->l_child;
+        }
+        else {
+            root = s.top();
+            cout << root->item<< " ";
+            s.pop();
+            root = root->r_child;
+        }
+    }
 }
 
 /* 后序遍历 */
@@ -356,3 +375,4 @@ void createBinarytree(binaryTreeNode * &root, vector<const char *> &v)
 	}
 		
 }
+

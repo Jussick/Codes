@@ -8,6 +8,7 @@
 #        Create: 2018-09-25 14:07:15
 #**********************************************/
 #include<stdio.h>
+#include <stdlib.h>
 #include<unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -27,7 +28,7 @@ int main(int argc, char *argv[])
 		perror("open");
 		exit(1);	
 	}
-	dup2(fd, STDIN_FILENO);
+	dup2(fd, STDIN_FILENO); 
 	close(fd);
 
 	execl("./toupper", "toupper", "testfile", "NULL");

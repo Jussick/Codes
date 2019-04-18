@@ -15,6 +15,7 @@ void provide_data(void) {
     for (i=0; i< MAXSIZE; i++) {
         stack[i] = i;
         sem_post(&sem); //为信号量加1
+		sleep(1);
     }
 }
 
@@ -24,7 +25,7 @@ void handle_data(void) {
     while((i = size++) < MAXSIZE) {
         sem_wait(&sem);
         printf("乘法: %d X %d = %d\n", stack[i], stack[i], stack[i]*stack[i]);
-        sleep(1);
+        //sleep(1);
     }
 }
 

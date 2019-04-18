@@ -20,6 +20,7 @@
 #include<unistd.h>
 #include<iomanip>
 #include<bitset>
+#include<map>
 
 using namespace std;
 
@@ -205,11 +206,9 @@ void TwoDimensionalVectorTest() {
 int main()
 {
 	//TwoDimensionalVectorTest();
-	vector<const char *> v{"1","2","3","","4","5"};
-	for (string val : v) 
-	{
-		if (val != "")
-		cout << (val) << " ";
-	}
+	
+	map<int, string> m_map;
+	m_map.insert(make_pair(1, "haha"));
+
 	return 0;
 }

@@ -209,33 +209,31 @@ void BubbleSort(NumType *arr, int arrSize) /* 冒泡 */
 int a[101],n;//定义全局变量，这两个变量需要在子函数中使用
 void quicksort(int left,int right)
 {
-	int i,j,t,temp;
+	int i,j;
+	int base;
 	if(left > right)
 		return;
 
-	temp = a[left]; //temp中存的就是基准数
+	base = a[left];  // base中存的就是基准数
 	// i和j是两边的哨兵
 	i = left;
 	j = right;
 	while(i != j)
 	{
 		//顺序很重要，要先从右边开始找，找比基准数小的
-		while(a[j]>=temp && i<j)
+		while(a[j]>=base && i<j)
 			j--;
 		//再找左边的，找比基准数大的
-		while(a[i]<=temp && i<j)
+		while(a[i]<=base && i<j)
 			i++;
 		//交换两个数在数组中的位置
 		if(i<j)
 		{
-			t=a[i];
-			a[i]=a[j];
-			a[j]=t;
+			swap(a[i], a[j]);
 		}
 	}
 	//最终将基准数归位
-	a[left]=a[i];
-	a[i]=temp;
+	swap(a[i], a[left]);
 
 	quicksort(left,i-1);//继续处理左边的，这里是一个递归的过程
 	quicksort(i+1,right);//继续处理右边的 ，这里是一个递归的过程
@@ -559,15 +557,16 @@ void BigOrSmallEndianJudge()
 	else
 		printf("sizeof(short) is %d\n", sizeof(short));
 }
+
 int main()
 {
 	//DecToBinaryTest();
 	//BigOrSmallEndianJudge();
-	//quicksortTest();
+	quicksortTest();
 	//int arr[5] = {2,6,5,9,3};
 	//radixsort(arr, 5);
 	//printArr(arr, 5);
-	cout << RandomInRange(0,7) << endl;
+	//cout << RandomInRange(0,7) << endl;
 	return 0;
 }
 

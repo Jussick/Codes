@@ -93,10 +93,10 @@ void eatline()
 
 int main()
 {
-	//diffBetweenTwoCinWays();
+	diffBetweenTwoCinWays();
 	//customizeDelimeter();
 	//outputUntilMet('.');
-	cout << "test for eatline<enter to end>" << endl;
-	eatline();
+	//cout << "test for eatline<enter to end>" << endl;
+	//eatline();
 	return 0;
 }

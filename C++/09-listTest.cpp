@@ -32,6 +32,7 @@ int main()
 	list<int> three(two);
 	three.insert(three.end(), more, more + 6);  // insert into end of list three with more
 
+
 	list<int> four;
 	four.insert(four.begin(), one.begin(), one.end());  // 插入操作不会清空list one中的内容
 	//showlist(four);

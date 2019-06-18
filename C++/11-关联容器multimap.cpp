@@ -40,9 +40,19 @@ int main()
 	// 遍历输出mmap中的所有内容
 	cout << "遍历mmap" << endl;
 	multimap<int, string>::iterator pd = mmap.begin();
-	for (; pd != mmap.end(); pd++) {
+	for (; pd != mmap.end();) {
 		cout << (*pd).first << " " << (*pd).second;
 		cout << endl;
+		pd = mmap.erase(pd);  // erase方法会把当前迭代器指向的内容删除，并把迭代器指向next
+	}
+	cout << endl;
+
+
+	cout << "第二次遍历mmap" << endl;
+	auto ppd = mmap.begin();
+	for (int n = 0; ppd != mmap.end(); ++ppd, ++n) {
+		cout << (*ppd).first << " " << (*ppd).second << endl;
+		cout << "n = " << n << endl;
 	}
 	cout << endl;
 

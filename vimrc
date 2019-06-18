@@ -1,6 +1,6 @@
 set nu
 set sw=4
-set ts=4
+set ts=4  " 设置Tab为4个空格
 set ai
 let Tlist_Exit_OnlyWindow=1
 let Tlist_Use_Right_Window=1
@@ -13,13 +13,29 @@ map <silent> <F7> :set paste!<cr>
 nnoremap <silent> <F8> :set nu!<CR>
 " F9显示/关闭Tlist
 map <silent> <F9> :TlistToggle<cr>
+" F2开启markdown预览
+nmap <silent> <F2> <Plug>MarkdownPreview        
+imap <silent> <F2> <Plug>MarkdownPreview        
+" F3关闭markdown预览
+nmap <silent> <F3> <Plug>StopMarkdownPreview    
+imap <silent> <F3> <Plug>StopMarkdownPreview    
 let Tlist_Auto_Open=1
 set showmatch
-set smartindent
 set ignorecase
 set hlsearch
 set incsearch
 set title
+set laststatus=2
+
+" 开始设置大括号自动匹配
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+"imap { {}<ESC>i<CR><ESC>V<O 
+" imap是映射按键，把{映射为{}<ESC>i<CR><ESC>V<O
+" 设置完毕
+
 " $HOME/.cargo/bin:
 " let $PATH='/usr/bin:/usr/local/bin:/bin:/usr/sbin:/sbin'
 " set mouse=a
@@ -98,6 +114,10 @@ Plugin 'vim-scripts/OmniCppComplete'
 Plugin 'scrooloose/nerdtree' 
 Plugin 'taglist.vim'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'tpope/vim-sensible'
+Plugin 'junegunn/seoul256.vim'
+Plugin 'iamcco/mathjax-support-for-mkdp'
+Plugin 'iamcco/markdown-preview.vim'
  
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

@@ -17,7 +17,7 @@
 int main(int argc, char *argv[])
 {
 
-	int fd = open("./testfile", O_RDONLY);
+	int fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 	{
 		perror("open");
@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 	dup2(fd, STDIN_FILENO); 
 	close(fd);
 
-	execl("./toupper", "toupper", NULL);
+	execl("./toupper", "toupper", "testfile", "NULL");
 	perror("exec error");
 	exit(1);
 }

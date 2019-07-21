@@ -126,3 +126,8 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 # maven path
 export M2_HOME=/Users/edwardlu/apache-maven-3.6.0
 export PATH=$PATH:$M2_HOME/bin
+
+# scons Path
+export MYSCONS=/Users/edwardlu/Downloads/scons-2.1.0
+export SCONS_LIB_DIR=$MYSCONS/engine
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles

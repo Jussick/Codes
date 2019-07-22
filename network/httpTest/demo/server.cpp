@@ -23,13 +23,14 @@ int main() {
     HttpServer http_server;
     http_server.config.port = 8080;
 	
-#if 1  /* POST string REST */
+#if 1  
+    /* POST string REST */
     http_server.resource["^/string$"]["POST"] = [](shared_ptr<HttpServer::Response> response, shared_ptr<HttpServer::Request> request) {
         auto content = request->content.string();
 
         *response << "HTTP/1.1 200 OK\r\nContent-Length: " << content.length() << "\r\n\r\n" << content;
 
-        /* An alternative way 
+        /* An alternative way */
 				//stringstream stream;
 		//stream << "HTTP/1.1 200 OK\r\nContent-Length:" << content.length() << "\n" << content;
         //response->write(stream);
@@ -38,7 +39,8 @@ int main() {
     cout << "string has been added" << endl;
 #endif
 
-#if 1  /* GET match REST */
+#if 1  
+    /* GET match REST */
 	http_server.resource["^/match/([0-9]+)$"]["GET"] = [](shared_ptr<HttpServer::Response> response, shared_ptr<HttpServer::Request> request) {
 	   response->write(request->path_match[1].str());
 	};

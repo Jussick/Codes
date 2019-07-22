@@ -112,6 +112,8 @@ alias py=python3
 alias cp='cp -i'
 alias g++='g++ -std=c++11'
 alias tt='tldr'
+alias cdp="cd ~/mine/gosuncn/PHEONIX2.0"
+alias cdc="cd ~/mine/Codes"
 
 # proxy list
 # export http_proxy="http://127.0.0.1:1080"

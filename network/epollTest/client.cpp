@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
     addfd(epfd, pipe_fd[0], true);
     // 表示客户端是否正常工作
     bool isClientwork = true;
- // 聊天信息缓冲区
+    // 聊天信息缓冲区
     char message[BUF_SIZE];
  
     // Fork
@@ -70,7 +70,7 @@ else  //pid > 0 父进程
                 {
                     //接受服务端消息
                     int ret = Recv(sock, message, BUF_SIZE, 0);
-// ret= 0 服务端关闭
+                    // ret= 0 服务端关闭
                     if(ret == 0) {
                         printf("Server closed connection: %d\n", sock);
                         close(sock);

@@ -14,11 +14,10 @@ using namespace soci;
 using namespace std;
 
 int main() {
-    session sql("mysql", "dbname=PHOENIX2 user=root password=gsy2017");
-    string user;
-    sql << "select User from mysql.user where Host=%", into(user);
+    session sql("mysql", "dbname=test user=root password=123123");
+    string user = "lucas";
+    sql << "INSERT INTO test(name) values(:user)", use(user);
 
-    cout << "selected user is " << user << endl;
 
     return 0;
 }

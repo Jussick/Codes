@@ -63,7 +63,7 @@ int main() {
     auto f2 = async(accum, begin + size/2, begin + size*3/4, 0.0);
     auto f3 = async(accum, begin + size*3/4, begin + size, 0.0);
 
-    sum = f0.get()+f1.get()+f2.get()+f3.get();
+    sum = f0.get()+f1.get()+f2.get()+f3.get();  // get方法获取线程返回结果
     end = clock();
 
     cout << "sum: " << sum << endl;

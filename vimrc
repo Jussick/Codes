@@ -88,6 +88,7 @@ Plugin 'iamcco/markdown-preview.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-surround'
 Plugin 'zxqfl/tabnine-vim'
+Plugin 'scrooloose/nerdcommenter'
  
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -121,6 +122,10 @@ let Tlist_Exit_OnlyWindow = 1  " 如果只有一个buffer，kill窗口也kill掉
 let Tlist_Use_Right_Window=1
 let Tlist_File_Fold_Auto_Close=1
 let Tlist_Auto_Open=1
+
+" nerd Commenter配置
+let mapleader=","  "把<leader>的对应按键改为','，默认为\
+let g:NERDSpaceDelims = 1
 
 " Youcompleteme
 let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'

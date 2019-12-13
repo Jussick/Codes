@@ -54,7 +54,7 @@ set tags+=/Users/edwardlu/mine/gitCodes/12306/tags
 set tags+=/Users/edwardlu/mine/Codes/unpv13e/tags
 set tags+=/Users/edwardlu/mine/gitCodes/Tiny-WebServer/tags
 set tags+=/Users/edwardlu/mine/gitCodes/protobuf-master/tags
-set tags+=/Users/edwardlu/mine/gosuncn/PHEONIX2.0/tags
+set tags+=/Users/edwardlu/mine/gosuncn/phoenix2.0/tags
 map <c-]> g<c-]>
 set autochdir
 

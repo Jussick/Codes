@@ -97,7 +97,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/games/bin"
 
 # command
 alias proxy='export all_proxy=socks5://127.0.0.1:1080'
@@ -114,6 +114,7 @@ alias g++='g++ -std=c++11'
 alias tt='tldr'
 alias cdp="cd ~/mine/gosuncn/PHEONIX2.0"
 alias cdc="cd ~/mine/Codes"
+alias cds="cd ~/mine/gosuncn/phoenix2.0/Module/platform/StateManage/"
 
 # proxy list
 # export http_proxy="http://127.0.0.1:1080"

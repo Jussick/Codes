@@ -103,7 +103,7 @@ PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/games/bin"
 alias proxy='export all_proxy=socks5://127.0.0.1:1080'
 alias unproxy='unset all_proxy'
 alias subl=\''/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'\'
-alias md=\''/Applications/MacDown.app/Contents/SharedSupport/bin/macdown'\'
+alias md=\''/Applications/Typora.app/Contents/MacOS/Typora'\'
 alias mw='open -a MWeb'
 alias ..2='cd ../..'
 alias ..3='cd ../../..'
@@ -114,7 +114,9 @@ alias g++='g++ -std=c++11'
 alias tt='tldr'
 alias cdp="cd ~/mine/gosuncn/PHEONIX2.0"
 alias cdc="cd ~/mine/Codes"
-alias cds="cd ~/mine/gosuncn/phoenix2.0/Module/platform/StateManage/"
+alias cds="cd ~/mine/gosuncn/phoenix2.0/Module/platform/ServerCommuication/"
+alias cdm="cd ~/mine/gosuncn/phoenix2.0/Common_Src/Protocol/Msg"
+
 
 # proxy list
 # export http_proxy="http://127.0.0.1:1080"

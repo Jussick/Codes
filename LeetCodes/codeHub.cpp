@@ -558,6 +558,7 @@ void BigOrSmallEndianJudge()
 		printf("sizeof(short) is %d\n", sizeof(short));
 }
 
+
 int main()
 {
 	//DecToBinaryTest();

@@ -57,7 +57,7 @@ int main1()
 	}
     return 0;
 }
-int main()
+int main2()
 {
     Json::FastWriter writer;
     Json::Value root;
@@ -114,12 +114,20 @@ int main()
     return 0;
 }
 
-// int main()
-// {
-    // Json::Value j_root;
-    // Json::FastWriter writer;
-    // Json::Reader reader;
+int main()
+{
+    Json::Value j_root;
+    Json::FastWriter writer;
+    Json::Reader reader;
 
-    // j_root["aaa"] = "张三";
-    // cout << j_root.toStyledString() << endl;
-// }
+    j_root["aaa"] = "张三";
+    cout << j_root.toStyledString() << endl;
+
+    std::string j_str = writer.write(j_root);
+    cout << j_str << endl;
+
+    Json::Value parse_json;
+    reader.parse(j_str, parse_json);
+    cout << parse_json.toStyledString() << endl;
+
+}

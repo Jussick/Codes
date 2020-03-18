@@ -9,6 +9,8 @@
 #include <iostream>
 #include <iomanip>
 #include <bitset>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 #define CMDTOKEN "#*SSOConFigure:"
@@ -21,11 +23,11 @@ typedef struct HappyForYCMsuccess
 	int howHard;
 }AHa;
 
-typedef struct account{
+struct Account{
 	int id;
 	char *name;
 	int level;
-}Account;
+};
 
 typedef enum {
 	one,
@@ -306,10 +308,50 @@ void printSth(int num) {
 	cout << "It's gonna be a good day. +" << num << endl;
 }
 
+bool myComparision(string &str1, string &str2)
+{
+    char tem1, tem2;
+    tem1 = toupper(str1[0]);
+    tem2 = toupper(str2[0]);
+
+    return (tem1 < tem2);
+}
+
+void giveVal2Acc(Account &acc)
+{
+    acc.id = 1;
+
+    acc.level = 5;
+
+}
+
+// 幂运算
+int power(int num, int powNum)
+{
+    int n = 1;
+    int result = 1;
+    while(n<=powNum){
+        result *= num;
+        n++;
+    }
+    return result;
+}
+
 
 int main()
 {
-	func ff = printSth;
-	ff(6);
+    unsigned char str[3] = {0x48, 0x49, 0x4A};
+    // cout << str << endl;
+    char realStr[7] = {52, 56, 52, 57, 52, 65};
+    cout << realStr << endl;
+
+    unsigned char uc = 0x48;
+    int sum = 0;
+    for (int i = 0; i < 4; ++i)
+    {
+        if (uc & (1 << i))
+            sum += power(2, i);
+    }
+    cout << hex << sum << endl;
 	return 0;
 }

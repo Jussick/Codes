@@ -1,0 +1,15 @@
+#!/usr/local/bin/expect
+
+set moduleName [lindex $argv 0]
+set moduleDir  [lindex $argv 1]
+set user	   "gosunyun"
+set password   "gsy2017"
+
+spawn scp $moduleName $user@192.168.42.189:/home/Node/$moduleDir
+expect {
+    "(yes/no)?"
+    {send "yes\n";exp_continue}
+    "password:"
+    {send "$password\n"}
+}
+expect eof

@@ -1,7 +1,10 @@
 set nu
+set relativenumber
 set sw=4
 set ts=4  " 设置Tab为4个空格
 set ai
+" F5开启/关闭相对行号
+map <silent> <F5> :set relativenumber!<cr>
 " F6开启/关闭左侧树形目录
 map <silent> <F6> :NERDTreeToggle<cr>
 " F7开启/关闭paste模式
@@ -9,13 +12,18 @@ map <silent> <F7> :set paste!<cr>
 " F8显示/取消行号
 nnoremap <silent> <F8> :set nu!<CR>
 " F9显示/关闭Tlist
-map <silent> <F9> :TlistToggle<cr>
+" map <silent> <F9> :TlistToggle<cr>
+map <silent> <F9> :TagbarToggle<cr>
 " F2开启markdown预览
 nmap <silent> <F2> <Plug>MarkdownPreview        
 imap <silent> <F2> <Plug>MarkdownPreview        
 " F3关闭markdown预览
 nmap <silent> <F3> <Plug>StopMarkdownPreview    
 imap <silent> <F3> <Plug>StopMarkdownPreview    
+" visual模式下ctrl+c复制内容到系统剪切板
+vnoremap <C-c> "+y
+" normal模式下ctrl+j黏贴内容到vim
+nnoremap <C-,> "*p 
 set showmatch
 set ignorecase
 set hlsearch
@@ -43,10 +51,14 @@ set expandtab
 " let $PATH='/usr/bin:/usr/local/bin:/bin:/usr/sbin:/sbin'
 " set mouse=a
 
+
+
+autocmd InsertEnter * se cul    " 自动命令：进入insert模式后执行se cul
 autocmd InsertLeave * se nocul
-autocmd InsertEnter * se cul
 syntax enable
 syntax on
+syntax sync fromstart
+" set redrawtime 10000
 
 set tags+=/Users/edwardlu/mine/keyou/trunk/tags
 set tags+=/Users/edwardlu/Downloads/redis/redis-unstable/src/tags
@@ -87,8 +99,10 @@ Plugin 'iamcco/mathjax-support-for-mkdp'
 Plugin 'iamcco/markdown-preview.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-surround'
-Plugin 'zxqfl/tabnine-vim'
 Plugin 'scrooloose/nerdcommenter'
+Bundle 'majutsushi/tagbar'
+" Plugin 'joeytwiddle/sexy_scroller.vim'
+Plugin 'junegunn/vim-easy-align'
  
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -117,15 +131,31 @@ else
 endif
 " end solarized theme config
 
-" Ctags
+" TListToggle配置
 let Tlist_Exit_OnlyWindow = 1  " 如果只有一个buffer，kill窗口也kill掉buffer
 let Tlist_Use_Right_Window=1
 let Tlist_File_Fold_Auto_Close=1
-let Tlist_Auto_Open=1
+let Tlist_Auto_Open=0
+
+" tagbar配置
+let g:tagbar_ctags_bin='/usr/local/bin/ctags'  " 设置ctags所在路径
+let g:tagbar_width=30
+let g:tagbar_autoclose = 0
+let g:tagbar_sort = 0
+let g:tagbar_autoopen = 1
+autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx  call tagbar#autoopen()
+
 
 " nerd Commenter配置
 let mapleader=","  "把<leader>的对应按键改为','，默认为\
 let g:NERDSpaceDelims = 1
+
+" vim-easy-align配置
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+" vim-easy-align配置结束
 
 " Youcompleteme
 let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
@@ -146,7 +176,6 @@ let g:ycm_semantic_triggers =  {
   \   'php' : ['->', '::'],
   \   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
   \   'ruby' : ['.', '::'],
-  \   'lua' : ['.', ':'],
   \   'erlang' : [':'],
   \ }
 let g:ycm_semantic_triggers =  {
@@ -194,7 +223,7 @@ if expand("%:e") != 'py'
 	call append(2, '#')
 	call append(3, '#      Filename: '.expand("%"))
 	call append(4, '#')
-	call append(5, '#        Author: luhg - luhg@keyou.cn')
+	call append(5, '#        Author: luhg - luhg@gosuncn.com')
 	call append(6, '#   Description: ---')
 	call append(7, '#        Create: '.strftime("%Y-%m-%d %H:%M:%S"))
 	call append(8, '#**********************************************/')
@@ -202,7 +231,7 @@ endif
 
 if expand("%:e") == 'cpp'
     call append(9, '#include <iostream>')
-    call append(10, 'using namespace std;')
+    " call append(10, 'using namespace std;')
 elseif expand("%:e") == 'c'
     call append(9, '#include <stdio.h>')
 elseif expand("%:e") == 'java'
@@ -234,3 +263,4 @@ endfunc
 map <F1> :call SetComment2()<CR>
 
 " 函数注释END
+

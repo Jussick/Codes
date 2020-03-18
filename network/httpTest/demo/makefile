@@ -1,5 +1,7 @@
 all: client server
 
+INCS=../HttpLib
+
 client: client.cpp
 	g++ client.cpp -o client -lboost_system -lboost_filesystem -lboost_regex -std=c++11 -lpthread
 

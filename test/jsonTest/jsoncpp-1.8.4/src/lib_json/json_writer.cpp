@@ -297,7 +297,7 @@ static JSONCPP_STRING valueToQuotedStringN(const char* value, unsigned length) {
     // Should add a flag to allow this compatibility mode and prevent this
     // sequence from occurring.
     default: {
-        unsigned int cp = utf8ToCodepoint(c, end);
+        /* unsigned int cp = utf8ToCodepoint(c, end);
         // don't escape non-control characters
         // (short escape sequence are applied above)
         if (cp < 0x80 && cp >= 0x20)
@@ -313,9 +313,10 @@ static JSONCPP_STRING valueToQuotedStringN(const char* value, unsigned length) {
           result += toHex16Bit((cp >> 10) + 0xD800);
           result += "\\u";
           result += toHex16Bit((cp & 0x3FF) + 0xDC00);
-        }
-      }
-      break;
+        } */
+          result += *c;
+          break;
+      } 
     }
   }
   result += "\"";

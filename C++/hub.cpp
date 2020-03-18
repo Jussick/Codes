@@ -21,6 +21,7 @@
 #include <cstdio>   // for tmpnam()
 #include <cstring>
 #include <vector>
+#include <sstream>
 using namespace std;
 
 void show(string  a)
@@ -215,6 +216,38 @@ void generateRandomFilenames()
 	}
 }
 
+/* 获取文件的md5校验值 */
+#define MD5LEN  32
+#define MD5_FILE "md5.txt"
+string GetMD5(string filePath)
+{
+    char cmd[128] = {0};
+    sprintf(cmd, "%s%s%s%s", "md5sum ", filePath.c_str(), " > ", MD5_FILE);  // mac上默认无此命令
+    system(cmd);
+
+    ifstream fin;
+    fin.open("md5.txt");
+    char md5_value[256] = {0};
+    fin.getline(md5_value, MD5LEN + 1);
+    fin.close();
+    remove(MD5_FILE);
+
+    return string(md5_value);
+}
+
+//从文件读入到string里
+string readFileIntoString(const char * filename)
+{
+    ifstream ifile(filename);
+    //将文件读入到ostringstream对象buf中
+    ostringstream buf;
+    char ch;
+    while(buf&&ifile.get(ch))
+    buf.put(ch);
+    //返回与流对象buf关联的字符串
+    return buf.str();
+}
+
 int main()
 {
 	/* 1 */
@@ -260,7 +293,13 @@ int main()
 	//showContentOfFile(file);
 	
 	/* 9 */
-	generateRandomFilenames();
+	// generateRandomFilenames();
+    
+    /* 10 */
+    // string res = GetMD5("./06-stringTest.cpp");
+    // cout << res << endl;
 
+    string content = readFileIntoString("./README.txt");
+    cout << content << endl;
 	return 0;
 }

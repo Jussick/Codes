@@ -223,7 +223,7 @@ if expand("%:e") != 'py'
 	call append(2, '#')
 	call append(3, '#      Filename: '.expand("%"))
 	call append(4, '#')
-	call append(5, '#        Author: luhg - luhg@gosuncn.com')
+	call append(5, '#        Author: luhg - luhengguang@gosuncn.com')
 	call append(6, '#   Description: ---')
 	call append(7, '#        Create: '.strftime("%Y-%m-%d %H:%M:%S"))
 	call append(8, '#**********************************************/')

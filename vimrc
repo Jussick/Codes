@@ -21,9 +21,11 @@ imap <silent> <F2> <Plug>MarkdownPreview
 nmap <silent> <F3> <Plug>StopMarkdownPreview    
 imap <silent> <F3> <Plug>StopMarkdownPreview    
 " visual模式下ctrl+c复制内容到系统剪切板
-vnoremap <C-c> "+y
+vnoremap <c-c> "+y
 " normal模式下ctrl+j黏贴内容到vim
-nnoremap <C-,> "*p 
+nnoremap <c-,> "*p 
+" Ctrl+h 进入全剧查找模式
+map <c-h> :Ack<space>
 set showmatch
 set ignorecase
 set hlsearch
@@ -51,6 +53,8 @@ set expandtab
 " let $PATH='/usr/bin:/usr/local/bin:/bin:/usr/sbin:/sbin'
 " set mouse=a
 
+set statusline=%F\ [%{&fenc}\ %{&ff}\ L%l/%L\ C%c]\ %=%{strftime('%Y-%m-%d\ %H:%M')}
+set ruler
 
 
 autocmd InsertEnter * se cul    " 自动命令：进入insert模式后执行se cul
@@ -103,6 +107,11 @@ Plugin 'scrooloose/nerdcommenter'
 Bundle 'majutsushi/tagbar'
 " Plugin 'joeytwiddle/sexy_scroller.vim'
 Plugin 'junegunn/vim-easy-align'
+Plugin 'itchyny/lightline.vim'
+Plugin 'vifm/vifm.vim' 
+Plugin 'vimwiki/vimwiki'
+Plugin 'ap/vim-css-color'
+Plugin 'mileszs/ack.vim'
  
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -145,6 +154,8 @@ let g:tagbar_sort = 0
 let g:tagbar_autoopen = 1
 autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx  call tagbar#autoopen()
 
+" ack配置
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " nerd Commenter配置
 let mapleader=","  "把<leader>的对应按键改为','，默认为\
@@ -156,6 +167,19 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 " vim-easy-align配置结束
+
+" vifm配置
+map <leader>vv :Vifm<CR>
+map <leader>vs :VsplitVifm<CR>
+map <leader>sp :SplitVifm<CR>
+map <leader>dv :DiffVifm<CR>
+map <leader>tv :TabVifm<CR>
+let g:vifm_embed_term = 0
+
+" vimwiki配置
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'} ]
+map <leader>wk :VimwikiIndex<CR>
 
 " Youcompleteme
 let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'

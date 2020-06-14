@@ -4,7 +4,7 @@
 #      Filename: memoryTracer.cpp
 #
 #        Author: luhg - luhg@keyou.cn
-#   Description: ---
+#   Description: 在unix下delete重载不生效，ubuntu和windows上测试通过
 #        Create: 2020-03-06 07:57:45
 #**********************************************/
 #include <iostream>

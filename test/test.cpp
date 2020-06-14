@@ -340,18 +340,8 @@ int power(int num, int powNum)
 
 int main()
 {
-    unsigned char str[3] = {0x48, 0x49, 0x4A};
-    // cout << str << endl;
-    char realStr[7] = {52, 56, 52, 57, 52, 65};
-    cout << realStr << endl;
-
-    unsigned char uc = 0x48;
-    int sum = 0;
-    for (int i = 0; i < 4; ++i)
-    {
-        if (uc & (1 << i))
-            sum += power(2, i);
-    }
-    cout << hex << sum << endl;
+    // mkdir("1floor", 0777);
+    int ret = mkdir("1floor/2floor", 0777);
+    cout << ret << endl;
 	return 0;
 }

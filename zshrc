@@ -115,7 +115,7 @@ alias tt='tldr'
 alias cdp="cd ~/mine/gosuncn/PHEONIX2.0"
 alias cdc="cd ~/mine/Codes"
 alias cds="cd ~/mine/gosuncn/phoenix2.0/Module/platform/ServerCommuication/"
-alias cdm="cd ~/mine/gosuncn/phoenix2.0/Common_Src/Protocol/Msg"
+alias cdm="cd /Users/edwardlu/mine/gosuncn/phoenix2.0/Protocol/Msg"
 
 
 # proxy list
@@ -136,3 +136,5 @@ export PATH=$PATH:$M2_HOME/bin
 export MYSCONS=/Users/edwardlu/Downloads/scons-2.1.0
 export SCONS_LIB_DIR=$MYSCONS/engine
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles
+
+[[ -s "$HOME/.xmake/profile" ]] && source "$HOME/.xmake/profile" # load xmake profile

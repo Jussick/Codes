@@ -1,0 +1,5 @@
+解压expectInstall.tgz
+
+进入packs目录
+
+执行installExpect.sh

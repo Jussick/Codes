@@ -1,0 +1,6 @@
+1、安装tcl和expect
+	解压ExpectInstall.tgz，执行InstallExpect.sh
+2、添加cron定时任务
+	AutoDel.sh放在/home/Node/SCOMM目录下，然后执行AddCronTask.sh
+3、若想修改剩余空间多少时删除和删除多长时间以前的文件，可以按照提示修改/home/Node/SCOMM/AutoDel.sh
+4、注意事项：仅在ubuntu14.04上测试

@@ -11,6 +11,7 @@
 #include <bitset>
 #include <vector>
 #include <algorithm>
+#include <unordered_set>
 using namespace std;
 
 #define CMDTOKEN "#*SSOConFigure:"
@@ -341,7 +342,12 @@ int power(int num, int powNum)
 int main()
 {
     // mkdir("1floor", 0777);
-    int ret = mkdir("1floor/2floor", 0777);
-    cout << ret << endl;
+    
+    unordered_set<char> uset;
+    uset.insert('c');
+    uset.insert('b');
+    uset.insert('c');
+
+    cout << uset.size() << endl;
 	return 0;
 }

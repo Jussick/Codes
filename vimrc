@@ -64,13 +64,14 @@ syntax on
 syntax sync fromstart
 " set redrawtime 10000
 
-set tags+=/Users/edwardlu/mine/keyou/trunk/tags
+" set tags+=/Users/edwardlu/mine/keyou/trunk/tags
 set tags+=/Users/edwardlu/Downloads/redis/redis-unstable/src/tags
-set tags+=/Users/edwardlu/mine/gitCodes/12306/tags
-set tags+=/Users/edwardlu/mine/Codes/unpv13e/tags
-set tags+=/Users/edwardlu/mine/gitCodes/Tiny-WebServer/tags
-set tags+=/Users/edwardlu/mine/gitCodes/protobuf-master/tags
+" set tags+=/Users/edwardlu/mine/gitCodes/12306/tags
+" set tags+=/Users/edwardlu/mine/Codes/unpv13e/tags
+" set tags+=/Users/edwardlu/mine/gitCodes/Tiny-WebServer/tags
+" set tags+=/Users/edwardlu/mine/gitCodes/protobuf-master/tags
 set tags+=/Users/edwardlu/mine/gosuncn/phoenix2.0/tags
+set tags+=/Users/edwardlu/mine/gitCodes/FlowChar/src/tags
 map <c-]> g<c-]>
 set autochdir
 

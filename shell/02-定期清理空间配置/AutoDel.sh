@@ -8,11 +8,11 @@ df -m | sort -k 2n | awk '{print $1}' > diskfile
 targetDisk=`cat diskfile | awk 'END {print}'`
 echo "Target disk is: $targetDisk"
 
-remainSpace=`df -m | grep $targetDisk | awk '{print $2}'`
+remainSpace=`df -m | grep $targetDisk | awk '{print $4}'`
 echo "Disk space: $remainSpace (MB)"
 
 if [ $remainSpace -lt $MINSPACE];then
     echo "Start clean old pictures and packs..."
-    find . -name "*.tgz" -o -name "*.jpg" -o -name "*.png" -mmin -$MINUTEBEFORE -exec rm -f {} \;
+    sudo find /home/Node/SCOMM -name "*.tgz" -o -name "*.jpg" -o -name "*.png" -mmin -$MINUTEBEFORE -exec rm -f {} \;
 fi
 rm -f diskfile

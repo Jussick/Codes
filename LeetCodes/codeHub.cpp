@@ -10,6 +10,7 @@
 #include <math.h>
 #include <stack>
 #include <string>
+#include <sstream>
 #define LINE_SIZE 256
 #define myprint(fmt, ...) printf("[%s]--%d: " fmt ,  __func__, __LINE__, ##__VA_ARGS__)
 
@@ -33,7 +34,7 @@ void printArr(NumType *arr, int len)
     }
 }
 template <class T> 
-T swap(T *a, T *b)
+void swap(T *a, T *b)
 {
     *a = *a ^ *b;
     *b = *a ^ *b;
@@ -170,7 +171,7 @@ void selectSort(int *arr, int len) /* 选择排序 */
             if (min > arr[i])  // find minimum and exchange
             {
                 min = arr[i];
-                swap(&arr[i], &arr[j]);
+                swap<int>(&arr[i], &arr[j]);
             }
 
         }
@@ -555,19 +556,47 @@ void BigOrSmallEndianJudge()
 			printf("uniknown.\n");
 	}
 	else
-		printf("sizeof(short) is %d\n", sizeof(short));
+		printf("sizeof(short) is %lu\n", sizeof(short));
 }
 
+
+/* 把字符串转换成任意类型 */
+template <typename type>
+type stringConvertTo(string &str)
+{
+    stringstream ss;
+    ss << str;
+    type res;
+    ss >> res;
+    return res;
+}
+
+/* 把任意一个基本类型转换成另一个基本类型 */
+template <typename originType, typename dstType>
+dstType fromTo(originType obj)
+{
+    stringstream ss;
+    ss << obj;
+    dstType out;
+    ss >> out;
+    return out;
+}
 
 int main()
 {
 	//DecToBinaryTest();
 	//BigOrSmallEndianJudge();
-	quicksortTest();
+	// quicksortTest();
 	//int arr[5] = {2,6,5,9,3};
 	//radixsort(arr, 5);
 	//printArr(arr, 5);
 	//cout << RandomInRange(0,7) << endl;
+    
+
+    string str = "5.34";
+    int num = fromTo<string, int>(str);
+    cout << num << endl;
+
 	return 0;
 }
 

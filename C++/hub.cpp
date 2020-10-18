@@ -248,6 +248,20 @@ string readFileIntoString(const char * filename)
     return buf.str();
 }
 
+string ReadPicture2String(const char* filename)
+{
+    ifstream fin(filename, ios_base::binary);
+    // 读取文件大小
+    fin.seekg(0, ios::end);
+    int length = fin.tellg();
+    fin.seekg(0, ios::beg);
+    // 开辟内存空间
+    char *buffer = new char[length];
+    fin.read(buffer, length);
+
+    return std::move(string(buffer, length));
+}
+
 int main()
 {
 	/* 1 */
@@ -299,7 +313,13 @@ int main()
     // string res = GetMD5("./06-stringTest.cpp");
     // cout << res << endl;
 
-    string content = readFileIntoString("./README.txt");
-    cout << content << endl;
+    /* 11 */
+    // string content = readFileIntoString("./README.txt");
+    // cout << content << endl;
+    
+    string picdata = ReadPicture2String("./me.jpg");
+    ofstream fout("./output.jpg");
+    fout << picdata;
+
 	return 0;
 }

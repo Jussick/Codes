@@ -53,7 +53,14 @@ set expandtab
 " let $PATH='/usr/bin:/usr/local/bin:/bin:/usr/sbin:/sbin'
 " set mouse=a
 
-set statusline=%F\ [%{&fenc}\ %{&ff}\ L%l/%L\ C%c]\ %=%{strftime('%Y-%m-%d\ %H:%M')}
+function! CurDir()
+        let curdir = substitute(getcwd(), $HOME, "~", "g")
+        return curdir
+endfunction
+set statusline=[%n]\ %f%m%r%h\ \|\ \ pwd:\ %{CurDir()}\ \ \|%=\|\ %l,%c\ %p%%\ \|\ ascii=%b,hex=%b%{((&fenc==\"\")?\"\":\"\ \|\ \".&fenc)}\ \|\ %{$USER}\ @\ %{hostname()}\
+
+
+" set statusline=%F\ [%{&fenc}\ %{&ff}\ L%l/%L\ C%c]\ %=%{strftime('%Y-%m-%d\ %H:%M')}
 set ruler
 
 
@@ -113,7 +120,7 @@ Plugin 'scrooloose/nerdcommenter'
 Bundle 'majutsushi/tagbar'
 " Plugin 'joeytwiddle/sexy_scroller.vim'
 Plugin 'junegunn/vim-easy-align'
-Plugin 'itchyny/lightline.vim'
+" Plugin 'itchyny/lightline.vim'
 Plugin 'vifm/vifm.vim' 
 Plugin 'vimwiki/vimwiki'
 Plugin 'ap/vim-css-color'

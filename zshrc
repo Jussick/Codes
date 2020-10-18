@@ -116,6 +116,7 @@ alias cdp="cd ~/mine/gosuncn/PHEONIX2.0"
 alias cdc="cd ~/mine/Codes"
 alias cds="cd ~/mine/gosuncn/phoenix2.0/Module/platform/ServerCommuication/"
 alias cdm="cd /Users/edwardlu/mine/gosuncn/phoenix2.0/Protocol/Msg"
+alias gdb="gdb -q"
 
 
 # proxy list
@@ -138,3 +139,5 @@ export SCONS_LIB_DIR=$MYSCONS/engine
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles
 
 [[ -s "$HOME/.xmake/profile" ]] && source "$HOME/.xmake/profile" # load xmake profile
+
+. /Users/edwardlu/Downloads/gitCodes/z-master/z.sh

@@ -12,6 +12,10 @@
 #include <vector>
 #include <algorithm>
 #include <unordered_set>
+#include "base.h"
+#include <queue>
+#include "mutex"
+#include <condition_variable>
 using namespace std;
 
 #define CMDTOKEN "#*SSOConFigure:"
@@ -338,16 +342,46 @@ int power(int num, int powNum)
     return result;
 }
 
+std::mutex mm;
+std::condition_variable cv;
 
 int main()
 {
-    // mkdir("1floor", 0777);
-    
-    unordered_set<char> uset;
-    uset.insert('c');
-    uset.insert('b');
-    uset.insert('c');
+    std::queue<std::string> *m_qq = new queue<std::string>;
+    real_async([m_qq](){
+        sleep(5);
+        while (1) 
+        {
+            std::unique_lock<std::mutex> lock(mm); 
+            cout << "size: " << m_qq->size() << endl;
+            if (m_qq->size() >= 125)
+            {
+                cout << "m_qq is full" << endl;
+                m_qq->pop();
+            }
+            m_qq->push("hhh");
+            cv.notify_all();
 
-    cout << uset.size() << endl;
+            usleep(40000);  // 40ms
+        }
+    }); 
+
+    // sleep(5);
+    while (1)
+    {
+        std::unique_lock<std::mutex> lock(mm); 
+        if (m_qq->empty())
+        {
+            cout << "queue is empty..." << endl;
+            cv.wait(lock);
+        }
+        
+        std::string str = m_qq->front();
+        cout << "consume queue: " << str << endl;
+        m_qq->pop();
+    }
+    
+
+
 	return 0;
 }

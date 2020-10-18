@@ -1,0 +1,13 @@
+//Test.proto
+syntax = "proto3";
+package Test.protobuf;
+
+// option optimize_for = SPEED;
+
+message HeartInfo
+{
+	string type = 1;
+	string ip = 2;
+	int32 port = 3;
+	repeated string memo = 4;  // 数组元素定义方式
+};

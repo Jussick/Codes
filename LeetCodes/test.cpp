@@ -26,6 +26,7 @@
 #include<iostream>
 #include<cstring>
 #include<cstdio>
+#include "include/list.h"
 
 using namespace std;
 
@@ -73,9 +74,8 @@ int strStr(char* haystack, char* needle)
 
 int main()
 {
-	int a, b;
-	a = 3, b = 4;
-	double ret = ((a * 1.0) + (b * 1.0)) / 2;
-	cout << "ret = " << ret << endl;
+    int a[] = {1,2,3,4};
+    Link *head = createALinklist(a, 4);    
+    traverseList(head);
 	return 0;
 }

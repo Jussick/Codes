@@ -53,14 +53,20 @@ set expandtab
 " let $PATH='/usr/bin:/usr/local/bin:/bin:/usr/sbin:/sbin'
 " set mouse=a
 
+" c-j自动补全，当补全菜单打开时，ctrl+j,k上下选择
+imap <expr> <c-j>      pumvisible()?"\<C-N>":"\<C-X><C-O>"
+imap <expr> <c-k>      pumvisible()?"\<C-P>":"\<esc>"
+
+
+
 function! CurDir()
         let curdir = substitute(getcwd(), $HOME, "~", "g")
         return curdir
 endfunction
-set statusline=[%n]\ %f%m%r%h\ \|\ \ pwd:\ %{CurDir()}\ \ \|%=\|\ %l,%c\ %p%%\ \|\ ascii=%b,hex=%b%{((&fenc==\"\")?\"\":\"\ \|\ \".&fenc)}\ \|\ %{$USER}\ @\ %{hostname()}\
 
 
-" set statusline=%F\ [%{&fenc}\ %{&ff}\ L%l/%L\ C%c]\ %=%{strftime('%Y-%m-%d\ %H:%M')}
+" set statusline=[%n]\ %f%m%r%h\ \|\ \ pwd:\ %{CurDir()}\ \ \|%=\|\ %l,%c\ %p%%\ \|\ ascii=%b,hex=%b%{((&fenc==\"\")?\"\":\"\ \|\ \".&fenc)}\ \|\ %{$USER}\ @\ %{hostname()}\
+set statusline=%F\ [%{&fenc}\ %{&ff}\ L%l/%L\ C%c]\ %=%{strftime('%Y-%m-%d\ %H:%M')}
 set ruler
 
 

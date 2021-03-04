@@ -33,6 +33,10 @@ int main()
 	
 	Solution s;
 	cout << "maxProfit: " << s.maxProfit(nums) << endl;
+
+    testGenTags();
 	
 	return 0;
 }
+
+

@@ -4,32 +4,60 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+AddNode	techleed/1-AddTwoNumsAsALinkedList.cpp	/^Solution& Solution::AddNode(ListNode **head, int val)$/;"	f	class:Solution
+AddNode	techleed/2-AddTwoNumsAsALinkedList2.cpp	/^Solution& Solution::AddNode(ListNode **head, int val)$/;"	f	class:Solution
+AddTwoLinklist	techleed/1-AddTwoNumsAsALinkedList.cpp	/^ListNode* Solution::AddTwoLinklist(ListNode *head1, ListNode *head2)$/;"	f	class:Solution
+AddTwoLinklist	techleed/2-AddTwoNumsAsALinkedList2.cpp	/^ListNode* Solution::AddTwoLinklist(ListNode *head1, ListNode *head2)$/;"	f	class:Solution
+BIND_1	28s-按序打印(多线程).cpp	/^#define BIND_1(/;"	d	file:
 BigOrSmallEndianJudge	codeHub.cpp	/^void BigOrSmallEndianJudge()$/;"	f
 BubbleSort	05s-只出现一次的数字.c	/^void BubbleSort(int *arr, int arrSize)$/;"	f
 BubbleSort	06s-移除元素.c	/^void BubbleSort(int *arr, int arrSize)$/;"	f
 BubbleSort	codeHub.cpp	/^void BubbleSort(NumType *arr, int arrSize) \/* 冒泡 *\/$/;"	f
 DecToBinary	codeHub.cpp	/^string DecToBinary(unsigned long long int dec)$/;"	f
 DecToBinaryTest	codeHub.cpp	/^void DecToBinaryTest()$/;"	f
+Employee	21s-员工的重要性.cpp	/^class Employee {$/;"	c	file:
+Foo	28s-按序打印(多线程).cpp	/^    Foo() {$/;"	f	class:Foo
+Foo	28s-按序打印(多线程).cpp	/^class Foo {$/;"	c	file:
 GenerateRandomNum	codeHub.cpp	/^int GenerateRandomNum()$/;"	f
 GetCurTime	codeHub.cpp	/^void GetCurTime(char **cur_time)$/;"	f
 GetLocalIP	codeHub.cpp	/^void GetLocalIP(char *IP)$/;"	f
+INTMAX	19-整数反转.cpp	/^#define INTMAX /;"	d	file:
 INTMAX	19s-整数反转.cpp	/^#define INTMAX /;"	d	file:
+INTMIN	19-整数反转.cpp	/^#define INTMIN /;"	d	file:
 INTMIN	19s-整数反转.cpp	/^#define INTMIN /;"	d	file:
+LEN	27s-根据字符出现频率排序.cpp	/^#define LEN /;"	d	file:
 LINE_SIZE	codeHub.cpp	/^#define LINE_SIZE /;"	d	file:
-ListNode	08-删除链表倒数第N个元素.cpp	/^    ListNode(int x) : val(x), next(NULL) {}$/;"	f	struct:ListNode
-ListNode	08-删除链表倒数第N个元素.cpp	/^struct ListNode {$/;"	s	file:
+Link	include/list.h	/^}Link;$/;"	t	typeref:struct:ListNode
+ListNode	08s-删除链表倒数第N个元素.cpp	/^    ListNode(int x) : val(x), next(NULL) {}$/;"	f	struct:ListNode
+ListNode	08s-删除链表倒数第N个元素.cpp	/^struct ListNode {$/;"	s	file:
 ListNode	13s-合并两个有序链表.cpp	/^    ListNode(int x) : val(x), next(NULL) {}$/;"	f	struct:ListNode
 ListNode	13s-合并两个有序链表.cpp	/^struct ListNode {$/;"	s	file:
 ListNode	14s-删除排序链表中的重复元素.cpp	/^    ListNode(int x) : val(x), next(NULL) {}$/;"	f	struct:ListNode
 ListNode	14s-删除排序链表中的重复元素.cpp	/^struct ListNode {$/;"	s	file:
+ListNode	include/list.h	/^	ListNode(int x): m_value(x), p_next(NULL) { }$/;"	f	struct:ListNode
+ListNode	include/list.h	/^typedef struct ListNode {$/;"	s
+ListNode	techleed/1-AddTwoNumsAsALinkedList.cpp	/^    ListNode():val(-1),next(NULL) {}$/;"	f	struct:ListNode
+ListNode	techleed/1-AddTwoNumsAsALinkedList.cpp	/^    ListNode(int num):val(num),next(NULL) {}$/;"	f	struct:ListNode
+ListNode	techleed/1-AddTwoNumsAsALinkedList.cpp	/^struct ListNode {$/;"	s	file:
+ListNode	techleed/2-AddTwoNumsAsALinkedList2.cpp	/^    ListNode():val(-1),next(NULL) {}$/;"	f	struct:ListNode
+ListNode	techleed/2-AddTwoNumsAsALinkedList2.cpp	/^    ListNode(int num):val(num),next(NULL) {}$/;"	f	struct:ListNode
+ListNode	techleed/2-AddTwoNumsAsALinkedList2.cpp	/^struct ListNode {$/;"	s	file:
 MAX	my.h	/^#define MAX /;"	d
+MAXLEN	26s-旋转字符串.c	/^#define MAXLEN /;"	d	file:
 MY_H	my.h	/^#define MY_H$/;"	d
 MergeTwoVectorInOrder	12s-两个排序数组的中位数.cpp	/^vector<int> MergeTwoVectorInOrder(const vector<int>& nums1, const vector<int>& nums2)$/;"	f
+MyCircularDeque	23-设计循环双端队列.cpp	/^    MyCircularDeque(int k) {$/;"	f	class:MyCircularDeque
+MyCircularDeque	23-设计循环双端队列.cpp	/^class MyCircularDeque {$/;"	c	file:
+PAIR	27s-根据字符出现频率排序.cpp	/^#define PAIR /;"	d	file:
 Partition	codeHub.cpp	/^int Partition(int data[], int length, int start, int end)$/;"	f
+PrintList	techleed/1-AddTwoNumsAsALinkedList.cpp	/^void Solution::PrintList(ListNode *head)$/;"	f	class:Solution
+PrintList	techleed/2-AddTwoNumsAsALinkedList2.cpp	/^void Solution::PrintList(ListNode *head)$/;"	f	class:Solution
 PrintVector	12s-两个排序数组的中位数.cpp	/^void PrintVector(vector<int> &vec)$/;"	f
 RandomInRange	codeHub.cpp	/^int RandomInRange(int min, int max)$/;"	f
+RandomInRange	ttt.cpp	/^int RandomInRange(int min, int max)$/;"	f
 ReadSpeacialLine	codeHub.cpp	/^char* ReadSpeacialLine(const char* filename, int whichLine)$/;"	f
-Solution	08-删除链表倒数第N个元素.cpp	/^class Solution {$/;"	c	file:
+RotateString	26s-旋转字符串.c	/^void RotateString(char *str, int len, int pos) {$/;"	f
+Solution	08s-删除链表倒数第N个元素.cpp	/^class Solution {$/;"	c	file:
 Solution	12s-两个排序数组的中位数.cpp	/^class Solution {$/;"	c	file:
 Solution	13s-合并两个有序链表.cpp	/^class Solution {$/;"	c	file:
 Solution	14s-删除排序链表中的重复元素.cpp	/^class Solution {$/;"	c	file:
@@ -37,27 +65,78 @@ Solution	15s-环形链表.cpp	/^class Solution {$/;"	c	file:
 Solution	16s-相交链表.cpp	/^class Solution {$/;"	c	file:
 Solution	17s-回文数.cpp	/^class Solution {$/;"	c	file:
 Solution	18s-回文链表.cpp	/^class Solution {$/;"	c	file:
+Solution	19-整数反转.cpp	/^class Solution {$/;"	c	file:
 Solution	19s-整数反转.cpp	/^class Solution {$/;"	c	file:
+Solution	20-二叉树的前序遍历.cpp	/^class Solution {$/;"	c	file:
+Solution	21s-员工的重要性.cpp	/^class Solution {$/;"	c	file:
+Solution	22s-按奇偶排序数组.cpp	/^class Solution {$/;"	c	file:
+Solution	24s-计数二进制字符串.cpp	/^class Solution {$/;"	c	file:
+Solution	25-连续的子数组和.cpp	/^class Solution {$/;"	c	file:
+Solution	27s-根据字符出现频率排序.cpp	/^class Solution {$/;"	c	file:
+Solution	29s-买卖股票的最佳时机.cpp	/^class Solution$/;"	c	file:
+Solution	30s-有效的括号.cpp	/^class Solution$/;"	c	file:
+Solution	32s-搜索插入位置.cpp	/^class Solution {$/;"	c	file:
+Solution	33s-IP地址无效化.cpp	/^class Solution {$/;"	c	file:
+Solution	34s-最大子序和.cpp	/^class Solution {$/;"	c	file:
+Solution	35-杨辉三角.cpp	/^class Solution {$/;"	c	file:
+Solution	36s-最长连续递增序列.cpp	/^class Solution {$/;"	c	file:
+Solution	37s-特殊数组的特征值.cpp	/^class Solution {$/;"	c	file:
+Solution	techleed/1-AddTwoNumsAsALinkedList.cpp	/^class Solution {$/;"	c	file:
+Solution	techleed/2-AddTwoNumsAsALinkedList2.cpp	/^class Solution {$/;"	c	file:
+Solution	techleed/3-LongestSubstringWithoutRSameChars.cpp	/^class Solution{$/;"	c	file:
+Solution	temp.cpp	/^class Solution {$/;"	c	file:
+Solution2	34s-最大子序和.cpp	/^class Solution2 {$/;"	c	file:
+Solution2	37s-特殊数组的特征值.cpp	/^class Solution2 {$/;"	c	file:
 StringFind	codeHub.cpp	/^int StringFind(const char *pSrc, const char *pDst)$/;"	f
+_LIST_H	include/list.h	/^#define _LIST_H$/;"	d
+_start	28s-按序打印(多线程).cpp	/^    void _start() {$/;"	f	class:Foo
 a	codeHub.cpp	/^int a[101],n;\/\/定义全局变量，这两个变量需要在子函数中使用$/;"	v
-a	temp.cpp	/^int a[101],n;\/\/定义全局变量，这两个变量需要在子函数中使用$/;"	v
 add1Ton_recursive	codeHub.cpp	/^int add1Ton_recursive(int n)  \/\/ recursive way$/;"	f
 addOneNodeToTail	13s-合并两个有序链表.cpp	/^bool addOneNodeToTail(int item, ListNode **head)  \/\/ **是为了要改变head指向的地址$/;"	f
 addOneNodeToTail	14s-删除排序链表中的重复元素.cpp	/^bool addOneNodeToTail(int item, ListNode **head)  \/\/ **是为了要改变head指向的地址$/;"	f
+addOneNodeToTail	include/list.h	/^bool addOneNodeToTail(int item, Link **head)  \/\/ **是为了要改变head指向的地址$/;"	f
 backward	codeHub.cpp	/^void backward(int *arr, int pos, int len)  \/\/ 从pos位置整体后移$/;"	f
 buffer	codeHub.cpp	/^char buffer[64] = {0};$/;"	v
+checkSubarraySum	25-连续的子数组和.cpp	/^    bool checkSubarraySum(vector<int>& nums, int k) {$/;"	f	class:Solution
+compare_By_val	27s-根据字符出现频率排序.cpp	/^bool compare_By_val(PAIR &one, PAIR &two) {$/;"	f
 consecutiveNumbersSum	07-连续整数求和.c	/^int consecutiveNumbersSum(int N) {$/;"	f
 consecutiveNumbersSum_overtime	07-连续整数求和.c	/^int consecutiveNumbersSum_overtime(int N) {$/;"	f
 consecutiveNumbersSum_right	07-连续整数求和.c	/^int consecutiveNumbersSum_right(int N) {$/;"	f
+countBinarySubstrings	24s-计数二进制字符串.cpp	/^    int countBinarySubstrings(string s) {$/;"	f	class:Solution
+createALinklist	include/list.h	/^Link *createALinklist(int arr[], int n)$/;"	f
+cv1	28s-按序打印(多线程).cpp	/^    condition_variable cv1, cv2;$/;"	m	class:Foo	file:
+cv2	28s-按序打印(多线程).cpp	/^    condition_variable cv1, cv2;$/;"	m	class:Foo	file:
+defangIPaddr	33s-IP地址无效化.cpp	/^    string defangIPaddr(string address) {$/;"	f	class:Solution
 deleteDuplicates	14s-删除排序链表中的重复元素.cpp	/^    ListNode* deleteDuplicates(ListNode* head) {$/;"	f	class:Solution
+deleteFront	23-设计循环双端队列.cpp	/^    bool deleteFront() {$/;"	f	class:MyCircularDeque
+deleteLast	23-设计循环双端队列.cpp	/^    bool deleteLast() {$/;"	f	class:MyCircularDeque
+departList	include/list.h	/^Link *departList(Link *head)$/;"	f
+destoryALinklist	include/list.h	/^void destoryALinklist(Link *head)$/;"	f
 equal	codeHub.cpp	/^bool equal(double num1, double num2)  \/\/ 判断两小数是否相等要看两数绝对值只差是否小于某数$/;"	f
+find3SumEqualTarget	31s-三数之和.cpp	/^vector<vector<int> > find3SumEqualTarget(vector<int> &vec, int findSum)$/;"	f
 findCycleEntryNode	15s-环形链表.cpp	/^	Link *findCycleEntryNode(Link *head, Link *meetNode) {$/;"	f	class:Solution
+findLengthOfLCIS	36s-最长连续递增序列.cpp	/^    int findLengthOfLCIS(vector<int>& nums) {$/;"	f	class:Solution
 findMedianSortedArrays	12s-两个排序数组的中位数.cpp	/^    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {$/;"	f	class:Solution
 findSlowAndFastMeetNode	15s-环形链表.cpp	/^	Link *findSlowAndFastMeetNode(Link *head) {$/;"	f	class:Solution
+first	28s-按序打印(多线程).cpp	/^    void first(function<void()> printFirst) {$/;"	f	class:Foo
+frequencySort	27s-根据字符出现频率排序.cpp	/^    string frequencySort(string s) {$/;"	f	class:Solution
+fromTo	codeHub.cpp	/^dstType fromTo(originType obj)$/;"	f
+generate	35-杨辉三角.cpp	/^    vector<vector<int>> generate(int numRows) {$/;"	f	class:Solution
+getFront	23-设计循环双端队列.cpp	/^    int getFront() {$/;"	f	class:MyCircularDeque
+getImportance	21s-员工的重要性.cpp	/^    int getImportance(vector<Employee*> employees, int id) {$/;"	f	class:Solution
 getIntersectionNode	16s-相交链表.cpp	/^    Link *getIntersectionNode(Link *headA, Link *headB) {$/;"	f	class:Solution
+getRear	23-设计循环双端队列.cpp	/^    int getRear() {$/;"	f	class:MyCircularDeque
 hasCycle	15s-环形链表.cpp	/^    bool hasCycle(Link *head) {$/;"	f	class:Solution
+id	21s-员工的重要性.cpp	/^    int id;$/;"	m	class:Employee	file:
+importance	21s-员工的重要性.cpp	/^    int importance;$/;"	m	class:Employee	file:
+insertFront	23-设计循环双端队列.cpp	/^    bool insertFront(int value) {$/;"	f	class:MyCircularDeque
+insertLast	23-设计循环双端队列.cpp	/^    bool insertLast(int value) {$/;"	f	class:MyCircularDeque
 insertSort	codeHub.cpp	/^int *insertSort(int *arr, int len)$/;"	f
 inttohex	codeHub.cpp	/^char *inttohex(int aa)$/;"	f
+isEmpty	23-设计循环双端队列.cpp	/^    bool isEmpty() {$/;"	f	class:MyCircularDeque
+isEven	22s-按奇偶排序数组.cpp	/^bool isEven(int num) {$/;"	f
+isFull	23-设计循环双端队列.cpp	/^    bool isFull() {$/;"	f	class:MyCircularDeque
+isOverFlow	19-整数反转.cpp	/^	bool isOverFlow(int x, int pop) {$/;"	f	class:Solution
 isOverFlow	19s-整数反转.cpp	/^	bool isOverFlow(int x, int pop) {$/;"	f	class:Solution
 isPalindrome	10-分割回文串.cpp	/^bool isPalindrome(string str_ori) {$/;"	f
 isPalindrome	17s-回文数.cpp	/^    bool isPalindrome(int x) {$/;"	f	class:Solution
@@ -65,7 +144,11 @@ isPalindrome	18s-回文链表.cpp	/^    bool isPalindrome(Link* head) {$/;"	f	cl
 isPalindrome_better	17s-回文数.cpp	/^	bool isPalindrome_better(int x) {$/;"	f	class:Solution
 isPhraseString	09s-验证回文串.cpp	/^bool isPhraseString(string &str_ori)$/;"	f
 isPhraseString	17s-回文数.cpp	/^	bool isPhraseString(string &str_ori)$/;"	f	class:Solution
-listNodeToString	08-删除链表倒数第N个元素.cpp	/^string listNodeToString(ListNode* node) {$/;"	f
+isValid	30s-有效的括号.cpp	/^    bool isValid(string s)$/;"	f	class:Solution
+lengthOfLongestSubstring	techleed/3-LongestSubstringWithoutRSameChars.cpp	/^int Solution::lengthOfLongestSubstring(string str)$/;"	f	class:Solution
+listNodeToString	08s-删除链表倒数第N个元素.cpp	/^string listNodeToString(ListNode* node) {$/;"	f
+m_ss	30s-有效的括号.cpp	/^    stack<int> m_ss;$/;"	m	class:Solution	file:
+m_value	include/list.h	/^	int m_value;$/;"	m	struct:ListNode
 main	01s-排序数组删除重复项.c	/^int main()$/;"	f
 main	02s-两数之和.c	/^int main()$/;"	f
 main	03s-移动零.c	/^int main()$/;"	f
@@ -73,7 +156,7 @@ main	04-加一.c	/^int main()$/;"	f
 main	05s-只出现一次的数字.c	/^int main()$/;"	f
 main	06s-移除元素.c	/^int main()$/;"	f
 main	07-连续整数求和.c	/^int main()$/;"	f
-main	08-删除链表倒数第N个元素.cpp	/^int main() {$/;"	f
+main	08s-删除链表倒数第N个元素.cpp	/^int main() {$/;"	f
 main	09s-验证回文串.cpp	/^int main()$/;"	f
 main	10-分割回文串.cpp	/^int main()$/;"	f
 main	11s-实现strstr.cpp	/^int main()$/;"	f
@@ -82,48 +165,107 @@ main	15s-环形链表.cpp	/^int main()$/;"	f
 main	16s-相交链表.cpp	/^int main()$/;"	f
 main	17s-回文数.cpp	/^int main()$/;"	f
 main	18s-回文链表.cpp	/^int main()$/;"	f
+main	19-整数反转.cpp	/^int main()$/;"	f
 main	19s-整数反转.cpp	/^int main()$/;"	f
+main	22s-按奇偶排序数组.cpp	/^int main() {$/;"	f
+main	24s-计数二进制字符串.cpp	/^int main() {$/;"	f
+main	25-连续的子数组和.cpp	/^int main() {$/;"	f
+main	26s-旋转字符串.c	/^int main() {$/;"	f
+main	27s-根据字符出现频率排序.cpp	/^int main() {$/;"	f
+main	28s-按序打印(多线程).cpp	/^int main() {$/;"	f
+main	29s-买卖股票的最佳时机.cpp	/^int main() $/;"	f
+main	30s-有效的括号.cpp	/^int main()$/;"	f
+main	31s-三数之和.cpp	/^int main()$/;"	f
+main	32s-搜索插入位置.cpp	/^int main()$/;"	f
+main	33s-IP地址无效化.cpp	/^int main()$/;"	f
+main	34s-最大子序和.cpp	/^int main()$/;"	f
+main	35-杨辉三角.cpp	/^int main()$/;"	f
+main	36s-最长连续递增序列.cpp	/^int main()$/;"	f
+main	37s-特殊数组的特征值.cpp	/^int main()$/;"	f
 main	codeHub.cpp	/^int main()$/;"	f
+main	techleed/1-AddTwoNumsAsALinkedList.cpp	/^int main()$/;"	f
+main	techleed/2-AddTwoNumsAsALinkedList2.cpp	/^int main()$/;"	f
+main	techleed/3-LongestSubstringWithoutRSameChars.cpp	/^int main()$/;"	f
 main	temp.cpp	/^int main()$/;"	f
 main	test.cpp	/^int main()$/;"	f
+main	ttt.cpp	/^int main()$/;"	f
+maxProfit	29s-买卖股票的最佳时机.cpp	/^    int maxProfit(vector<int>& prices)$/;"	f	class:Solution
+maxSubArray	34s-最大子序和.cpp	/^        int maxSubArray(vector<int> &nums)$/;"	f	class:Solution2
+maxSubArray	34s-最大子序和.cpp	/^    int maxSubArray(vector<int>& nums) {$/;"	f	class:Solution
 maxbit	codeHub.cpp	/^int maxbit(int data[], int n) \/\/辅助函数，求数据的最大位数$/;"	f
 mergeTwoLists	13s-合并两个有序链表.cpp	/^    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {$/;"	f	class:Solution
 moveZeroes	03s-移动零.c	/^void moveZeroes(int* nums, int numsSize) {$/;"	f
+mtx1	28s-按序打印(多线程).cpp	/^    mutex mtx1;$/;"	m	class:Foo	file:
 myprint	codeHub.cpp	/^#define myprint(/;"	d	file:
 n	codeHub.cpp	/^int a[101],n;\/\/定义全局变量，这两个变量需要在子函数中使用$/;"	v
-n	temp.cpp	/^int a[101],n;\/\/定义全局变量，这两个变量需要在子函数中使用$/;"	v
-next	08-删除链表倒数第N个元素.cpp	/^    ListNode *next;$/;"	m	struct:ListNode	file:
+next	08s-删除链表倒数第N个元素.cpp	/^    ListNode *next;$/;"	m	struct:ListNode	file:
 next	13s-合并两个有序链表.cpp	/^    ListNode *next;$/;"	m	struct:ListNode	file:
 next	14s-删除排序链表中的重复元素.cpp	/^    ListNode *next;$/;"	m	struct:ListNode	file:
+next	techleed/1-AddTwoNumsAsALinkedList.cpp	/^    ListNode *next;$/;"	m	struct:ListNode	file:
+next	techleed/2-AddTwoNumsAsALinkedList2.cpp	/^    ListNode *next;$/;"	m	struct:ListNode	file:
+one	28s-按序打印(多线程).cpp	/^void one() {$/;"	f
+one_run	28s-按序打印(多线程).cpp	/^    bool one_run = false, two_run = false;$/;"	m	class:Foo	file:
+p_next	include/list.h	/^	ListNode *p_next;$/;"	m	struct:ListNode
 partition	10-分割回文串.cpp	/^vector<vector<string>> partition(string &s) {$/;"	f
 plusOne	04-加一.c	/^int* plusOne(int* digits, int digitsSize, int* returnSize) {$/;"	f
 power	04-加一.c	/^int power(int num, int powNum) \/\/ added by luhg$/;"	f
 power	codeHub.cpp	/^int power(int num, int powNum)$/;"	f
-printArr	codeHub.cpp	/^int printArr(NumType *arr, int len)$/;"	f
+preorderTraversal	20-二叉树的前序遍历.cpp	/^		vector<int> preorderTraversal(TreeNode* root) {$/;"	f	class:Solution
+printArr	codeHub.cpp	/^void printArr(NumType *arr, int len)$/;"	f
 printArray	03s-移动零.c	/^void printArray(int *arr, int len)$/;"	f
+printVec	32s-搜索插入位置.cpp	/^static void printVec(std::vector<int> &vec)$/;"	f	file:
 quicksort	codeHub.cpp	/^void quicksort(int left,int right)$/;"	f
-quicksort	temp.cpp	/^void quicksort(int left,int right)$/;"	f
 quicksortTest	codeHub.cpp	/^void quicksortTest()$/;"	f
 radixsort	codeHub.cpp	/^void radixsort(int data[], int n) \/\/基数排序$/;"	f
 redirection	codeHub.cpp	/^void redirection() \/* 把输出重定向，再恢复重定向 *\/$/;"	f
 removeDuplicates	01s-排序数组删除重复项.c	/^int removeDuplicates(int* nums, int numsSize) {$/;"	f
 removeElement	06s-移除元素.c	/^int removeElement(int* nums, int numsSize, int val) {$/;"	f
-removeNthFromEnd	08-删除链表倒数第N个元素.cpp	/^    ListNode* removeNthFromEnd(ListNode* head, int n) {$/;"	f	class:Solution
+removeNthFromEnd	08s-删除链表倒数第N个元素.cpp	/^    ListNode* removeNthFromEnd(ListNode* head, int n) {$/;"	f	class:Solution
+removeNthFromEnd	temp.cpp	/^    Link* removeNthFromEnd(Link* head, int n) {$/;"	f	class:Solution
+reverse	19-整数反转.cpp	/^    int reverse(int x) {$/;"	f	class:Solution
 reverse	19s-整数反转.cpp	/^    int reverse(int x) {$/;"	f	class:Solution
+reverseList	techleed/1-AddTwoNumsAsALinkedList.cpp	/^ListNode* Solution::reverseList(ListNode *head)  \/\/ 反转链表$/;"	f	class:Solution
+reverseList	techleed/2-AddTwoNumsAsALinkedList2.cpp	/^ListNode* Solution::reverseList(ListNode *head)  \/\/ 反转链表$/;"	f	class:Solution
+rotateString	26s-旋转字符串.c	/^bool rotateString(char* A, char* B) {$/;"	f
+rotateString_better	26s-旋转字符串.c	/^bool rotateString_better(char *A, char *B) {$/;"	f
+searchInsert	32s-搜索插入位置.cpp	/^    int searchInsert(std::vector<int>& nums, int target) {$/;"	f	class:Solution
+second	28s-按序打印(多线程).cpp	/^    void second(function<void()> printSecond) {$/;"	f	class:Foo
 selectSort	codeHub.cpp	/^void selectSort(int *arr, int len) \/* 选择排序 *\/$/;"	f
 showStack	16s-相交链表.cpp	/^		void showStack(stack<Link *> ss) {$/;"	f	class:Solution	file:
 singleNumber	05s-只出现一次的数字.c	/^int singleNumber(int* nums, int numsSize) {$/;"	f
+size	23-设计循环双端队列.cpp	/^	int size = 0;$/;"	m	class:MyCircularDeque	file:
+sortArrayByParity	22s-按奇偶排序数组.cpp	/^    vector<int> sortArrayByParity(vector<int>& A) {$/;"	f	class:Solution
+sortArrayByParity2	22s-按奇偶排序数组.cpp	/^    vector<int> sortArrayByParity2(vector<int>& A) {$/;"	f	class:Solution
+specialArray	37s-特殊数组的特征值.cpp	/^    int specialArray(vector<int>& nums) {$/;"	f	class:Solution
+specialArray	37s-特殊数组的特征值.cpp	/^    int specialArray(vector<int>& nums) {$/;"	f	class:Solution2
 str2array	codeHub.cpp	/^void str2array(char *str, int *arr, char *token)$/;"	f
 strStr	11s-实现strstr.cpp	/^int strStr(char* haystack, char* needle) $/;"	f
 strStr	test.cpp	/^int strStr(char* haystack, char* needle) $/;"	f
-stringToInteger	08-删除链表倒数第N个元素.cpp	/^int stringToInteger(string input) {$/;"	f
-stringToIntegerVector	08-删除链表倒数第N个元素.cpp	/^vector<int> stringToIntegerVector(string input) {$/;"	f
-stringToListNode	08-删除链表倒数第N个元素.cpp	/^ListNode* stringToListNode(string input) {$/;"	f
-swap	codeHub.cpp	/^T swap(T *a, T *b)$/;"	f
+stringConvertTo	codeHub.cpp	/^type stringConvertTo(string &str)$/;"	f
+stringToInteger	08s-删除链表倒数第N个元素.cpp	/^int stringToInteger(string input) {$/;"	f
+stringToIntegerVector	08s-删除链表倒数第N个元素.cpp	/^vector<int> stringToIntegerVector(string input) {$/;"	f
+stringToIntegerVector	22s-按奇偶排序数组.cpp	/^vector<int> stringToIntegerVector(string input) {$/;"	f
+stringToIntegerVector	leetcode.h	/^vector<int> stringToIntegerVector(string input) {$/;"	f
+stringToListNode	08s-删除链表倒数第N个元素.cpp	/^ListNode* stringToListNode(string input) {$/;"	f
+subordinates	21s-员工的重要性.cpp	/^    vector<int> subordinates;$/;"	m	class:Employee	file:
+sum	21s-员工的重要性.cpp	/^    int sum = 0;$/;"	m	class:Solution	file:
+swap	22s-按奇偶排序数组.cpp	/^void swap(T *a, T *b)$/;"	f
+swap	codeHub.cpp	/^void swap(T *a, T *b)$/;"	f
 swap	temp.cpp	/^T swap(T *a, T *b)$/;"	f
-trimLeftTrailingSpaces	08-删除链表倒数第N个元素.cpp	/^void trimLeftTrailingSpaces(string &input) {$/;"	f
-trimRightTrailingSpaces	08-删除链表倒数第N个元素.cpp	/^void trimRightTrailingSpaces(string &input) {$/;"	f
+third	28s-按序打印(多线程).cpp	/^ void third(function<void()> printThird) {$/;"	f	class:Foo
+three	28s-按序打印(多线程).cpp	/^void three() {$/;"	f
+traverseList	include/list.h	/^void traverseList(Link *head)$/;"	f
+trimLeftTrailingSpaces	08s-删除链表倒数第N个元素.cpp	/^void trimLeftTrailingSpaces(string &input) {$/;"	f
+trimLeftTrailingSpaces	22s-按奇偶排序数组.cpp	/^void trimLeftTrailingSpaces(string &input) {$/;"	f
+trimLeftTrailingSpaces	leetcode.h	/^void trimLeftTrailingSpaces(string &input) {$/;"	f
+trimRightTrailingSpaces	08s-删除链表倒数第N个元素.cpp	/^void trimRightTrailingSpaces(string &input) {$/;"	f
+trimRightTrailingSpaces	22s-按奇偶排序数组.cpp	/^void trimRightTrailingSpaces(string &input) {$/;"	f
+trimRightTrailingSpaces	leetcode.h	/^void trimRightTrailingSpaces(string &input) {$/;"	f
+two	28s-按序打印(多线程).cpp	/^void two() {$/;"	f
 twoSum	02s-两数之和.c	/^int* twoSum(int* nums, int numsSize, int target) {$/;"	f
-val	08-删除链表倒数第N个元素.cpp	/^    int val;$/;"	m	struct:ListNode	file:
+two_run	28s-按序打印(多线程).cpp	/^    bool one_run = false, two_run = false;$/;"	m	class:Foo	file:
+val	08s-删除链表倒数第N个元素.cpp	/^    int val;$/;"	m	struct:ListNode	file:
 val	13s-合并两个有序链表.cpp	/^    int val;$/;"	m	struct:ListNode	file:
 val	14s-删除排序链表中的重复元素.cpp	/^    int val;$/;"	m	struct:ListNode	file:
+val	techleed/1-AddTwoNumsAsALinkedList.cpp	/^    int val;$/;"	m	struct:ListNode	file:
+val	techleed/2-AddTwoNumsAsALinkedList2.cpp	/^    int val;$/;"	m	struct:ListNode	file:

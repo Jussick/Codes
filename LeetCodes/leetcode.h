@@ -5,6 +5,7 @@
 #include <condition_variable>
 #include <sstream>
 #include <future>
+#include <cctype>
 
 using namespace std;
 
@@ -33,4 +34,9 @@ vector<int> stringToIntegerVector(string input) {
         output.push_back(stoi(item));
     }
     return output;
+}
+
+void testGenTags()
+{
+    std::cout << "this is a test!" << std::endl;
 }

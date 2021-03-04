@@ -90,6 +90,7 @@ endif
 " set tags+=/Users/edwardlu/mine/gitCodes/protobuf-master/tags
 " set tags+=/Users/edwardlu/mine/gosuncn/phoenix2.0/tags
 " set tags+=/Users/edwardlu/mine/gitCodes/FlowChar/src/tags
+set tags+=/Users/edwardlu/mine/Codes/LeetCodes/tags
 map <c-]> g<c-]>
 set autochdir
 
@@ -131,6 +132,7 @@ Plugin 'vifm/vifm.vim'
 Plugin 'vimwiki/vimwiki'
 Plugin 'ap/vim-css-color'
 Plugin 'mileszs/ack.vim'
+Plugin 'ludovicchabant/vim-gutentags'
  
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -229,6 +231,25 @@ let g:ycm_semantic_triggers =  {
 set completeopt=menu,menuone
 " set completeopt-=preview
 let g:ycm_add_preview_to_completeopt = 0
+
+
+" gutentags配置（自动生成tags插件）
+
+" gutentags搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归 "
+let g:gutentags_project_root = ['.root', '.svn', '.git', '.project']
+" 所生成的数据文件的名称 "
+let g:gutentags_ctags_tagfile = '.tags'
+" 将自动生成的 tags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录 "
+let s:vim_tags = expand('~/.cache/tags')
+let g:gutentags_cache_dir = s:vim_tags
+" 检测 ~/.cache/tags 不存在就新建 "
+if !isdirectory(s:vim_tags)
+   silent! call mkdir(s:vim_tags, 'p')
+endif
+" 配置 ctags 的参数 "
+let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+let g:gutentags_ctags_extra_args += ['--c++-kinds=+pxI']
+let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 
 
 " 光标停留上一次打开位置

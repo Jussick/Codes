@@ -262,6 +262,36 @@ string ReadPicture2String(const char* filename)
     return std::move(string(buffer, length));
 }
 
+/**
+ * 功能：格式化字符串
+ * 参数：
+ *  @pszFmt，格式描述
+ *  @...，不定参数
+ * 返回值：格式化的结果字符串
+ */
+std::string format(const char *fmt, ...)
+{
+	int old_size = strlen(fmt);
+	std::unique_ptr<char[]> buf(new char[old_size]);  // 相当于char *buf = new char[oldsize];
+	va_list ap;
+     
+	va_start(ap, fmt);
+	int new_size = vsnprintf(buf.get(), old_size, fmt, ap);  // 返回了ap中所有字符或数字按照format中的格式化加一起的长度，即要格式化输出的总长度
+	va_end(ap);
+	if (new_size < 0)
+		return "";
+ 
+	buf.reset(new char[new_size + 1]);
+	va_start(ap, fmt);
+	new_size = vsnprintf(buf.get(), new_size + 1, fmt, ap);
+	va_end(ap);
+	if (new_size < 0)
+		return "";
+ 
+	return std::string(buf.get());
+}
+
+
 int main()
 {
 	/* 1 */
@@ -320,6 +350,9 @@ int main()
     string picdata = ReadPicture2String("./me.jpg");
     ofstream fout("./output.jpg");
     fout << picdata;
+
+    string str = format("%d-%d-%d", 2021, 1, 2);
+    cout << str << endl;
 
 	return 0;
 }

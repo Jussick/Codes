@@ -49,7 +49,7 @@ public class Foo {
 #include "leetcode.h"
 
 using namespace std;
-#define BIND_1(a) bind(a, this, placeholders::_1);
+#define BIND_1(a) bind(a, this, placeholders::_1)
 
 void one() {
     cout << "one";
@@ -65,9 +65,10 @@ class Foo {
     mutex mtx1;
     condition_variable cv1, cv2;
     bool one_run = false, two_run = false;
+
 public:
-Foo() {
-        
+    Foo() {
+
     }
 
     void first(function<void()> printFirst) {
@@ -109,11 +110,14 @@ Foo() {
                 switch (i) 
                 {
                     case 1:
-                       async((BIND_1(first)), one);
+                       async(BIND_1(&Foo::first), one);
+                       break;
                     case 2:
-                       async((BIND_1(second)), two);
+                       async(BIND_1(&Foo::second), two);
+                       break;
                     case 3:
-                       async((BIND_1(third)), three);
+                       async(BIND_1(&Foo::third), three);
+                       break;
 
                 }
             }                            

@@ -380,8 +380,5 @@ int main()
         cout << "consume queue: " << str << endl;
         m_qq->pop();
     }
-    
-
-
 	return 0;
 }

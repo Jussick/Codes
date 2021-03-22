@@ -1,0 +1,9 @@
+/home/edward/mine/openCV/waterMark/external/freetype-2.10.0/builds/CMakeFiles/package.dir
+/home/edward/mine/openCV/waterMark/external/freetype-2.10.0/builds/CMakeFiles/package_source.dir
+/home/edward/mine/openCV/waterMark/external/freetype-2.10.0/builds/CMakeFiles/edit_cache.dir
+/home/edward/mine/openCV/waterMark/external/freetype-2.10.0/builds/CMakeFiles/rebuild_cache.dir
+/home/edward/mine/openCV/waterMark/external/freetype-2.10.0/builds/CMakeFiles/install/local.dir
+/home/edward/mine/openCV/waterMark/external/freetype-2.10.0/builds/CMakeFiles/install/strip.dir
+/home/edward/mine/openCV/waterMark/external/freetype-2.10.0/builds/CMakeFiles/list_install_components.dir
+/home/edward/mine/openCV/waterMark/external/freetype-2.10.0/builds/CMakeFiles/install.dir
+/home/edward/mine/openCV/waterMark/external/freetype-2.10.0/builds/CMakeFiles/freetype.dir

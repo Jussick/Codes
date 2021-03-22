@@ -291,6 +291,84 @@ std::string format(const char *fmt, ...)
 	return std::string(buf.get());
 }
 
+/* ----------------------------------------------------------------------- */
+
+// 给double保留n位小数 (方法一，stringstream转换法，返回string)
+string ReserverPercisionTo(double num, int reserve/*要保留的位数*/)  // 保留n位小数
+{
+    stringstream ss;
+    ss.setf(ios::fixed);
+    ss.precision(reserve);
+    ss << num;
+    return ss.str();
+}
+// 给double保留n位小数 (方法二，数学计算法, 返回double)
+double ReserverPercisionTo_2(double num, int reserve)
+{
+    return floor(num * pow(10,reserve)) / pow(10,reserve);
+}
+
+/* ----------------------------------------------------------------------- */
+
+/***********************************************
+#      函数名称: GetDateAndTime
+#
+#   Description: 获取当前的年月日时分秒  yyyy-mm-dd hh:mm:ss
+#     parameter: void
+#   returnValue: string
+#        Author: luhg
+#        Create: 2021-03-19 11:23:44
+#**********************************************/
+std::string GetDateAndTime()
+{
+    time_t nowtime;
+    struct tm nowtm;
+    
+    time(&nowtime);
+    localtime_r(&nowtime, &nowtm);
+
+    char date[256];
+    memset(date, 0, sizeof(date));
+    sprintf(date, "%d-%d-%d %d:%d:%d", nowtm.tm_year+1900, nowtm.tm_mon+1, nowtm.tm_mday, nowtm.tm_hour, nowtm.tm_min, nowtm.tm_sec);
+
+    return std::move(std::string(date));
+}
+
+/**
+ * @name: GetLocalTimeWithMs
+ * @msg: 获取本地时间，精确到毫秒
+ * @param {type} 
+ * @return: string字符串，格式为YYYYMMDDHHMMSSsss，如：20190710130510368
+ */
+static string GetLocalTimeWithMs(void)
+{
+    string defaultTime = "19700101000000000";
+    try
+    {
+        struct timeval curTime;
+        gettimeofday(&curTime, NULL);
+        int milli = curTime.tv_usec / 1000;
+
+        char buffer[80] = {0};
+        struct tm nowTime;
+        localtime_r(&curTime.tv_sec, &nowTime);//把得到的值存入临时分配的内存中，线程安全
+        strftime(buffer, sizeof(buffer), "%Y%m%d%H%M%S", &nowTime);
+
+        char currentTime[84] = {0};
+        snprintf(currentTime, sizeof(currentTime), "%s%03d", buffer, milli);
+
+        return currentTime;
+    }
+    catch(const std::exception& e)
+    {
+        return defaultTime;
+    }
+    catch (...)
+    {
+        return defaultTime;
+    }
+}
+
 
 int main()
 {

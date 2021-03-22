@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# read 方法度文件内容
+# read 方法读文件内容
 #cat hostList.txt | while read line
 #do
 #	echo "list:$line"

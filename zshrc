@@ -117,6 +117,8 @@ alias cdc="cd ~/mine/Codes"
 alias cds="cd ~/mine/gosuncn/phoenix2.0/Module/platform/ServerCommuication/"
 alias cdm="cd /Users/edwardlu/mine/gosuncn/phoenix2.0/Protocol/Msg"
 alias gdb="gdb -q"
+alias giticdiff="git icdiff"
+alias gitlog="git log --pretty=format:'%h (%cd) : %s' --graph --date=short"
 
 
 # proxy list
@@ -137,6 +139,9 @@ export PATH=$PATH:$M2_HOME/bin
 export MYSCONS=/Users/edwardlu/Downloads/scons-2.1.0
 export SCONS_LIB_DIR=$MYSCONS/engine
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles
+
+# ffmpeg path
+export PATH=/usr/local/ffmpeg/bin:$PATH
 
 [[ -s "$HOME/.xmake/profile" ]] && source "$HOME/.xmake/profile" # load xmake profile
 

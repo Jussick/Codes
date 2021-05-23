@@ -582,6 +582,82 @@ dstType fromTo(originType obj)
     return out;
 }
 
+
+/***********************************************
+#      函数名称: QuickSort
+#
+#   Description: 标准快排
+#     parameter: @arr : 输入数组
+                 @left : 左边界
+                 @right: 右边界
+#   	 Author: luhg
+#        Create: 2021-04-29 21:59:11
+#**********************************************/
+
+// 菜鸟上快排的实现
+int g_count = 0;
+int Paritition(int *arr, int left, int right)
+{
+    int pivot = arr[left];  // 基准数
+    cout << "基准数：" << pivot << ", left: " << left << ", right: " << right << ", 次数：" << g_count++ << endl;
+    while (left < right)
+    {
+        while (left < right && arr[right] >= pivot)  // 先从右侧找一个比基准数小的值
+        {
+            --right;
+        }
+        arr[left] = arr[right];
+
+        while (left < right && arr[left] <= pivot)  // 再从左找一个比基准数大的值
+        {
+            ++left;
+        }
+        arr[right] = arr[left];
+    }
+    arr[left] = pivot;  // 基准数归位
+
+    return left;
+}
+
+/***********************************************
+#      函数名称: Paritition2
+#
+#   Description: 算法导论上快排的实现
+#     parameter: @arr : 输入数 
+                 @left : 左边界
+                 @right: 右边界
+#   returnValue: 基准数归位的index
+#   	 Author: luhg
+#        Create: 2021-05-05 10:52:26
+#**********************************************/
+int Paritition2(int *arr, int p, int r)
+{
+    int x = arr[r];
+    int i = p - 1;
+    cout << "基准数: " << x << endl;
+    for (int j = p; j < r; ++j)
+    {
+        if (arr[j] <= x)
+        {
+            i+=1;
+            swap<int>(arr[i], arr[j]);
+        }
+    }
+    swap<int>(arr[r], arr[i+1]);
+    cout << "index: " << i+1 << endl;
+    return i+1;
+}
+void QuickSort(int *arr, int left, int right)
+{
+    if (left < right)
+    {
+        int pivot = Paritition2(arr, left, right);
+        QuickSort(arr, left, pivot - 1);
+        QuickSort(arr, pivot + 1, right);
+    }
+    return;
+}
+
 int main()
 {
 	//DecToBinaryTest();
@@ -593,10 +669,13 @@ int main()
 	//cout << RandomInRange(0,7) << endl;
     
 
-    string str = "5.34";
-    int num = fromTo<string, int>(str);
-    cout << num << endl;
+    // string str = "5.34";
+    // int num = fromTo<string, int>(str);
+    // cout << num << endl;
 
+    int arr[10] = {3,7,5,2,8,9,3,1,6,8};
+    QuickSort(arr, 0, 9);
+    printArr(arr, 10);
 	return 0;
 }
 

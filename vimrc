@@ -91,6 +91,8 @@ endif
 " set tags+=/Users/edwardlu/mine/gosuncn/phoenix2.0/tags
 " set tags+=/Users/edwardlu/mine/gitCodes/FlowChar/src/tags
 set tags+=/Users/edwardlu/mine/Codes/LeetCodes/tags
+set tags+=/Users/edwardlu/mine/gitCodes/WebRTC_NS/tags
+set tags+=/Users/edwardlu/mine/gosuncn/phoenix2.0/Module/platform/tags
 map <c-]> g<c-]>
 set autochdir
 
@@ -242,6 +244,8 @@ let g:gutentags_ctags_tagfile = '.tags'
 " 将自动生成的 tags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录 "
 let s:vim_tags = expand('~/.cache/tags')
 let g:gutentags_cache_dir = s:vim_tags
+" 忽略目录
+let g:gutentags_exclude_project_root = ['/home/edwardlu/mine/Codes']
 " 检测 ~/.cache/tags 不存在就新建 "
 if !isdirectory(s:vim_tags)
    silent! call mkdir(s:vim_tags, 'p')

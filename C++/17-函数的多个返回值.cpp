@@ -11,7 +11,7 @@
 
 using namespace std;
 
-tuple<int, string> returnTuple()
+std::tuple<int, string> returnTuple()
 {
     int a = 6;
     string str = "second";
@@ -24,4 +24,10 @@ int main()
     int a = std::get<0>(tp);
     string str = std::get<1>(tp);
     cout << a << " " << str << endl;
+
+    // 或者用下面这种形式接收返回值
+    int num;
+    string str2;
+    std::tie(num, str2) = returnTuple();
+    cout << num << " " << str2 << endl;
 }

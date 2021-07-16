@@ -25,10 +25,13 @@ int main() {
 	mybuf.set_port(9999);
 	mybuf.set_ip("localhost");
     // 数组元素赋值
-    std::string *mm1 = mybuf.add_memo();
-    std::string *mm2 = mybuf.add_memo();
-    mm1->assign("hahaha", 6);
-    mm2->assign("hehehe", 6);
+    mybuf.add_memo("hahaha");
+    mybuf.add_memo("hahaha2");
+    // 或者这样
+    // std::string *mm1 = mybuf.add_memo();
+    // std::string *mm2 = mybuf.add_memo();
+    // mm1->assign("hahaha", 6);
+    // mm2->assign("hehehe", 6);
 	mybuf.SerializeToArray(buf, MAXSIZE);
 
 

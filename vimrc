@@ -67,6 +67,7 @@ endfunction
 
 " set statusline=[%n]\ %f%m%r%h\ \|\ \ pwd:\ %{CurDir()}\ \ \|%=\|\ %l,%c\ %p%%\ \|\ ascii=%b,hex=%b%{((&fenc==\"\")?\"\":\"\ \|\ \".&fenc)}\ \|\ %{$USER}\ @\ %{hostname()}\
 set statusline=%F\ [%{&fenc}\ %{&ff}\ L%l/%L\ C%c]\ %=%{strftime('%Y-%m-%d\ %H:%M')}
+set statusline+=%{gutentags#statusline()}
 set ruler
 
 
@@ -237,6 +238,10 @@ let g:ycm_add_preview_to_completeopt = 0
 
 " gutentags配置（自动生成tags插件）
 
+" 开关
+let g:gutentags_enabled = 1
+" A list of project roots to generally ignore.
+let g:gutentags_exclude_project_root = ['.notags']
 " gutentags搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归 "
 let g:gutentags_project_root = ['.root', '.svn', '.git', '.project']
 " 所生成的数据文件的名称 "
@@ -250,6 +255,8 @@ let g:gutentags_exclude_project_root = ['/home/edwardlu/mine/Codes']
 if !isdirectory(s:vim_tags)
    silent! call mkdir(s:vim_tags, 'p')
 endif
+" gutentags配置结束----------------------------------------
+
 " 配置 ctags 的参数 "
 let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
 let g:gutentags_ctags_extra_args += ['--c++-kinds=+pxI']

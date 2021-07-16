@@ -4,7 +4,7 @@
 #      Filename: LogInRange.cpp
 #
 #        Author: luhg - luhengguang@gosuncn.com
-#   Description: 问题描述见./LogInrange.png
+#   Description: 百度面试题: 问题描述见./LogInrange.png
 #        Create: 2021-04-28 20:05:26
 #**********************************************/
 #include <iostream>

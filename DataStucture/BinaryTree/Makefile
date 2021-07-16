@@ -1,4 +1,4 @@
-app:realize.cpp main.cpp
+app:binaryTree.cpp main.cpp
 	g++ $^ -o $@ -std=c++11
 
 clean:

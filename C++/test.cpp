@@ -21,6 +21,7 @@
 #include<iomanip>
 #include<bitset>
 #include<map>
+#include <memory>
 
 using namespace std;
 
@@ -120,6 +121,7 @@ int main1()
 	//		cout << "no one!" << endl;
 	//	i++;
 	//}
+    return 0;
 }
 
 typedef struct {
@@ -203,12 +205,56 @@ void TwoDimensionalVectorTest() {
     }
 }
 
+class Foo {
+public:
+    Foo(int val, initializer_list<string> il):value(val),sp(make_shared<vector<string> >(il)) { cout << "Foo " << value << " constructed !" << endl; }
+    ~Foo() { cout << "Foo " << value << " destroyed..." << endl; }
+    void show() { 
+        cout << "This is foo " << value << endl; 
+        for (size_t i = 0; i < sp->size(); ++i)
+        {
+            // cout << sp[i] << " "; 
+        }
+    }
+private:
+    int value;
+    shared_ptr<vector<string> > sp;
+};
+
+struct foo {
+    char c;
+    int x;
+    short cc;
+};
+
 int main()
 {
 	//TwoDimensionalVectorTest();
 	
-	map<int, string> m_map;
-	m_map.insert(make_pair(1, "haha"));
+	// map<int, string> m_map;
+	// m_map.insert(make_pair(1, "haha"));
+#if 0
+    Foo *pf = new Foo(1, { "123", "456", "789" });
+    // shared_ptr<Foo> p1 = make_shared<Foo>(Foo(1));    
+    shared_ptr<Foo> p1;
+    p1.reset(pf);
+    p1->show();
+    shared_ptr<Foo> p2;
+    cout << "p1: " << p1.use_count() << endl;
+    cout << "p2: " << p2.use_count() << endl;
+    p2 = p1;
+    cout << "after \"p2=p1\"" << endl;
+    cout << "p1: " << p1.use_count() << endl;
+    cout << "p2: " << p2.use_count() << endl;
 
+    cout << "p1.unique(): " << p1.unique() << endl;  // 判断当前shared_ptr的引用计数是否为1
+    cout << "p2.unique(): " << p2.unique() << endl;  // 判断当前shared_ptr的引用计数是否为1
+    p1.reset(new Foo(*p1));
+    cout << "after p2.reset(), p1.unique(): " << p1.unique() << endl;
+    cout << "after p2.reset(), p2.unique(): " << p1.unique() << endl;
+#endif
+    uint32_t x = 1;
+    decltype(x++) y = 2;
+    cout << x << " " << y << endl;
 	return 0;
 }

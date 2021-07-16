@@ -19,7 +19,7 @@ Link *reverseList(Link *head)
 		return NULL;
 
 	Link *cur = head;  // 当前节点指针
-	Link *next;		   // 下一个节点指针
+    Link *next;        // 下一个节点指针
 	Link *pre = NULL;  // 前一个节点指针
 
 	while (cur != NULL)
@@ -29,7 +29,7 @@ Link *reverseList(Link *head)
 			cur->p_next = pre;
 			break;
 		}
-		next = cur->p_next;
+        next = cur->p_next;
 		cur->p_next = pre;
 		pre = cur;
 		cur = next;

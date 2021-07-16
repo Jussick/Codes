@@ -83,11 +83,17 @@ double Round::Area() const{
 // test main
 int main()
 {
-	Ellipse e1(5,3,0,0);
-	Round r1(3,0,0);
+	// Ellipse e1(5,3,0,0);
+	// Round r1(3,0,0);
 
-	cout << "Round's area is: " << r1.Area() << endl;
-	cout << "Ellipse's area is: " << e1.Area() << endl;
+	// cout << "Round's area is: " << r1.Area() << endl;
+	// cout << "Ellipse's area is: " << e1.Area() << endl;
+    
+    EllipseBase *p_ellipse = new Ellipse(5,3,0,0);
+    EllipseBase *p_round   = new Round(3,0,0);
+
+    cout << "Round area is " << p_round->Area() << endl;
+    cout << "Ellipse area is " << p_ellipse->Area() << endl;
 
 	return 0;
 }

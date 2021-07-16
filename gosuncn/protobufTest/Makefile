@@ -1,13 +1,13 @@
 CC = g++ -Wall -fPIC -std=c++11
 
 TARGET = app
-LIBS = -lprotobuf
+LIB_PATH = -L./include
+LIBS = -lprotobuf -ltest
 
 all:$(TARGET)
 
-app:./include/Test.pb.cc ./protobufTest.cpp 
-# app: ./protobufTest.cpp 
-	$(CC) $^ -o $@ $(LIBS)
+app:./protobufTest.cpp 
+	$(CC) $^ -o $@ $(LIB_PATH) $(LIBS)
 
 clean:
 	rm -rf $(TARGET)*

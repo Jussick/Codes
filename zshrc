@@ -110,7 +110,7 @@ alias ..3='cd ../../..'
 alias ..4='cd ../../../..'
 alias py=python3
 alias cp='cp -i'
-alias g++='g++ -std=c++11'
+alias g++='g++ -std=c++11 -g'
 alias tt='tldr'
 alias cdp="cd ~/mine/gosuncn/PHEONIX2.0"
 alias cdc="cd ~/mine/Codes"

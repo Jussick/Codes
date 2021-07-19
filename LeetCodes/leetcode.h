@@ -21,6 +21,16 @@ void trimRightTrailingSpaces(string &input) {
     }).base(), input.end());
 }
 
+
+/***********************************************
+#      函数名称: stringToIntegerVector
+#
+#   Description: 字符串转成整型vector
+#     parameter: input: [1,2,3,4,5]
+#   returnValue: vector<int>
+#   	 Author: luhg
+#        Create: 2021-07-18 09:42:26
+#**********************************************/
 vector<int> stringToIntegerVector(string input) {
     vector<int> output;
     trimLeftTrailingSpaces(input);

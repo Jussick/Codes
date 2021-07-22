@@ -11,6 +11,8 @@
 #include <chrono>
 #include <thread>
 #include "LocalSTAVFileInterface.h"
+#include <fstream>
+#include <unistd.h>
 
 using namespace std;
 
@@ -18,7 +20,7 @@ int main()
 {
     av_register_all();
 
-    //打印ffmpeg的日志
+    // 打印ffmpeg的日志
     av_log_set_callback([](void *ptr, int level, const char *fmt, va_list vl){
         auto result = new char[500];
         switch (level)
@@ -65,34 +67,54 @@ int main()
         {
             auto describtions = new StruGSMediaDescri[mediaDescriCount];
 
+            ofstream fout("./log.txt");
             for(int i=0;i<mediaDescriCount;i++)
             {
                 //获取录像的各个轨道的媒体信息
                 auto descri = m_readInterface->GetMediaDescri(i);
                 if(descri->eMediaType == GS_MEDIA_TYPE_VIDEO)
                 {
+                    cout << "video codeId:" << descri->unDescri.struVideo.eCodeID << endl;
+                    cout << "video iWidth:" << descri->unDescri.struVideo.iWidth << endl;
+                    cout << "video iHeight:" << descri->unDescri.struVideo.iHeight << endl;
+                    cout << "video iFrameRate:" << descri->unDescri.struVideo.iFrameRate << endl;
+
+                    fout << "video codeId:" << descri->unDescri.struVideo.eCodeID << endl;
+                    fout << "video iWidth:" << descri->unDescri.struVideo.iWidth << endl;
+                    fout << "video iHeight:" << descri->unDescri.struVideo.iHeight << endl;
+                    fout << "video iFrameRate:" << descri->unDescri.struVideo.iFrameRate << endl;
+                    
+
                     describtions[i].eMediaType = descri->eMediaType;
                     describtions[i].unDescri.struVideo.eCodeID = descri->unDescri.struVideo.eCodeID;
-
-                    cout << "codeId:" << descri->unDescri.struVideo.eCodeID << endl;
-
                     describtions[i].unDescri.struVideo.iWidth = descri->unDescri.struVideo.iWidth;
                     describtions[i].unDescri.struVideo.iHeight = descri->unDescri.struVideo.iHeight;
                     describtions[i].unDescri.struVideo.iFrameRate = descri->unDescri.struVideo.iFrameRate;
                 }
                 if(descri->eMediaType == GS_MEDIA_TYPE_AUDIO)
                 {
+                    cout << "audio codeId:" << descri->unDescri.struVideo.eCodeID << endl;
+                    cout << "audio iSample: " << descri->unDescri.struAudio.iSample << endl;
+                    cout << "audio iBits: " << descri->unDescri.struAudio.iBits << endl;
+                    cout << "audio iChannels: " << descri->unDescri.struAudio.iChannels << endl;
+                    cout << "audio iBitRate: " << descri->unDescri.struAudio.iBitRate << endl;
+
+                    fout << "audio codeId:" << descri->unDescri.struVideo.eCodeID << endl;
+                    fout << "audio iSample: " << descri->unDescri.struAudio.iSample << endl;
+                    fout << "audio iBits: " << descri->unDescri.struAudio.iBits << endl;
+                    fout << "audio iChannels: " << descri->unDescri.struAudio.iChannels << endl;
+                    fout << "audio iBitRate: " << descri->unDescri.struAudio.iBitRate << endl;
+
+
                     describtions[i].eMediaType = GS_MEDIA_TYPE_AUDIO;
                     describtions[i].unDescri.struAudio.eCodeID = descri->unDescri.struAudio.eCodeID;
-
-                    cout << "codeId:" << descri->unDescri.struVideo.eCodeID << endl;
-
                     describtions[i].unDescri.struAudio.iSample = descri->unDescri.struAudio.iSample;
                     describtions[i].unDescri.struAudio.iBits = descri->unDescri.struAudio.iBits;
                     describtions[i].unDescri.struAudio.iChannels = descri->unDescri.struAudio.iChannels;
                     describtions[i].unDescri.struAudio.iBitRate = descri->unDescri.struAudio.iBitRate;
                 }
             }
+            fout.close();
             return describtions;
         };
 
@@ -106,24 +128,26 @@ int main()
     }; 
 
     createRecordFile();
+    sleep(3);
 
+#if 1
     while (true)
     {
         //从avi里面读取一帧帧的信息
         StruGSAVFrame pstFrame;
         auto ret = m_readInterface->ReadFrame(&pstFrame, false);
         if ( ret != eAVF_SUCCESS && ret != eAVF_END_OF_GOP ) break;
-        cout << "Is key frame :" << pstFrame.bKeyFrame << " ,timestamp is " << pstFrame.iTimestamp
-             << " , media data len is " << pstFrame.iMediaDataLen << endl;
+        cout << "Is key frame :" << pstFrame.bKeyFrame << " ,timestamp is " << pstFrame.iTimestamp << ", iduration is " << pstFrame.iDurationStamp
+             << ", isValidDurationStamp is " << pstFrame.isValidDurationStamp << " , media data len is " << pstFrame.iMediaDataLen << endl;
 
         //把媒体帧写入到新的录像文件里面
         ret = m_writeInterface->WriteFrame(&pstFrame);
         cout<<"Write frame result is "<<ret<<endl;
 
-        /*一般一帧数据来了，需要判断当前数据是不是视频帧，因为帧的类型分成几种。SPS/PPS/SEI/I/P
-          摄像头因为实时视频的原因，会在I帧跟P帧前插入1帧SEI帧，如果只是I帧前插入是影响不大的，但是因为会在每帧P帧前都插入SEI这个结构化数据，
-          如果把这个数据也写入进去的话，录像的文件会增大1倍。所以在实际的帧过来的时候，需要调用这个函数，把数据传进去，通过下面这个方法，
-          把这个P帧前的SEI给去掉。*/
+        // [>一般一帧数据来了，需要判断当前数据是不是视频帧，因为帧的类型分成几种。SPS/PPS/SEI/I/P
+          // 摄像头因为实时视频的原因，会在I帧跟P帧前插入1帧SEI帧，如果只是I帧前插入是影响不大的，但是因为会在每帧P帧前都插入SEI这个结构化数据，
+          // 如果把这个数据也写入进去的话，录像的文件会增大1倍。所以在实际的帧过来的时候，需要调用这个函数，把数据传进去，通过下面这个方法，
+          // 把这个P帧前的SEI给去掉。*/
         auto GetFramePos = [](const unsigned char *frameData, unsigned int frameLen){
             int type = 0;
             int nalHeadPos = 0;
@@ -172,6 +196,7 @@ int main()
             return 0;
         };
     }
+#endif
 
     m_readInterface->Close();
     m_writeInterface->Close();

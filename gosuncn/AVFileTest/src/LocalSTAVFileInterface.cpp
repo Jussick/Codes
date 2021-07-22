@@ -25,7 +25,7 @@ CLocalSTAVFileReadInterface::CLocalSTAVFileReadInterface()
 	m_bHadReadFrame = false;
 
 
-	av_init_packet(&m_avPakcet);
+	// av_init_packet(&m_avPakcet);
 
 
 }
@@ -64,21 +64,21 @@ const StruGSMediaDescri *CLocalSTAVFileReadInterface::GetMediaDescri(int iIndex)
 	return &m_pMediaDescriArry[iIndex];
 }
 
-int GSGetFileInfo(const char* szFileName, UInt64 *pLastModifiedTime, UInt64 *pFileSize )
+int GSGetFileInfo(const char *szFileName, UInt64 *pLastModifiedTime, UInt64 *pFileSize)
 {
-	if( !szFileName )
+	if ( !szFileName )
 	{
 		return -6;
 	}
 
-	struct stat  f_stat;
+	struct stat f_stat;
 	if ( 0 == stat(szFileName, &f_stat))
 	{
-		if( pFileSize )
+		if ( pFileSize )
 		{
 			*pFileSize = f_stat.st_size;
 		}
-		if( pLastModifiedTime )
+		if ( pLastModifiedTime )
 		{
 			*pLastModifiedTime = f_stat.st_mtime;
 		}
@@ -86,13 +86,13 @@ int GSGetFileInfo(const char* szFileName, UInt64 *pLastModifiedTime, UInt64 *pFi
 
 	}
 
-	if( errno == ENOENT )
+	if ( errno == ENOENT )
 	{
 		//文件不存在
 		return -3;
 	}
 
-	if(  errno == EINVAL)
+	if ( errno == EINVAL )
 	{
 		return -6;
 	}
@@ -107,7 +107,7 @@ EnumGSAVFileRetCode CLocalSTAVFileReadInterface::GetInfo(StruGSAVFileInfo *pstIn
 		return eAVF_ENOPEN;
 	}
 	int eOSError = GSGetFileInfo(m_strFileFullName.c_str(), &(pstInfo->iLastModifyTime),
-	                                       &(pstInfo->iSize));
+	                             &(pstInfo->iSize));
 	if ( eOSError != 0 )
 		return eAVF_EIO;
 
@@ -162,7 +162,7 @@ EnumGSAVFileRetCode CLocalSTAVFileReadInterface::ReadFrame(StruGSAVFrame *pstFra
 		}
 
 		int ret = av_read_frame(m_pAvFormat, &m_avPakcet);
-		if (ret >= 0 )
+		if ( ret >= 0 )
 		{
 			m_bHadReadFrame = true;
 
@@ -210,7 +210,7 @@ EnumGSAVFileRetCode CLocalSTAVFileReadInterface::ReadFrame(StruGSAVFrame *pstFra
 		}
 		else
 		{
-			gs_printf("Read frame failed,Result is %d",ret);
+			gs_printf("Read frame failed,Result is %d", ret);
 			return eAVF_EIO;
 		}
 	}
@@ -222,7 +222,8 @@ void CLocalSTAVFileReadInterface::ReadPause(void)
 
 }
 
-EnumGSAVFileRetCode CLocalSTAVFileReadInterface::SeekTime(UInt64 iTimestamp, bool bSeekToVideoKey, UInt32 *pRealTimeStamp, Int32 iDirect)
+EnumGSAVFileRetCode
+CLocalSTAVFileReadInterface::SeekTime(UInt64 iTimestamp, bool bSeekToVideoKey, UInt32 *pRealTimeStamp, Int32 iDirect)
 {
 	if ( iTimestamp < 0 )
 		return eAVF_EINVALID;
@@ -309,9 +310,9 @@ EnumGSAVFileRetCode CLocalSTAVFileReadInterface::OpenFile(char *szFullName, Enum
 
 		if ( err < 0 )
 		{
-			char* errStr= new char[300];
-			av_strerror(err,errStr,sizeof(char)*300);
-			cout<<errStr<<endl;
+			char *errStr = new char[300];
+			av_strerror(err, errStr, sizeof(char) * 300);
+			cout << errStr << endl;
 			return eAVF_EINVALID;
 		}
 		av_format_inject_global_side_data(m_pAvFormat);
@@ -408,7 +409,7 @@ EnumGSAVFileRetCode CLocalSTAVFileReadInterface::OpenFile(char *szFullName, Enum
 					m_iAudioBitRate = codec->bit_rate;
 				}
 
-				if(iChnNum ==1)
+				if ( iChnNum == 1 )
 				{
 					/*
 					 * 对于这个独立音频的话，这个帧间隔应该是通过扫描时间，得出的间隔。但是因为现在机器人上来的都是G711A，而且扫描间隔都为40ms
@@ -443,6 +444,8 @@ EnumGSCodeID CLocalSTAVFileReadInterface::AVCodecID2GSCodeID(AVCodecID codeID)
 			return GS_CODEID_AUDIO_ST_G726;
 		case AV_CODEC_ID_HEVC:
 			return GS_CODEID_ST_H265;
+		case AV_CODEC_ID_AAC:
+			return GS_CODEID_AUDIO_ST_AAC;
 		default:
 			return GS_CODEID_NONE;
 	}
@@ -593,6 +596,7 @@ static enum AVSampleFormat CnvAudioFormat(int iBits)
 			return AV_SAMPLE_FMT_S16;
 		case 32 :
 			return AV_SAMPLE_FMT_S32;
+
 		case 8 :
 			return AV_SAMPLE_FMT_U8;
 	}
@@ -608,7 +612,7 @@ EnumGSAVFileRetCode CLocalSTAVFileWriteInterface::WriteHeadInfo(char *szFullName
 	}
 
 	int ret = avformat_alloc_output_context2(&m_pAvFormat, NULL, NULL, szFullName);
-	gs_printf("avformat_alloc_output_context2 , result is %d",ret);
+	gs_printf("avformat_alloc_output_context2 , result is %d\n", ret);
 	if ( ret < 0 )
 	{
 		return eAVF_EINVALID;
@@ -622,7 +626,7 @@ EnumGSAVFileRetCode CLocalSTAVFileWriteInterface::WriteHeadInfo(char *szFullName
 
 		if ( pAvStream )
 		{
-			auto enc_ctx = pAvStream->codecpar;
+			auto enc_ctx = pAvStream->codec;
 
 			if ( vMediaDescri[i].eMediaType == GS_MEDIA_TYPE_VIDEO )
 			{
@@ -638,7 +642,7 @@ EnumGSAVFileRetCode CLocalSTAVFileWriteInterface::WriteHeadInfo(char *szFullName
 					enc_ctx->height = 720;
 				}
 				enc_ctx->bit_rate = enc_ctx->width * enc_ctx->height * 4;
-				enc_ctx->format = AV_PIX_FMT_YUV420P;
+				enc_ctx->pix_fmt = AV_PIX_FMT_YUV420P;
 
 				if ( enc_ctx->codec_id == AV_CODEC_ID_HEVC )
 				{
@@ -655,7 +659,7 @@ EnumGSAVFileRetCode CLocalSTAVFileWriteInterface::WriteHeadInfo(char *szFullName
 
 				enc_ctx->codec_id = GSCodeID2AVCodecID((EnumGSCodeID) vMediaDescri[i].unDescri.struAudio.eCodeID);
 				enc_ctx->codec_type = AVMEDIA_TYPE_AUDIO;
-				enc_ctx->format = CnvAudioFormat(vMediaDescri[i].unDescri.struAudio.iBits);
+				enc_ctx->sample_fmt = CnvAudioFormat(vMediaDescri[i].unDescri.struAudio.iBits);
 				enc_ctx->sample_rate = vMediaDescri[i].unDescri.struAudio.iSample;
 				enc_ctx->channels = vMediaDescri[i].unDescri.struAudio.iChannels;
 				enc_ctx->bit_rate = vMediaDescri[i].unDescri.struAudio.iBitRate * 1000;
@@ -689,13 +693,13 @@ EnumGSAVFileRetCode CLocalSTAVFileWriteInterface::WriteHeadInfo(char *szFullName
 					}
 				}
 
-				pAvStream->time_base = (AVRational) {1, 25};//使用G711A的采样频率来作为流的帧率，当前采样频率为40ms，也就是1s25帧。
+//				pAvStream->time_base = (AVRational) {1, 25};//使用G711A的采样频率来作为流的帧率，当前采样频率为40ms，也就是1s25帧。
 			}
 		}
 	}
 
 	ret = avio_open(&m_pAvFormat->pb, szFullName, AVIO_FLAG_WRITE);
-	gs_printf("avio_open , result is %d",ret);
+	gs_printf("avio_open , result is %d\n", ret);
 	if ( ret < 0 )
 	{
 		return eAVF_EINVALID;
@@ -704,7 +708,7 @@ EnumGSAVFileRetCode CLocalSTAVFileWriteInterface::WriteHeadInfo(char *szFullName
 
 	ret = avformat_write_header(m_pAvFormat, NULL);
 
-	gs_printf("avformat_write_header , File name : %d",ret);
+	gs_printf("avformat_write_header , File name : %d\n", ret);
 
 	if ( ret < 0 )
 	{
@@ -732,6 +736,8 @@ AVCodecID CLocalSTAVFileWriteInterface::GSCodeID2AVCodecID(EnumGSCodeID codeID)
 			return AV_CODEC_ID_MP3;
 		case GS_CODEID_ST_H265:
 			return AV_CODEC_ID_HEVC;
+		case GS_CODEID_AUDIO_ST_AAC:
+			return AV_CODEC_ID_AAC;
 		default:
 			return AV_CODEC_ID_NONE;
 	}

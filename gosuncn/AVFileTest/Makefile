@@ -11,7 +11,7 @@ INCLUDE_PATHS += -I$(PROJECT_ROOT)/include/ffmpeg
 INCLUDE_PATHS += -I$(PROJECT_ROOT)/include/opus
 
 # LIBS += -lmod_AVFileSystemManager
-LIBS += -lavformat -lavutil -lavcodec -lswscale -lswresample 
+LIBS += -lavformat -lavutil -lavcodec -lswscale -lswresample # -lmod_AVFileSystemManager
 LIBS += -pthread -ldl
 
 LDFLAGS += -Wl,-rpath=$(PROJECT_ROOT)/libs:$(PROJECT_ROOT)/libs/ffmpeg:$(PROJECT_ROOT)/libs/opus

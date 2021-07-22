@@ -291,6 +291,100 @@ std::string format(const char *fmt, ...)
 	return std::string(buf.get());
 }
 
+/***********************************************
+#      函数名称: ConvertU8CharToStr
+#
+#   Description: 把用unsigned char*保存的16进制数据，转换成对应的字符串
+#     parameter: ustr   -- 16进制数据
+#   returnValue: string -- 转换好的字符串
+#        Author: luhg
+#        Create: 2020-03-11 12:04:46
+#**********************************************/
+string ConvertU8CharToStr(unsigned char *ustr)
+{
+    int i,j,k;
+    int pos;
+    int sum = 0;
+
+    int len = strlen((char*)ustr);
+    char str[len*2];
+    memset(str, 0, sizeof(str));
+
+
+    for (int k = 0; k < len; k++)
+    {
+
+        for (int j = 0; j < 2; ++j)   
+        {                             
+            if (j == 0)
+            {
+                for (int i = 0; i < 4; ++i)   
+                {
+                    if (ustr[k] & (1 << i))        
+                        sum += pow(2,i);
+                        // sum += power(2, i);   
+                }
+                cout << hex << sum << endl;
+
+            }
+            if (j == 1)
+            {
+                for (int i = 4; i < 8; ++i)   
+                {
+                    if (ustr[k] & (1 << i))        
+                        sum += power(2, (i-4));   
+                }
+                cout << hex << sum << endl;
+            }
+
+            pos = (k*2+1)-j;
+            if (sum < 10)                 
+                str[pos] = (sum += 48);     
+            else                          
+                str[pos] = (sum += 55);     
+            sum = 0;
+        }                             
+    }
+    string strRet;
+    strRet.assign(str, len*2);
+    return strRet;
+}
+
+/* 把char表示的16进制数转成10进制 */
+int Convert2decimal(char c)
+{
+    int sum = 0;
+    for (int i = 0; i < 8; ++i)
+    {
+        if (c & 1 << i)
+        {
+            sum += power(2, i); 
+        }
+    }
+    return sum;
+}
+
+// 将长字符串切分成等长的短串，存放到vector中
+#define SLICE_SIZE 1000
+std::vector<std::string> CutIntoShortOnes(const string &text)
+{
+    vector<string> shortones;
+
+    string str;
+    int textLen = text.length();
+    int cur = 0;
+
+    while (cur <= textLen)
+    {
+        str = text.substr(cur, SLICE_SIZE);
+        shortones.push_back(str);
+        cur += SLICE_SIZE;
+    }
+
+    return shortones;
+}
+
+
 /* ----------------------------------------------------------------------- */
 
 // 给double保留n位小数 (方法一，stringstream转换法，返回string)
@@ -368,6 +462,109 @@ static string GetLocalTimeWithMs(void)
         return defaultTime;
     }
 }
+
+/***********************************************
+#      函数名称: MoveFile
+#
+#   Description: 移动一个文件
+#     parameter: [in]  path_origin: 原始文件路径
+                 [out] path_new   : 目标文件路径
+#        Author: luhg
+#        Create: 2021-06-28 10:54:59
+#**********************************************/
+// 移动文件
+void GSContext::MoveFile(const char *path_origin, const char *path_new)
+{
+    // copy
+    FILE *fin = NULL;
+    FILE *fout = NULL;
+    if (!(fin = fopen(path_origin, "r"))) {
+        cout << "file " << path_origin << " open failed!" << endl;
+        return;
+    }
+    if (!(fout = fopen(path_new, "a"))) {
+        cout << "file " << path_new << " open failed!" << endl;
+        return;
+    }
+
+    char block[1024];
+    while (1)
+    {
+        memset(block, 0, sizeof(block));
+        size_t readBytes = fread(block, 1, 1024, fin);
+        if (readBytes > 0)
+        {
+            fwrite(block, 1, readBytes, fout);
+        }
+        else
+        {
+            break;
+        }
+    }
+    fclose(fin);
+    fclose(fout);
+
+    // remove
+    if (remove(path_origin) != 0)
+    {
+        cout << "remove file " << path_origin << " failed!" << endl;
+    }
+}
+
+/***********************************************
+#      函数名称: FindFiles
+#
+#   Description: 找到文件夹下的所有文件
+#     parameter: [in]  root  : 根目录
+                 [out] files : 文件列表
+#        Author: luhg
+#        Create: 2021-06-29 13:58:29
+#**********************************************/
+static void FindFiles(string root ,vector<string> &files)
+{
+    DIR *dir;
+    struct dirent *ent;
+    if ((dir = opendir (root.c_str())) != NULL)
+    {
+
+        while ((ent = readdir (dir)) != NULL)
+        {
+            stringstream ss;
+            if(!strcmp(ent->d_name,".")||!strcmp(ent->d_name,".."))
+            {
+                continue;
+            }
+            ss << OFFLINE_RECORD_PATH << "/" << ent->d_name;
+            files.push_back(ss.str());
+        }
+        closedir (dir);
+    }
+}
+
+// 把标准时间(YYYY-MM-DD hh:mm:ss)转换成unix时间戳
+time_t Standrd2UnixTimeStamp(std::string standardTime)
+{
+    struct tm *tmp_time = (struct tm*)malloc(sizeof(struct tm));
+    strptime(standardTime.c_str(), "%Y-%m-%d %H:%M:%S", tmp_time);
+    time_t timestamp = mktime(tmp_time);
+    free(tmp_time);
+    return timestamp;
+}
+
+// unix时间戳转换成标准时间(YYYY-MM-DD hh:mm:ss)
+std::string Unix2StandardTimestamp(time_t unixTimeStamp)
+{
+    // 获取时间
+    struct tm tmnow;
+    localtime_r(&unixTimeStamp, &tmnow); //locatime_r是多线程安全的
+    char Time[64] = { 0 };
+    snprintf(Time, sizeof(Time), "%04d-%02d-%02d %02d:%02d:%02d" , tmnow.tm_year + 1900 , tmnow.tm_mon + 1 , tmnow.tm_mday , tmnow.tm_hour , tmnow.tm_min , tmnow.tm_sec);
+    string strTime;
+    strTime.assign(Time);
+
+    return strTime;
+}
+
 
 
 int main()

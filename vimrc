@@ -275,48 +275,50 @@ endif
  "SET Comment START
  "添加头注释
 
-autocmd BufNewFile *.php,*.js,*.cpp,*.c,*.py,*.java exec ":call SetComment()" |normal 10Go
+autocmd BufNewFile *.php,*.js,*.cpp,*.c,*.py,*.java,*.sh exec ":call SetComment()" |normal 10Go
 func SetComment()
-if expand("%:e") == 'php'
-    call setline(1, "<?php")
-elseif expand("%:e") == 'js'
-    call setline(1, '//JavaScript file')
-elseif expand("%:e") == 'cpp'
-    call setline(1, '//C++ file')
-elseif expand("%:e") == 'c'
-    call setline(1, '//C file')
-elseif expand("%:e") == 'java'
-    call setline(1, '//java file')
-elseif expand("%:e") == 'py'
-    call setline(1, '# Python file')
-    call setline(2, '#!/usr/local/bin/python3')
-    call setline(3, '# -*- coding:utf-8 -*')
-endif
+    if expand("%:e") == 'php'
+        call setline(1, "<?php")
+    elseif expand("%:e") == 'js'
+        call setline(1, '//JavaScript file')
+    elseif expand("%:e") == 'cpp'
+        call setline(1, '//C++ file')
+    elseif expand("%:e") == 'c'
+        call setline(1, '//C file')
+    elseif expand("%:e") == 'java'
+        call setline(1, '//java file')
+    elseif expand("%:e") == 'py'
+        call setline(1, '# Python file')
+        call setline(2, '#!/usr/local/bin/python3')
+        call setline(3, '# -*- coding:utf-8 -*')
+    elseif expand("%:e") == 'sh'
+        call setline(1, '#!/bin/bash')
+    endif
 
-if expand("%:e") != 'py'
-	call append(1, '/***********************************************')
-	call append(2, '#')
-	call append(3, '#      Filename: '.expand("%"))
-	call append(4, '#')
-	call append(5, '#        Author: luhg - luhengguang@gosuncn.com')
-	call append(6, '#   Description: ---')
-	call append(7, '#        Create: '.strftime("%Y-%m-%d %H:%M:%S"))
-	call append(8, '#**********************************************/')
-endif
+    if expand("%:e") != 'py' && expand("%:e") != 'sh'
+        call append(1, '/***********************************************')
+        call append(2, '#')
+        call append(3, '#      Filename: '.expand("%"))
+        call append(4, '#')
+        call append(5, '#        Author: luhg - luhengguang@gosuncn.com')
+        call append(6, '#   Description: ---')
+        call append(7, '#        Create: '.strftime("%Y-%m-%d %H:%M:%S"))
+        call append(8, '#**********************************************/')
+    endif
 
-if expand("%:e") == 'cpp'
-    call append(9, '#include <iostream>')
-    " call append(10, 'using namespace std;')
-elseif expand("%:e") == 'c'
-    call append(9, '#include <stdio.h>')
-elseif expand("%:e") == 'java'
-	call append(10, '}')
-	call append(11, 'public class '.expand("%").expand(" {"))
-	call append(12, '}')
-" elseif expand("%:e") == 'py'
-" 	 call append(2, '#!/usr/local/bin/python3')
-" 	 call append(3, '# -*- coding:utf-8 -*')
-endif
+    if expand("%:e") == 'cpp'
+        call append(9, '#include <iostream>')
+        " call append(10, 'using namespace std;')
+    elseif expand("%:e") == 'c'
+        call append(9, '#include <stdio.h>')
+    elseif expand("%:e") == 'java'
+        call append(10, '}')
+        call append(11, 'public class '.expand("%").expand(" {"))
+        call append(12, '}')
+        " elseif expand("%:e") == 'py'
+        " 	 call append(2, '#!/usr/local/bin/python3')
+        " 	 call append(3, '# -*- coding:utf-8 -*')
+    endif
 endfunc
 " map <F2> :call SetComment()<CR>:10<CR>o
 

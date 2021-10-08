@@ -390,15 +390,27 @@ let g:Lf_PreviewResult = {
         \ 'Rg': 0,
         \ 'Gtags': 0
         \}
-nmap <unique> <leader>f <Plug>LeaderfRgPrompt
+
+nmap <unique> <leader>f  <Plug>LeaderfRgPrompt
 nmap <unique> <leader>fa <Plug>LeaderfRgCwordLiteralNoBoundary<CR>
 nmap <unique> <leader>ff <Plug>LeaderfRgCwordLiteralBoundary<CR>
 nmap <unique> <leader>fn <Plug>LeaderfRgCwordRegexNoBoundary<CR>
 nmap <unique> <leader>fr <Plug>LeaderfRgCwordRegexBoundary<CR>
-vmap <unique> <leader>fa <Plug>LeaderfRgVisualLiteralNoBoundary<CR>
-vmap <unique> <leader>fw <Plug>LeaderfRgVisualLiteralBoundary<CR>
-vmap <unique> <leader>fn <Plug>LeaderfRgVisualRegexNoBoundary<CR>
-vmap <unique> <leader>fr <Plug>LeaderfRgVisualRegexBoundary<CR>
+
+" 查找当前文件中的函数
+nmap <unique> <leader>tt :LeaderfFunction<CR>
+" 查找当前文件中的变量
+nmap <unique> <leader>fl :LeaderfLine<CR>
+" 查找buffer中的内容
+nmap <unique> <leader>fb :LeaderfBuffer<CR>
+" 列出最近使用的文件
+nmap <unique> <leader>fm :LeaderfMru<CR>
+
+" vmap <unique> <leader>fa <Plug>LeaderfRgVisualLiteralNoBoundary<CR>
+" vmap <unique> <leader>fw <Plug>LeaderfRgVisualLiteralBoundary<CR>
+" vmap <unique> <leader>fn <Plug>LeaderfRgVisualRegexNoBoundary<CR>
+" vmap <unique> <leader>fr <Plug>LeaderfRgVisualRegexBoundary<CR>
+"
 " 快捷键	解释
 " <leader>fr	将会在命令行显示 :Leaderf rg -e, 然后等待用户输入想要查询的正则表达式.
 " <leader>fra	将会直接查询光标所在的词语或者visual模式下选中的词语, 但是没有边界. 没有边界的意思是说如果你查word, 包含abcwordxyz的行也会被搜到.

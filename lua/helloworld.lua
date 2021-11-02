@@ -90,13 +90,13 @@ end
 
 
 -- 5、lua的包（package）
-local c = require("foo")  -- require用来加载以字符串为名字的文件（不带.lua后缀）
-print(c)  -- c就是foo.lua返回的class的指针, require多次同一个文件返回的指针是同一个
+local c = require("add")  -- require用来加载以字符串为名字的文件（不带.lua后缀）
+print(c)  -- c就是add.lua返回的class的指针, require多次同一个文件返回的指针是同一个
 print("1+2=", c.add(1,2))
 
     -- dofile也能加载文件，和require区别在于require对同一个文件只加载一次，而dofile有几次就加载几次
 for i = 1,2 do
-    local ptr = dofile("foo.lua")  -- dofile要写文件的全名（带后缀）
+    local ptr = dofile("add.lua")  -- dofile要写文件的全名（带后缀）
     print(ptr)
 end
 

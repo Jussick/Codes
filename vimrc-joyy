@@ -1,0 +1,409 @@
+set nu
+set relativenumber
+set ai
+syntax on
+syntax enable
+set showmatch
+set smartindent
+set smarttab
+set incsearch
+set title
+set fileencodings=utf-8,gbk,utf-16le,cp1252,iso-8859-15,ucs-bom
+set termencoding=utf-8
+set encoding=utf-8
+set statusline=%F\ [%{&fenc}\ %{&ff}\ L%l/%L\ C%c]\ %=%{strftime('%Y-%m-%d\ %H:%M')}
+set laststatus=2
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set nocompatible
+set ignorecase  " 忽略大小写搜索字符串
+" 高亮搜索结果, 并设置高亮颜色
+set hlsearch 
+" 高亮当前列
+" set cursorcolumn
+" 高亮当前行
+set cursorline
+
+" 插入时高亮当前行和列
+autocmd InsertLeave * se nocul nocuc
+autocmd InsertEnter * se cul cuc
+
+" 自动打开nerdtree
+" autocmd VimEnter * NERDTree
+
+autocmd VimEnter * SexyScrollerToggle
+
+" ---Omni补全之用
+set nocp
+set completeopt=menu
+filetype plugin on
+let OmniCpp_NamespaceSearch = 1
+let OmniCpp_GlobalScopeSearch = 1
+let OmniCpp_ShowAccess = 1 
+let OmniCpp_ShowPrototypeInAbbr = 1 " 显示函数参数列表 
+let OmniCpp_MayCompleteDot = 1   " 输入 .  后自动补全
+let OmniCpp_MayCompleteArrow = 1 " 输入 -> 后自动补全 
+let OmniCpp_MayCompleteScope = 1 " 输入 :: 后自动补全 
+let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+let OmniCpp_SelectFirstItem = 2
+" c-j自动补全，当补全菜单打开时，ctrl+j,k上下选择
+imap <expr> <c-j>      pumvisible()?"\<C-N>":"\<C-X><C-O>"
+imap <expr> <c-k>      pumvisible()?"\<C-P>":"\<esc>"
+" 自动关闭补全窗口 
+au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif 
+set completeopt=menuone,menu,longest
+" Omni补全之用over---
+
+" --------------------------快捷键设置----------------------------------
+
+" visual模式下ctrl+c复制内容到系统剪切板
+vnoremap <c-c> "+y"
+" map <F4> :set mouse=<cr>
+" map <F5> :set mouse=nv<cr>
+
+
+map <silent> <F4> :SexyScrollerToggle<cr>
+" F6开启/关闭左侧树形目录
+map <silent> <F6> :NERDTreeToggle<cr>
+" F7开启/关闭paste模式
+map <F7> :set paste!<cr>
+" F8显示/取消行号
+nnoremap <silent> <F8> :set nu!<CR>
+" F12显示/关闭Tlist
+" map <silent> <F9> :TlistToggle<cr>
+map <silent> <F9> :TagbarToggle<cr>
+
+nmap <silent> <C-l> gt
+nmap <silent> <C-h> gT
+
+" go补全
+imap <silent> <c-space> <c-x><c-o>
+" --------------------------快捷键设置结束----------------------------------
+
+
+" --------------------------TlistToggle配置----------------------------------
+"
+" let Tlist_Show_One_File=1
+let Tlist_Auto_Open=1
+let Tlist_Exit_OnlyWindow=1
+let Tlist_Use_Right_Window=1
+let Tlist_File_Fold_Auto_Close=1
+let Tlist_WinWidth=40
+" let Tlist_Sort_Type = "name"
+
+" --------------------------TlistToggle配置结束----------------------------------
+
+
+" --------------------------tagbar配置----------------------------------
+let g:tagbar_width=30
+let g:tagbar_autoclose = 0
+let g:tagbar_sort = 0
+" autocmd BufLeave * nested :call tagbar#autoopen(0)
+autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx,*.go,*.lua  call tagbar#autoopen()
+let g:tagbar_type_lua = {
+  \ 'ctagstype' : 'lua',
+  \ 'kinds' : [
+    \ 'm:modules:0:0',
+    \ 'f:functions:0:1',
+    \ 'v:locals:0:0'
+  \ ],
+  \ 'sort' : 0
+\ }
+" autocmd BufEnter * nested :call tagbar#autoopen(0)
+" --------------------------tagbar配置结束----------------------------------
+
+"" nerd Commenter配置
+let mapleader=","  "把<leader>的对应按键改为','，默认为\
+let g:NERDSpaceDelims = 1
+
+
+"==============================================================================
+" ctags 配置
+"==============================================================================
+let g:tagbar_ctags_bin='/usr/bin/ctags'  " 设置ctags所在路径
+
+set tags+=/home/edward/projects/dataUpload/log-collection/src/tags
+set tags+=/home/edward/projects/dataUpload/receiver/tags
+
+
+map <c-]> g<c-]>
+set autochdir
+
+set backspace=2
+
+" 光标停留上一次打开位置
+au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+
+colorscheme Monokai
+
+"SET Comment START
+ "添加头注释
+autocmd BufNewFile *.php,*.js,*.cpp,*.c,*.py,*.java,*.sh,*.exp exec ":call SetComment()" |normal 10Go
+func SetComment()
+if expand("%:e") == 'php'
+    call setline(1, "<?php")
+elseif expand("%:e") == 'js'
+    call setline(1, '//JavaScript file')
+elseif expand("%:e") == 'cpp'
+    call setline(1, '//C++ file')
+elseif expand("%:e") == 'c'
+    call setline(1, '//C file')
+elseif expand("%:e") == 'java'
+    call setline(1, '//java file')
+elseif expand("%:e") == 'py'
+    call setline(1, '# Python file')
+    call setline(2, '#!/usr/local/bin/python3')
+    call setline(3, '# -*- coding:utf-8 -*')
+elseif expand("%:e") == 'sh'
+    call setline(1, '#!/bin/bash')
+elseif expand("%:e") == 'exp'
+    call setline(1, '#!/usr/local/bin/expect')
+elseif expand("%:e") == 'go'
+    call setline(1, '// Go file')
+endif
+
+if expand("%:e") != 'py' && expand("%:e") != 'sh' && expand("%:e") != 'exp'
+    call append(1, '/***********************************************')
+    call append(2, '#')
+    call append(3, '#      Filename: '.expand("%"))
+    call append(4, '#')
+    call append(5, '#        Author: luhg - luhengguang@joyy.com')
+    call append(6, '#   Description: ---')
+    call append(7, '#        Create: '.strftime("%Y-%m-%d %H:%M:%S"))
+    call append(8, '#**********************************************/')
+endif
+
+
+if expand("%:e") == 'cpp'
+    call append(9, '#include <iostream>')
+    call append(10, 'using namespace std;')
+elseif expand("%:e") == 'c'
+    call append(9, '#include <stdio.h>')
+elseif expand("%:e") == 'java'
+    call append(10, '}')
+    call append(11, 'public class '.expand("%").expand(" {"))
+    call append(12, '}')
+" elseif expand("%:e") == 'py'
+"    call append(2, '#!/usr/local/bin/python3')
+"    call append(3, '# -*- coding:utf-8 -*')
+endif
+endfunc
+
+ " 添加函数注释开始
+ "autocmd BufNewFile *.php,*.js,*.cpp exec ":call SetComment2()" |normal line('.')Go
+ func SetComment2()
+ call append(line('.'), '/***********************************************')
+ call append(line('.')+1, '#      函数名称:')
+ call append(line('.')+2, '#')
+ call append(line('.')+3, '#   Description:')
+ call append(line('.')+4, '#     parameter:')
+ call append(line('.')+5, '#   returnValue:')
+ call append(line('.')+6, '#        Author: luhg')
+ call append(line('.')+7, '#        Create: '.strftime("%Y-%m-%d %H:%M:%S"))
+ call append(line('.')+8, '#**********************************************/')
+endfunc
+map <F1> :call SetComment2()<CR>
+
+" 函数注释END
+
+
+" ag配置
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
+" easy-align 配置
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)"
+
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+" Plugin 'Valloric/YouCompleteMe'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+" Vim状态栏插件，包括显示行号，列号，文件类型，文件名，以及Git状态
+Plugin 'vim-airline/vim-airline'
+" vim_airline主题
+Plugin 'vim-airline/vim-airline-themes'
+" 高亮当前单词添加下划线
+Plugin 'itchyny/vim-cursorword'
+" 高亮感兴趣的单词  默认快捷键：alt+k标注、alt+K取消所有标注
+Plugin 'lfv89/vim-interestingwords'
+" nerdtree中显示git状态
+" Plugin 'Xuyuanp/nerdtree-git-plugin'
+
+" go相关插件
+Plugin 'fatih/vim-go'
+" 顺滑滚动
+Plugin 'joeytwiddle/sexy_scroller.vim'
+
+Plugin 'ludovicchabant/vim-gutentags'
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+
+
+" --------------------------LeaderF配置----------------------------------
+
+let g:Lf_ShortcutF = '<c-p>'
+let g:Lf_WorkingDirectoryMode = 'AF'
+let g:Lf_RootMarkers = ['.git', '.svn', '.hg', '.project', '.root']
+let g:Lf_DefaultExternalTool='ag'
+autocmd BufNewFile,BufRead X:/yourdir* let g:Lf_WildIgnore={'file':['*.vcproj', '*.vcxproj', 'tags', '*.java'],'dir':[]}  " 忽略的文件
+let g:Lf_PreviewInPopup = 1
+let g:Lf_WindowHeight = 0.30
+" let g:Lf_CacheDirectory = s:cachedir
+let g:Lf_StlColorscheme = 'powerline'
+let g:Lf_PreviewResult = {
+        \ 'File': 0,
+        \ 'Buffer': 0,
+        \ 'Mru': 0,
+        \ 'Tag': 0,
+        \ 'BufTag': 1,
+        \ 'Function': 1,
+        \ 'Line': 1,
+        \ 'Colorscheme': 0,
+        \ 'Rg': 0,
+        \ 'Gtags': 0
+        \}
+nmap <unique> <leader>f  <Plug>LeaderfRgPrompt
+nmap <unique> <leader>fa <Plug>LeaderfRgCwordLiteralNoBoundary<CR>
+nmap <unique> <leader>ff <Plug>LeaderfRgCwordLiteralBoundary<CR>
+nmap <unique> <leader>fn <Plug>LeaderfRgCwordRegexNoBoundary<CR>
+nmap <unique> <leader>fr <Plug>LeaderfRgCwordRegexBoundary<CR>
+
+" 查找当前文件中的函数
+nmap <unique> <leader>tt :LeaderfFunction<CR>
+" 查找当前文件中的变量
+nmap <unique> <leader>ww :LeaderfLine<CR>
+" 查找buffer中的内容
+nmap <unique> <leader>bb :LeaderfBuffer<CR>
+" 列出最近使用的文件
+nmap <unique> <leader>mm :LeaderfMru<CR>
+
+" 忽略文件(因为搜索用的是rg，所以下面不生效，要在.rgignore中加才行)
+let g:Lf_UseVersionControlTool = 0
+let g:Lf_WildIgnore = {
+            \ 'dir': ['.svn','.git','.hg','.vscode','.wine','.deepinwine','.oh-my-zsh'],
+            \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]', 'tags']
+            \}
+
+" --------------------------LeaderF配置结束----------------------------------
+
+
+
+" --------------------------vim-airline配置----------------------------------
+let g:airline_theme='dark'
+" let g:airline_powerlineish_bg='dark'
+
+" 打开tabline功能,方便查看Buffer和切换,省去了minibufexpl插件
+let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#fnametruncate = 16
+let g:airline#extensions#tabline#fnamecollapse = 2
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#formatter = 'default'
+
+" "这个是安装字体后 必须设置此项" 
+" let g:airline_powerline_fonts = 1   
+
+
+" "设置切换Buffer快捷键"
+" nnoremap <C-tab> :bn<CR>
+" nnoremap <C-s-tab> :bp<CR>
+" 关闭状态显示空白符号计数
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#whitespace#symbol = '!'
+" " 设置consolas字体"前面已经设置过
+" set guifont=Consolas\ for\ Powerline\ FixedD:h11
+
+" 开启git分支的展示
+let g:airline#extensions#branch#enabled = 1
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+" old vim-powerline symbols
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮂'
+let g:airline_symbols.branch = '⭠'
+" --------------------------vim-airline配置结束----------------------------------
+"
+"==============================================================================
+" vim-go 插件
+"==============================================================================
+let g:go_fmt_command = "goimports" " 格式化将默认的 gofmt 替换
+let g:go_autodetect_gopath = 1
+let g:go_list_type = "quickfix"
+let g:go_version_warning = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_generate_tags = 1
+let g:godef_split=2
+
+
+"==============================================================================
+" nerdtree-git-plugin 插件
+"==============================================================================
+set shell=zsh  " 解决启动问题
+let g:NERDTreeGitStatusUseNerdFonts = 0 " 使用自定义字体
+let g:NERDTreeGitStatusConcealBrackets = 1  " 不显示[]
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+                \ 'Modified'  :'✹',
+                \ 'Staged'    :'✚',
+                \ 'Untracked' :'✭',
+                \ 'Renamed'   :'➜',
+                \ 'Unmerged'  :'═',
+                \ 'Deleted'   :'✖',
+                \ 'Dirty'     :'✗',
+                \ 'Ignored'   :'☒',
+                \ 'Clean'     :'✔︎',
+                \ 'Unknown'   :'?',
+                \ }
+
+"==============================================================================
+" SexyScroller 插件
+"==============================================================================
+let g:SexyScroller_ScrollTime = 5
+let g:SexyScroller_CursorTime = 0
+let g:SexyScroller_MaxTime = 200
+
+"==============================================================================
+" gutentags 插件
+"==============================================================================
+let g:gutentags_enabled = 1
+" let g:gutentags_add_default_project_roots = ['.root', '.git', '.project']
+set statusline+=%{gutentags#statusline()}
+
+" --------------------------三方加的配制----------------------------------
+nnoremap <Leader>vr :source $MYVIMRC<CR>
+let g:cursorword_highlight = 1
+" 高亮函数名
+syn match cFunctions "\<[a-zA-Z_][a-zA-Z_0-9]*\>[^()]*)("me=e-2
+syn match cFunctions "\<[a-zA-Z_][a-zA-Z_0-9]*\>\s*("me=e-1
+hi cFunctions gui=NONE cterm=bold  ctermfg=blue

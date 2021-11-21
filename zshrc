@@ -119,7 +119,8 @@ alias g++='g++ -std=c++11 -g'
 alias tt='tldr' # better man
 alias cdp="cd ~/mine/gosuncn/PHEONIX2.0"
 alias cdc="cd ~/mine/Codes"
-alias cds="cd ~/mine/joyy/s2s"
+alias cds="cd ~/mine/joyy/projects/s2s"
+alias cdl="cd ~/mine/joyy/projects/Baichuan_DataUpload/log-collection"
 alias cdm="cd /Users/edwardlu/mine/gosuncn/phoenix2.0/Protocol/Msg"
 alias gdb="gdb -q"
 alias giticdiff="git icdiff"
@@ -156,3 +157,8 @@ export PATH=/usr/local/ffmpeg/bin:$PATH
 # 解决终端中文乱码
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+
+# go related
+export GOROOT=/usr/local/bin
+export GOPATH=/Users/edwardlu/go
+export PATH=$PATH:$GOPATH/bin:$GOROOT

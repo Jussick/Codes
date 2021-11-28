@@ -139,6 +139,8 @@ Plugin 'itchyny/vim-cursorword'
 Plugin 'fatih/vim-go'
 Plugin 'jstemmer/gotags'
 Plugin 'dgryski/vim-godef'
+" 高亮感兴趣的单词  默认快捷键：alt+k标注、alt+K取消所有标注
+Plugin 'lfv89/vim-interestingwords'
  
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

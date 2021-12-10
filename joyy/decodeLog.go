@@ -6,7 +6,10 @@ import (
 	"io"
 	"os"
 	"strings"
+	"time"
+	"strconv"
 )
+
 
 /***********************************************
 #      函数名称: ReadfileContent
@@ -17,7 +20,7 @@ import (
 #   	 Author: luhg
 #        Create: 2021-11-28 12:40:53
 #**********************************************/
-func ReadfileContent(filepath string) (err error) {
+func readfileContent(filepath string) (err error) {
 	// open file
 	file, err := os.OpenFile(filepath, os.O_RDWR, 0666)
 	if err != nil {
@@ -55,10 +58,42 @@ func ReadfileContent(filepath string) (err error) {
 		}
 		linenum++
 	}
+	for i := 100; i > 0; i-- {
+		time.Sleep(time.Duration(1) * time.Second)
+		fmt.Printf("time remain: %ds\n", i)
+	}
 	return err
 }
 
-func main() {
+func findSmkData(line string) string {
+	posBegin := strings.Index(line, "smkdata")
+	smkDataLen := strings.Index(line[posBegin+8:], "&")
+	smkdata := line[posBegin+8:posBegin+8+smkDataLen]
+	return smkdata
+}
 
-	ReadfileContent("out.log")
+// GetAeskeyFromSmkdata ...
+func GetAeskeyFromSmkdata(rsaCipher *cipher.RsaCipher, smkdata []byte) ([]byte, error) {
+
+	if len(smkdata) < 9 {
+		return nil, errors.New("len(smkdata) < 9")
+	}
+
+	aeskeyLen, err := strconv.Atoi(string(smkdata[:8]))
+	if err != nil {
+		return nil, fmt.Errorf("failed to get aes key len, err:%s", err)
+	}
+
+	aesKey, err := rsaCipher.Decrypt(aeskeyLen, smkdata[8:])
+	if err != nil {
+		return nil, fmt.Errorf("failed to decrypt smkdata, err:%s", err)
+	}
+
+	return aesKey, nil
+}
+
+func main() {
+	// ReadfileContent("out.log")
+	smkdata := findSmkData("act=mbsdkdata&smkdata=0000000421d0055ef1436c417bd4da10f528f1a9&EC=37&appkey=44b8f2b988e258e1d036acd459af")
+	fmt.Println("smkdata: ", smkdata)
 }

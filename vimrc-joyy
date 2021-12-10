@@ -27,6 +27,9 @@ set cursorline
 
 set nobackup " 不生成.swp文件
 
+" set guitablabel =%t  " tab只显示文件名
+set guitablabel=\[%N\]\ %t\ %M
+
 " 插入时高亮当前行和列
 autocmd InsertLeave * se nocul nocuc
 autocmd InsertEnter * se cul cuc
@@ -70,12 +73,15 @@ map <silent> <F6> :NERDTreeToggle<cr>
 map <F7> :set paste!<cr>
 " F8显示/取消行号
 nnoremap <silent> <F8> :set nu!<CR>
-" F12显示/关闭Tlist
+" F9显示/关闭tagbar
 " map <silent> <F9> :TlistToggle<cr>
 map <silent> <F9> :TagbarToggle<cr>
 
 nmap <silent> <C-l> gt
 nmap <silent> <C-h> gT
+
+" 映射esc为qq
+inoremap qq <esc>
 
 " go补全
 imap <silent> <C-Space> <C-x><C-o>
@@ -99,9 +105,9 @@ let Tlist_WinWidth=40
 let g:tagbar_width=30
 let g:tagbar_autoclose = 0
 let g:tagbar_sort = 0
-let g:tagbar_left = 1
+let g:tagbar_left = 0
 let g:tagbar_autopreview = 0
-" autocmd BufLeave * nested :call tagbar#autoopen(0)
+autocmd BufLeave * nested :call tagbar#autoopen(0)
 autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx,*.go,*.lua,*.py  call tagbar#autoopen()
 let g:tagbar_type_lua = {
   \ 'ctagstype' : 'lua',
@@ -137,7 +143,10 @@ set backspace=2
 " 光标停留上一次打开位置
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
-colorscheme Monokai
+" colorscheme Monokai
+colorscheme PaperColor
+set background=dark
+set t_Co=256   " This is may or may not needed.
 
 "SET Comment START
  "添加头注释
@@ -239,6 +248,8 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'itchyny/vim-cursorword'
 " 高亮感兴趣的单词  默认快捷键：alt+k标注、alt+K取消所有标注
 Plugin 'lfv89/vim-interestingwords'
+" 自动补括号
+Plugin 'jiangmiao/auto-pairs'
 " nerdtree中显示git状态
 " Plugin 'Xuyuanp/nerdtree-git-plugin'
 
@@ -246,8 +257,10 @@ Plugin 'lfv89/vim-interestingwords'
 Plugin 'fatih/vim-go'
 " 顺滑滚动
 Plugin 'joeytwiddle/sexy_scroller.vim'
-
+" 自动生成tag
 Plugin 'ludovicchabant/vim-gutentags'
+
+Plugin 'NLKNguyen/papercolor-theme'
 
 
 " All of your Plugins must be added before the following line
@@ -350,6 +363,12 @@ let g:airline_left_alt_sep = '⮁'
 let g:airline_right_sep = '⮂'
 let g:airline_right_alt_sep = '⮂'
 let g:airline_symbols.branch = '⭠'
+
+" 关闭vim-airline的tagbar
+let g:airline#extensions#tagbar#enabled = 1
+
+function! s:tagbar_integration()
+endfunction
 " --------------------------vim-airline配置结束----------------------------------
 "
 "==============================================================================
@@ -406,7 +425,7 @@ set statusline+=%{gutentags#statusline()}
 "==============================================================================
 " nerdtree 插件
 "==============================================================================
-let NERDTreeWinPos = "right"  "右侧打开
+let NERDTreeWinPos = "left"  "左侧打开
 let NERDTreeShowLineNumbers = 1
 " autocmd VimEnter * NERDTree  " 自动打开nerdtree
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif  "当NERDTree为剩下的唯一窗口时自动关闭
@@ -442,6 +461,8 @@ let g:ycm_semantic_triggers =  {
 set completeopt=menu,menuone
 " set completeopt-=preview
 let g:ycm_add_preview_to_completeopt = 0
+" 关闭函数原形弹窗
+let g:ycm_auto_hover=''
 
 
 
@@ -453,3 +474,8 @@ syn match cFunctions "\<[a-zA-Z_][a-zA-Z_0-9]*\>[^()]*)("me=e-2
 syn match cFunctions "\<[a-zA-Z_][a-zA-Z_0-9]*\>\s*("me=e-1
 hi cFunctions gui=NONE cterm=bold  ctermfg=blue
 
+
+autocmd! User tagbar echo 'TagbarToggle toggles.' | command LdTagbar TagbarToggle "loader
+
+" vim实时刷新（防止鼠标移动导致窗口窜位）
+syntax sync fromstart

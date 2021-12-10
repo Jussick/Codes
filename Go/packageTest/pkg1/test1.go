@@ -7,6 +7,6 @@ type human struct {
 	age  int32
 }
 
-func test1Func() {
+func Test1Func() {
 	fmt.Println("this is test1Func!!!")
 }

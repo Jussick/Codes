@@ -227,6 +227,14 @@ struct foo {
     short cc;
 };
 
+
+unsigned int DJBHash(const char* str, size_t len) {
+	unsigned int hash = 5381;
+	for (size_t i = 0; i < len; i++)
+		hash = ((hash << 5) + hash) + str[i];
+	return hash;
+}
+
 int main()
 {
 	//TwoDimensionalVectorTest();
@@ -251,10 +259,14 @@ int main()
     cout << "p2.unique(): " << p2.unique() << endl;  // 判断当前shared_ptr的引用计数是否为1
     p1.reset(new Foo(*p1));
     cout << "after p2.reset(), p1.unique(): " << p1.unique() << endl;
-    cout << "after p2.reset(), p2.unique(): " << p1.unique() << endl;
+    cout << "after p2.reset(), p2.unique(): " << p2.unique() << endl;
 #endif
-    uint32_t x = 1;
-    decltype(x++) y = 2;
-    cout << x << " " << y << endl;
+
+	unsigned int hash = DJBHash("123456", 6);
+	unsigned int hash2 = DJBHash("123457", 6);
+	unsigned int hash3 = DJBHash("123458", 6);
+    cout << hash << endl;
+    cout << hash2 << endl;
+    cout << hash3 << endl;
 	return 0;
 }

@@ -11,3 +11,4 @@ message HeartInfo
 	int32 port = 3;
 	repeated string memo = 4;  // 数组元素定义方式
 };
+

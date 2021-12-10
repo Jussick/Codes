@@ -2,7 +2,7 @@ CC = g++ -Wall -fPIC -std=c++11
 
 TARGET = app
 LIB_PATH = -L./include
-LIBS = -lprotobuf -ltest
+LIBS = -lprotobuf -lTest
 
 all:$(TARGET)
 

@@ -1,0 +1,16 @@
+syntax = "proto3";
+package Player.protobuf;
+
+message PlayerPos
+{
+    int32 playerid = 1;
+    string playername = 2;
+    Pos pos = 3;
+};
+
+message Pos
+{
+    float x = 1;
+    float y = 2;
+    float z = 3;
+};

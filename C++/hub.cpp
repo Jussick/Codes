@@ -565,6 +565,32 @@ std::string Unix2StandardTimestamp(time_t unixTimeStamp)
     return strTime;
 }
 
+/* 把str按照pattern分割，结果存在vector中 */
+std::vector<std::string> splitWithStl(const std::string &str,const std::string &pattern)
+{
+    std::vector<std::string> resVec;
+
+	if ("" == str)
+    {
+        return resVec;
+    }
+    //方便截取最后一段数据
+    std::string strs = str + pattern;
+    
+    size_t pos = strs.find(pattern);
+    size_t size = strs.size();
+
+    while (pos != std::string::npos)
+    {
+        std::string x = strs.substr(0,pos);
+        resVec.push_back(x);
+        strs = strs.substr(pos+1,size);
+        pos = strs.find(pattern);
+    }
+    
+    return resVec;
+}
+
 
 
 int main()

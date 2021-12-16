@@ -27,8 +27,8 @@ set cursorline
 
 set nobackup " 不生成.swp文件
 
-" set guitablabel =%t  " tab只显示文件名
-set guitablabel=\[%N\]\ %t\ %M
+set guitablabel=%t  " tab只显示文件名
+" set guitablabel=\[%N\]\ %t\ %M
 
 " 插入时高亮当前行和列
 autocmd InsertLeave * se nocul nocuc
@@ -102,26 +102,29 @@ let Tlist_WinWidth=40
 
 
 " --------------------------tagbar配置----------------------------------
+let g:tagbar_ctags_bin="usr/bin/ctags"
 let g:tagbar_width=30
 let g:tagbar_autoclose = 0
+let g:tagbar_autoopen = 1
 let g:tagbar_sort = 0
 let g:tagbar_left = 0
 let g:tagbar_autopreview = 0
-autocmd BufLeave * nested :call tagbar#autoopen(0)
-autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx,*.go,*.lua,*.py  call tagbar#autoopen()
-let g:tagbar_type_lua = {
-  \ 'ctagstype' : 'lua',
-  \ 'kinds' : [
-    \ 'm:modules:0:0',
-    \ 'f:functions:0:1',
-    \ 'v:locals:0:0'
-  \ ],
-  \ 'sort' : 0
-\ }
+" autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx,*.go,*.lua,*.py call tagbar#autoopen()
+" autocmd BufReadPost * call tagbar#autoopen()
+" autocmd BufLeave * :call tagbar#autoopen(0)
+" let g:tagbar_type_lua = {
+  " \ 'ctagstype' : 'lua',
+  " \ 'kinds' : [
+    " \ 'm:modules:0:0',
+    " \ 'f:functions:0:1',
+    " \ 'v:locals:0:0'
+  " \ ],
+  " \ 'sort' : 0
+" \ }
 " autocmd BufEnter * nested :call tagbar#autoopen(0)
 " --------------------------tagbar配置结束----------------------------------
 
-"" nerd Commenter配置
+" nerd Commenter配置
 let mapleader=","  "把<leader>的对应按键改为','，默认为\
 let g:NERDSpaceDelims = 1
 
@@ -278,7 +281,8 @@ call vundle#end()            " required
 " --------------------------LeaderF配置----------------------------------
 
 let g:Lf_ShortcutF = '<c-p>'
-let g:Lf_WorkingDirectoryMode = 'AF'
+" let g:Lf_WorkingDirectoryMode = 'AF'
+let g:Lf_WorkingDirectoryMode = 'a' " 把包含marker的目录当做根目录，就算当前打开的文件目录不是根目录
 let g:Lf_RootMarkers = ['.git', '.svn', '.hg', '.project', '.root']
 let g:Lf_DefaultExternalTool='ag'
 autocmd BufNewFile,BufRead X:/yourdir* let g:Lf_WildIgnore={'file':['*.vcproj', '*.vcxproj', 'tags', '*.java'],'dir':[]}  " 忽略的文件
@@ -475,7 +479,7 @@ syn match cFunctions "\<[a-zA-Z_][a-zA-Z_0-9]*\>\s*("me=e-1
 hi cFunctions gui=NONE cterm=bold  ctermfg=blue
 
 
-autocmd! User tagbar echo 'TagbarToggle toggles.' | command LdTagbar TagbarToggle "loader
+" autocmd! User tagbar echo 'TagbarToggle toggles.' | command LdTagbar TagbarToggle "loader
 
 " vim实时刷新（防止鼠标移动导致窗口窜位）
 syntax sync fromstart

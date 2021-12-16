@@ -1,0 +1,67 @@
+service:
+  endpoint: 127.0.0.1:9010
+  servicePort: 9110
+consul:
+  serviceNamePrefix: cim.private.share
+mongo: 
+  dbName: cim
+  buddyCollectionShardCount: 32
+  blacklistCollectionShardCount: 32
+  instanceCount: 2
+  mongoEndPointList:
+    - mongodb://cim:fMaV250bMA@10.29.5.32:10004,10.29.5.29:10004,10.29.5.30:10006/cim?replicaSet=cimpublicsharedwxrlat01&minPoolSize=100&maxPoolSize=100&serverselectiontimeoutms=2000&connecttimeoutms=2000&sockettimeoutms=2000
+    - mongodb://cim:fMaV250bMA@10.29.5.30:10004,10.29.1.72:10002,10.29.5.29:10005/cim?replicaSet=cimpublicsharedwxrlat11&minPoolSize=100&maxPoolSize=100&serverselectiontimeoutms=2000&connecttimeoutms=2000&sockettimeoutms=2000
+redis:
+  uriList:
+    - 10.29.15.182:4014
+    - 10.29.15.185:4013
+idc:
+  groupId: 803  #机房id
+#电信
+  ctlIp: ##CTL_IP##
+#网通
+  cncIp: ##CNC_IP##
+#铁通
+  cniiIp: ##CNII_IP##
+#教育网
+  eduIp: ##EDU_IP##
+#长城宽带
+  wbnIp: ##WBN_IP##
+#移动
+  mobIp: ##MOB_IP##
+#BGP
+  bgpIp: ##BGP_IP##
+#亚洲
+  asiaIp: ##ASIA_IP##
+#香港
+  hkIp: ##HK_IP##
+#南美
+  saIspIp: ##SA_ISP_IP##
+#巴西
+  braIp: ##BRA_IP##
+#欧洲
+  euIp: ##EU_IP##
+#北美
+  naIp: ##NA_IP##
+#大洋洲
+  oaIp: ##OA_IP##
+#非洲
+  afIp: ##AF_IP##
+#内网
+  interIp: ##ETH1_IP##
+
+appconf:
+  appConfUrl: http://argoapi.jocloud.com/configs/httpQuery
+  appConfModuleType: test
+  appConfIntervalMs: 900000
+
+##log : 0-FATAL, 1-ERROR, 2-WARNING, 3-NOTICE, 4-TRACE, 5-DEBUG
+log:
+  logLevel: info
+  logTarget: asyncfile
+  logDir: /data/yy/log/cim_buddy_go
+
+metrics:
+  appName: "buddy"
+  appVersion: ""
+  serviceName: ""

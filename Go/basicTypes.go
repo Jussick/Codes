@@ -26,6 +26,11 @@ func main() {
 	fmt.Println("\nmyslice3.len: ", len(myslice3))
 	fmt.Println("myslice3.cap: ", cap(myslice3))
 
+	myslice4 := make([]int, 0, 10)   // 0表示slice的len是0，10表示slice的capacity是10，这样定义后的变量是不会占用内存的
+	myslice4 = append(myslice4, 100) // append方法向切片最后添加元素，添加后的切片长度为1
+	fmt.Println("myslice4.len: ", len(myslice4))
+	fmt.Println("myslice4.cap: ", cap(myslice4))
+
 	// var slice1 []int
 	// slice2 := []int{1, 2, 3}
 	// slice3 := ar[:]
@@ -47,4 +52,19 @@ func main() {
 	fmt.Println(len(workdirs))
 
 	/* --------------------map-------------------- */
+	cityMap := make(map[int]string)
+	cityMap[1] = "beijing"
+	cityMap[2] = "shanghai"
+	cityMap[3] = "guangzhou"
+
+	city, ok := cityMap[3]
+	if ok {
+		fmt.Println("city is", city)
+	} else {
+		fmt.Println("mo such city!")
+	}
+	// 删除元素
+	delete(cityMap, 1)
+	fmt.Println("map len after delete one element: ", len(cityMap))
+
 }

@@ -6,6 +6,12 @@ import (
 	"time"
 )
 
+const (
+	one = iota
+	two
+	three
+)
+
 func main() {
 	// fmt.Println("Hello, World!")
 
@@ -45,4 +51,8 @@ func main() {
 	dir := filepath.Dir(fileDate)
 	fmt.Println("dir:\t", dir)
 
+	fmt.Println("------------------------------")
+	fmt.Println("one: ", one)
+	fmt.Println("two: ", two)
+	fmt.Println("three: ", three)
 }

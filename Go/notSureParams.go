@@ -3,6 +3,7 @@ package main
 import "fmt"
 
 func add(args ...int) (sum int) { // 代码中的args是一个数组切片，而且只能放在参数中的最后面
+	/* args若想传递给其它函数，需要这么写：args... */
 	sum = 0
 	for _, num := range args {
 		sum += num

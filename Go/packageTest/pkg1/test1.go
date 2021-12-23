@@ -9,4 +9,5 @@ type human struct {
 
 func Test1Func() {
 	fmt.Println("this is test1Func!!!")
+	privateFunc()
 }

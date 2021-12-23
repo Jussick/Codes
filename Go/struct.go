@@ -5,6 +5,7 @@ package main
 
 import "fmt"
 
+/* ------------------------- basic ----------------------------- */
 type myType struct {
 	ch   chan int
 	name string
@@ -29,9 +30,19 @@ func (mt *myType) fun2() {
 	fmt.Println("recv from ch: ", rec_val)
 }
 
+/* ------------------------- 结构体匿名成员 ----------------------------- */
+type AnnomousTest struct {
+	*mytype
+}
+
 func main() {
-	mt := myType{}
-	mt.init()
-	mt.fun1()
-	mt.fun2()
+	// mt := myType{}
+	// mt.init()
+	// mt.fun1()
+	// mt.fun2()
+
+	/* ------------------------------------------- */
+
+	var obj AnnomousTest
+	AnnomousTest.name = "haha"
 }

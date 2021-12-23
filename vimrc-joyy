@@ -105,23 +105,20 @@ let Tlist_WinWidth=40
 let g:tagbar_ctags_bin="usr/bin/ctags"
 let g:tagbar_width=30
 let g:tagbar_autoclose = 0
-let g:tagbar_autoopen = 1
 let g:tagbar_sort = 0
 let g:tagbar_left = 0
 let g:tagbar_autopreview = 0
-" autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx,*.go,*.lua,*.py call tagbar#autoopen()
-" autocmd BufReadPost * call tagbar#autoopen()
-" autocmd BufLeave * :call tagbar#autoopen(0)
-" let g:tagbar_type_lua = {
-  " \ 'ctagstype' : 'lua',
-  " \ 'kinds' : [
-    " \ 'm:modules:0:0',
-    " \ 'f:functions:0:1',
-    " \ 'v:locals:0:0'
-  " \ ],
-  " \ 'sort' : 0
-" \ }
-" autocmd BufEnter * nested :call tagbar#autoopen(0)
+autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx,*.go,*.lua  call tagbar#autoopen()
+nmap <silent> qt :tabclose<cr>   " qt关闭当前tab，连带tagbar一起
+let g:tagbar_type_lua = {
+  \ 'ctagstype' : 'lua',
+  \ 'kinds' : [
+    \ 'm:modules:0:0',
+    \ 'f:functions:0:1',
+    \ 'v:locals:0:0'
+  \ ],
+  \ 'sort' : 0
+\ }
 " --------------------------tagbar配置结束----------------------------------
 
 " nerd Commenter配置
@@ -425,6 +422,7 @@ let g:SexyScroller_MaxTime = 200
 let g:gutentags_enabled = 1
 " let g:gutentags_add_default_project_roots = ['.root', '.git', '.project']
 set statusline+=%{gutentags#statusline()}
+let g:gutentags_exclude_filetypes = ['.txt', '.sh']
 
 "==============================================================================
 " nerdtree 插件
@@ -432,7 +430,8 @@ set statusline+=%{gutentags#statusline()}
 let NERDTreeWinPos = "left"  "左侧打开
 let NERDTreeShowLineNumbers = 1
 " autocmd VimEnter * NERDTree  " 自动打开nerdtree
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif  "当NERDTree为剩下的唯一窗口时自动关闭
+" autocmd VimLeave * NERDTreeClose
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | :q | endif  "当NERDTree为剩下的唯一窗口时自动关闭
 
 "==============================================================================
 " YoucompleteMe 插件
